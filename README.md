@@ -1,5 +1,5 @@
 # Patturns
-## Full-Stack Project: Client/API
+## Full-Stack Project: Client
 
 ## Summary
 
