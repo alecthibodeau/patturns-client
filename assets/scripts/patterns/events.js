@@ -80,44 +80,66 @@ const addPatternHandlers = () => {
     store.showHideCounter++
   })
   $('.info-section').hide()
-  // $('.nav-bar').hide()
+  $('.nav-bar').hide()
   // $('#new-pattern').on('submit', onNewPattern)
   // $('#update-pattern').on('submit', onUpdatePattern)
   // $('#delete-pattern').on('submit', onDeletePattern)
 }
 
+let grid = [
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+]
+
+let gridIndex = null
+
+const color = 'black'
+
 const onClickCell = function (event) {
   event.preventDefault()
-  cellsIndex = this.getAttribute('data-id')
-  turnCounter % 2 === 0 ? playerPiece = 'x' : playerPiece = 'o'
-  turnCounter % 2 !== 0 ? $('#game-status').text(`player x's turn`).removeClass('o') : $('#game-status').text(`player o's turn`).addClass('o')
-  cells[cellsIndex] = playerPiece
-  $(this).addClass(`${playerPiece}`).addClass('played').unbind('click', onClickCell)
-  document.querySelector('#' + this.getAttribute('id')).innerHTML = playerPiece
+  gridIndex = this.getAttribute('data-id')
+  grid[gridIndex] = 1
+  $(this).addClass(`${color}`)
+  console.log(grid)
+
+  // turnCounter % 2 === 0 ? playerPiece = 'x' : playerPiece = 'o'
+  // turnCounter % 2 !== 0 ? $('#game-status').text(`player x's turn`).removeClass('o') : $('#game-status').text(`player o's turn`).addClass('o')
+  // cells[cellsIndex] = playerPiece
+  // $(this).addClass(`${playerPiece}`).addClass('played').unbind('click', onClickCell)
+  // document.querySelector('#' + this.getAttribute('id')).innerHTML = playerPiece
   // console.log(`cell index: ${cellsIndex}`)
   // console.log(`Win value: ${winValue}`)
   // console.log(`Cells array: ${cells}`)
   // console.log(`Game is over? ${over}`)
-  turnCounter++
-  logic.checkForMatch(cells, over, turnCounter, gameData, cellsIndex, playerPiece, onClickCell)
+  // turnCounter++
+  // logic.checkForMatch(cells, over, turnCounter, gameData, cellsIndex, playerPiece, onClickCell)
 }
 
 const createGrid = () => {
-  console.log('Grid function runs.')
-  for (let i = 0; i < 64; i++) {
+  // console.log('Grid function runs.')
+  for (let i = 0; i < 100; i++) {
     const elementCell = document.createElement('div')
-    elementCell.setAttribute('class', 'test-cell')
+    elementCell.setAttribute('class', 'grid-cell')
     elementCell.setAttribute('data-id', i)
     elementCell.setAttribute('id', 'cell-' + i)
-    document.getElementById('grid-area').appendChild(elementCell)
-    console.log('Cell added.')
+    document.getElementById('grid-container').appendChild(elementCell)
+    // console.log('Cell added.')
   }
-  console.log('Grid function finishes.')
+  console.log('Grid created.')
   // $('.board-cell').addClass('played').addClass('game-over') // PUT PREGAME BACK HERE
   // console.log('Board created.')
   // if (preGame === true) {
   //   animateGameBoard(preGame)
   // }
+  $('.grid-cell').on('click', onClickCell)
 }
 
 module.exports = {

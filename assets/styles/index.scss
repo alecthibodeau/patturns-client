@@ -97,7 +97,7 @@ header {
   font-family: 'Mukta', sans-serif;
   font-weight: 600;
   letter-spacing: 0.5rem;
-  margin: 0.25rem 0.7em;
+  margin: 0.5rem 0.7em;
   padding: 0.1rem 3rem 0;
   text-transform: uppercase;
 }
@@ -189,27 +189,40 @@ BODY & HEADER
   width: 10px;
 }
 
-.test-cell {
-  background-color: $red-amped;
+.grid-cell {
+  background-color: $white;
   border: 1px solid $lines-brown;
-  float: left;
   height: 50px;
   width: 50px;
+
+  &:hover {
+    background-color: $rainbow-yellow;
+  }
+
+  &.black {
+    background-color: $lines-brown;
+  }
 }
 
-.grid-area {
+.grid-container {
   background-color: $white;
-  border: 4px solid $fifty-percent-gray;
+  // border: 4px solid $fifty-percent-gray;
   // clear: left;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
   margin: 0 auto;
-  max-height: 800px;
-  max-width: 800px;
+  max-height: 500px;
+  max-width: 500px;
+  outline-color: $lines-brown;
+  outline-style: solid;
+  outline-width: 2px;
   overflow: auto;
-  padding-bottom: 2px;
+  // padding-bottom: 2px;
   position: relative;
   top: 50px;
   user-select: none; // This makes each x and o non-highlightable by the cursor
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 
 .modify-tab-button {
