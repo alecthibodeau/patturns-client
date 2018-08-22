@@ -24,9 +24,11 @@ const onClearPatterns = (event) => {
 const onNewPattern = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
+  data.pattern.grid = grid.slice()
+  console.log(data)
   api.newPattern(data)
     .then(ui.newPatternSuccess(data))
-    .then(getPatterns)
+    // .then(getPatterns)
     .catch(ui.failure)
 }
 
@@ -81,9 +83,9 @@ const addPatternHandlers = () => {
   })
   $('.info-section').hide()
   $('.nav-bar').hide()
-  // $('#new-pattern').on('submit', onNewPattern)
-  // $('#update-pattern').on('submit', onUpdatePattern)
-  // $('#delete-pattern').on('submit', onDeletePattern)
+  $('#new-pattern').on('submit', onNewPattern)
+  $('#update-pattern').on('submit', onUpdatePattern)
+  $('#delete-pattern').on('submit', onDeletePattern)
 }
 
 let grid = [

@@ -16,8 +16,11 @@
       <header>
         <!-- intro bar -->
         <div class="intro-bar">
-          <button class="nav-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">sign up</button>
-          <button class="nav-button" id="nav-sign-in" data-toggle="modal" data-target="#signInModal">sign in</button>
+          <img src="public/images/p.svg" class="p-logo" alt="P">
+          <span>
+            <button class="nav-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">sign up</button>
+            <button class="nav-button" id="nav-sign-in" data-toggle="modal" data-target="#signInModal">sign in</button>
+          </span>
         </div>
         <!-- nav bar -->
         <div class="nav-bar">
@@ -27,7 +30,18 @@
       </header>
 
       <main>
-        <div class='grid-container' id='grid-container'></div>
+        <div class="main-elements">
+          <div class="color-palette"></div>
+          <div class='grid-container' id='grid-container'></div>
+          <div class="new-pattern">
+            <form id="new-pattern" class="submit-pattern-panel">
+              <fieldset>
+                <input type="text" class="modal-field" id="modal-field-info" name="pattern[info]" placeholder="Information">
+                <input type="submit" class="form-button" value="submit">
+              </fieldset>
+            </form>
+          </div>
+       </div>
 
         <!-- <div>
           <div class='test-cell'></div>
