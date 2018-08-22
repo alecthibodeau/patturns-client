@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Patturns</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,162 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <main>
+        <header>
+          <!-- <div class="radpatterns-heading"><span class="rad-heading">Rad</span><span class="patterns-heading">patterns</span></div>
+          <div class="first-sentence">Artists, keep patterns on your work with RadPatterns!</div>
+          <div class="radpatterns-text"> With RadPatterns you can easily track your projects with details like dates, tasks, time and custom notes.
+            Not just for artists: carpenters, gardeners, bike mechanics or anyone with self-directed projects can all use RadPatterns.</div> -->
+        </header>
+
+        <!-- intro bar -->
+        <div class="intro-bar">
+          <button class="nav-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">sign up</button>
+          <button class="nav-button" id="nav-sign-in" data-toggle="modal" data-target="#signInModal">sign in</button>
+        </div>
+        <!-- nav bar -->
+        <div class="nav-bar">
+          <button class="nav-button" id="showHidePatternsButton">view patterns</button>
+          <button class="nav-button" id="nav-new-pattern" data-toggle="modal" data-target="#newPatternModal">new pattern</button>
+          <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">change password</button>
+          <button class="nav-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">sign out</button>
+        </div>
+
+        <!-- info section -->
+        <section class="info-section">
+            <table>
+              <thead>
+                <tr>
+                  <th class="date-th">Date</th>
+                  <th class="project-name-th">Project</th>
+                  <th class="task-th">Task</th>
+                  <th class="time-spent-th">Minutes</th>
+                  <th class="notes-th">Notes</th>
+                  <th class="modify-th">Modify</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr><!-- Sum info here? --></tr>
+              </tfoot>
+              <tbody id="pattern-return-content" class="pattern-return-content">
+              </tbody>
+            </table>
+          <div class="credits"><span>Developed by Alec Thibodeau in 2018.</span></div>
+        </section>
+
+      <!-- Sign Up Modal Begins -->
+      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="modalTitleSignUp">Sign Up</h4>
+            <form id="sign-up" class="sign-up-panel">
+              <fieldset>
+                <input type="email" name="credentials[email]" placeholder="Email" autocomplete="on">
+                <input type="password" name="credentials[password]" placeholder="Password" autocomplete="off">
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" autocomplete="off">
+                <input type="submit" class="form-button" value="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Up Modal Ends -->
+
+      <!-- Sign In Modal Begins -->
+      <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="modalTitleSignIn">Sign In</h4>
+            <form id="sign-in" class="sign-in-panel">
+              <fieldset>
+                <input type="email" name="credentials[email]" placeholder="Email" autocomplete="on">
+                <input type="password" name="credentials[password]" placeholder="Password" autocomplete="off">
+                <input type="submit" class="form-button" value="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Sign In Modal Ends -->
+
+      <!-- Change Password Modal Begins -->
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="modalTitleChangePassword">Change Password</h4>
+            <form id="change-password" class="change-password-panel">
+              <fieldset>
+                <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
+                <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
+                <input type="submit" class="form-button" value="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Change Password Modal Ends -->
+
+      <!-- New Pattern Modal Begins -->
+      <div class="modal fade" id="newPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="modalTitleNewPattern">New Pattern</h4>
+            <form id="new-pattern" class="new-pattern-panel">
+              <fieldset>
+                <input type="text" class="modal-field" name="pattern[date]" placeholder="Date">
+                <input type="text" class="modal-field" name="pattern[project_name]" placeholder="Project Name">
+                <input type="text" class="modal-field" name="pattern[task]" placeholder="Task">
+                <input type="number" class="modal-field" name="pattern[time_spent]" placeholder="Time (in minutes)">
+                <input type="text" class="modal-field" name="pattern[notes]" placeholder="Notes">
+                <input type="submit" class="new-pattern-form-button" value="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- New Pattern Modal Ends -->
+
+      <!-- Modify Pattern Modal Begins -->
+      <div class="modal fade" id="modifyPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="modalTitleModifyPattern">Modify Pattern</h4>
+            <form id="update-pattern" class="update-pattern-panel">
+              <fieldset>
+                <input type="date" class="modal-field" id="modal-field-date" name="pattern[date]" placeholder="Date">
+                <input type="text" class="modal-field" id="modal-field-project-name" name="pattern[project_name]" placeholder="Project Name">
+                <input type="text" class="modal-field" id="modal-field-task" name="pattern[task]" placeholder="Task">
+                <input type="number" class="modal-field" id="modal-field-time-spent" name="pattern[time_spent]" placeholder="Time (in minutes)">
+                <input type="text" class="modal-field" id="modal-field-notes" name="pattern[notes]" placeholder="Notes">
+                <input type="submit" class="update-pattern-form-button" value="update pattern">
+              </fieldset>
+            </form>
+            <form id="delete-pattern" class="delete-pattern-panel">
+              <fieldset>
+                <input type="submit" class="delete-pattern-form-button" value="delete pattern">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Modify Pattern Modal Ends -->
+
+      <!-- Sign Out Modal Begins -->
+      <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="modalTitleSignOut">Sign Out</h4>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Out Modal Ends -->
+
+      </main>
     </body>
 </html>
