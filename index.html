@@ -12,14 +12,8 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <main>
-        <header>
-          <!-- <div class="radpatterns-heading"><span class="rad-heading">Rad</span><span class="patterns-heading">patterns</span></div>
-          <div class="first-sentence">Artists, keep patterns on your work with RadPatterns!</div>
-          <div class="radpatterns-text"> With RadPatterns you can easily track your projects with details like dates, tasks, time and custom notes.
-            Not just for artists: carpenters, gardeners, bike mechanics or anyone with self-directed projects can all use RadPatterns.</div> -->
-        </header>
 
+      <header>
         <!-- intro bar -->
         <div class="intro-bar">
           <button class="nav-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">sign up</button>
@@ -27,10 +21,19 @@
         </div>
         <!-- nav bar -->
         <div class="nav-bar">
-          <button class="nav-button" id="showHidePatternsButton">view patterns</button>
-          <button class="nav-button" id="nav-new-pattern" data-toggle="modal" data-target="#newPatternModal">new pattern</button>
           <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">change password</button>
           <button class="nav-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">sign out</button>
+        </div>
+      </header>
+
+      <main>
+        <div class='grid-area' id='grid-area'></div>
+
+        <div>
+          <div class='test-cell'></div>
+          <div class='test-cell'></div>
+          <div class='test-cell'></div>
+          <div class='test-cell'></div>
         </div>
 
         <!-- info section -->
@@ -56,11 +59,15 @@
         </section>
 
       <!-- Sign Up Modal Begins -->
-      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal" id="signUpModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalTitleSignUp">Sign Up</h4>
+            <div class="modal-top">
+              <span class="modal-title" id="modalTitleSignUp">Sign Up</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <form id="sign-up" class="sign-up-panel">
               <fieldset>
                 <input type="email" name="credentials[email]" placeholder="Email" autocomplete="on">
@@ -75,11 +82,15 @@
       <!-- Sign Up Modal Ends -->
 
       <!-- Sign In Modal Begins -->
-      <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal" id="signInModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalTitleSignIn">Sign In</h4>
+            <div class="modal-top">
+              <span class="modal-title" id="modalTitleSignIn">Sign In</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <form id="sign-in" class="sign-in-panel">
               <fieldset>
                 <input type="email" name="credentials[email]" placeholder="Email" autocomplete="on">
@@ -93,11 +104,15 @@
       <!-- Sign In Modal Ends -->
 
       <!-- Change Password Modal Begins -->
-      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal" id="changePasswordModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalTitleChangePassword">Change Password</h4>
+            <div class="modal-top">
+              <span class="modal-title" id="modalTitleChangePassword">Change Password</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <form id="change-password" class="change-password-panel">
               <fieldset>
                 <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
@@ -111,7 +126,7 @@
       <!-- Change Password Modal Ends -->
 
       <!-- New Pattern Modal Begins -->
-      <div class="modal fade" id="newPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- <div class="modal fade" id="newPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -128,11 +143,11 @@
             </form>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- New Pattern Modal Ends -->
 
       <!-- Modify Pattern Modal Begins -->
-      <div class="modal fade" id="modifyPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- <div class="modal fade" id="modifyPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -154,15 +169,19 @@
             </form>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Modify Pattern Modal Ends -->
 
       <!-- Sign Out Modal Begins -->
       <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalTitleSignOut">Sign Out</h4>
+            <div class="modal-top">
+              <span class="modal-title" id="modalTitleSignOut">Sign Out</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
