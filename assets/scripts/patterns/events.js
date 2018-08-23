@@ -121,6 +121,8 @@ const addPatternHandlers = () => {
 const clearGrid = function () {
   $('.grid-cell').removeClass('black').removeClass('red').removeClass('blue')
   $('#modal-field-info').val('')
+  $('#update-pattern-button').hide()
+  $('#save-pattern-button').show()
   grid = [
     'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
     'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',

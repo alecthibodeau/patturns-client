@@ -35,6 +35,8 @@ const updatePattern = (data, patternId) => {
 }
 
 const deletePattern = (patternId) => {
+  console.log(`deletePattern runs.`)
+  console.log(store.user.token)
   return $.ajax({
     url: config.apiUrl + '/patterns/' + patternId,
     method: 'DELETE',
