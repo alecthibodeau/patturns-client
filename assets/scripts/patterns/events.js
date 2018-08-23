@@ -73,6 +73,13 @@ const onDeletePattern = (event) => {
     .catch(ui.failure)
 }
 
+const pickColor = function (event) {
+  event.preventDefault()
+  $(this).addClass('selected-color')
+  console.log('Hi!')
+  console.log(this)
+}
+
 const addPatternHandlers = () => {
   $('.pattern-return-content').on('click', savePattern).on('mouseover', '.info-td', (event) => {
     $(this).css('cursor', 'pointer')
@@ -82,10 +89,11 @@ const addPatternHandlers = () => {
     store.showHideCounter++
   })
   $('.info-section').hide()
-  $('.nav-bar').hide()
+  $('.nav-bar-signed-in').hide()
   $('#new-pattern').on('submit', onNewPattern)
   $('#update-pattern').on('submit', onUpdatePattern)
   $('#delete-pattern').on('submit', onDeletePattern)
+  $('.color-box').on('click', pickColor)
 }
 
 let grid = [
@@ -110,7 +118,7 @@ const onClickCell = function (event) {
   gridIndex = this.getAttribute('data-id')
   grid[gridIndex] = 1
   $(this).addClass(`${color}`)
-  console.log(grid)
+  // console.log(grid)
 
   // turnCounter % 2 === 0 ? playerPiece = 'x' : playerPiece = 'o'
   // turnCounter % 2 !== 0 ? $('#game-status').text(`player x's turn`).removeClass('o') : $('#game-status').text(`player o's turn`).addClass('o')

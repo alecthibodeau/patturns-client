@@ -31,8 +31,8 @@ const signInSuccess = function (data) {
   $('#sign-in').slideToggle(200)
   $('#nav-sign-up').hide()
   $('#nav-sign-in').hide()
-  $('.nav-bar').show()
-  $('.intro-bar').hide()
+  $('.nav-bar-signed-in').show()
+  $('.nav-bar-start').hide()
   setTimeout(function () {
     $('#signInModal').modal('hide')
     $('#modalTitleSignIn').text('Sign in')
@@ -81,8 +81,8 @@ const signOutSuccess = function (data) {
   $('#nav-sign-up').show()
   $('#nav-sign-in').show()
   $('.info-section').hide()
-  $('.nav-bar').hide()
-  $('.intro-bar').show()
+  $('.nav-bar-signed-in').hide()
+  $('.nav-bar-start').show()
   store.showHideCounter = 0
 
   setTimeout(function () {

@@ -74,8 +74,8 @@ header {
   width: 100%;
 }
 
-.nav-bar,
-.intro-bar {
+.nav-bar-signed-in,
+.nav-bar-start {
   // align-content: center; Note: this property has no effect when there is only one line of flex items.
   background-color: $thirty-percent-gray;
   display: flex;
@@ -220,10 +220,14 @@ COLORS, GRID, CREATE
   background-color: $six-percent-gray;
   border-radius: 1rem;
   display: flex;
-  justify-content: center;
   height: 40%;
+  justify-content: center;
   margin: 5px 5px;
   width: 40%;
+
+  &.selected-color {
+    background-color: $rainbow-yellow;
+  }
 }
 
 .color-white,
