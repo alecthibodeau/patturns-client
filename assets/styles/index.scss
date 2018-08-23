@@ -13,6 +13,7 @@ $five-percent-gray: #f2f2f2;
 $six-percent-gray: #f0f0f0;
 $thirty-percent-gray: #b3b3b3;
 $fifty-percent-gray: #7f7f7f;
+$seventy-five-percent-gray: #636466;
 $black: #000;
 $white: #fff;
 $red: #f00;
@@ -52,7 +53,7 @@ BODY & HEADER
 ******************/
 
 body {
-  background-color: $cloud-white;
+  background-color: $seventy-five-percent-gray;
   font-family: 'Mukta', sans-serif;
 }
 
