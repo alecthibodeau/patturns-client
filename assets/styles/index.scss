@@ -5,9 +5,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Mitr:200,300,400,500,600,700|Aldrich|Basic|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Monoton|Varela+Round|Roboto');
 
-/******************
+/************************************
 COLOR MIXES
-******************/
+************************************/
 
 $five-percent-gray: #f2f2f2;
 $six-percent-gray: #f0f0f0;
@@ -48,9 +48,9 @@ $blue-amped: rgb(38, 41, 255);
 $yellow-amped: #fff200;
 $pale-blue: rgb(219, 255, 254);
 
-/******************
+/************************************
 HEADER & NAV BAR
-******************/
+************************************/
 
 body {
   background-color: $seventy-five-percent-gray;
@@ -99,11 +99,16 @@ header {
   width: 30px;
 }
 
+/************************************
+BUTTON STYLES
+************************************/
+
 .nav-button {
   background-color: $fifty-percent-gray;
   border: 0;
   border-radius: 0.5rem;
   color: $cloud-white;
+  cursor: pointer;
   font-family: 'Mukta', sans-serif;
   font-weight: 600;
   letter-spacing: 0.5rem;
@@ -111,10 +116,6 @@ header {
   padding: 0.1rem 3rem 0;
   text-transform: uppercase;
 }
-
-/******************
-VARIOUS BUTTON STYLES
-******************/
 
 .form-button,
 .new-tab-form-button,
@@ -124,6 +125,7 @@ VARIOUS BUTTON STYLES
   border: 0;
   border-radius: 0.5rem;
   color: $cloud-white;
+  cursor: pointer;
   display: inline;
   flex-grow: 1;
   font-size: 16px;
@@ -181,9 +183,9 @@ VARIOUS BUTTON STYLES
   // }
 }
 
-/******************
-COLORS, GRID, CREATE
-******************/
+/************************************
+COLORS & PATTERNS MENUS
+************************************/
 
 .main-elements {
   align-items: flex-end;
@@ -193,25 +195,28 @@ COLORS, GRID, CREATE
   width: 92%;
 }
 
-.color-palette,
-.new-pattern {
-  background-color: $thirty-percent-gray;
+.color-menu,
+.pattern-menu {
+  // align-items: center;
+  background-color: transparent;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
   height: 200px;
   position: relative;
   top: 50px;
   width: 200px;
 
-  &.color-palette {
+  &.color-menu {
     align-content: center;
-    display: flex;
+    background-color: $thirty-percent-gray;
     flex-wrap: wrap;
     justify-content: center;
     overflow: visible;
   }
 
-  &.new-pattern {
-    padding: 1% 1% 0;
+  &.pattern-menu {
+    align-content: space-between;
   }
 }
 
@@ -219,6 +224,7 @@ COLORS, GRID, CREATE
   align-items: center;
   background-color: $six-percent-gray;
   border-radius: 1rem;
+  cursor: pointer;
   display: flex;
   height: 40%;
   justify-content: center;
@@ -254,9 +260,29 @@ COLORS, GRID, CREATE
   }
 }
 
+.new-pattern-container,
+.get-patterns-container {
+  background-color: $thirty-percent-gray;
+  border-radius: 1rem;
+  height: 90px;
+  padding: 6% 0;
+
+  & input {
+    margin-bottom: -2%;
+    margin-top: -2%;
+  }
+
+  &.get-patterns-container {
+    align-content: center;
+    margin-top: 5%;
+    padding: 2% 5% 0;
+  }
+}
+
 .grid-cell {
   background-color: $white;
   border: 1px solid $lines-brown;
+  cursor: pointer;
   height: 50px;
   width: 50px;
 
@@ -280,6 +306,10 @@ COLORS, GRID, CREATE
     background-color: $blue-muted;
   }
 }
+
+/************************************
+GRID & CELLS
+************************************/
 
 .grid-container {
   background-color: $white;
@@ -317,6 +347,10 @@ COLORS, GRID, CREATE
   }
 }
 
+/************************************
+MODALS
+************************************/
+
 .modal-top {
   align-items: flex-start;
   display: flex;
@@ -352,7 +386,7 @@ COLORS, GRID, CREATE
 input { // form input fields
   color: $lines-brown;
   font-size: 16px;
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.125rem;
   margin: 2% 5%;
   width: 90%;
 }

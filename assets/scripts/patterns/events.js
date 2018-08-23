@@ -5,7 +5,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store')
 
-let currentColor = null
+let currentColor = 'black'
 
 const getPatterns = () => {
   api.getPatterns()
@@ -75,6 +75,7 @@ const onDeletePattern = (event) => {
     .catch(ui.failure)
 }
 
+// This function selects currentColor: 'black' on page load.
 const pickColor = function (event) {
   event.preventDefault()
   $('.color-box').removeClass('selected-color')
@@ -84,13 +85,13 @@ const pickColor = function (event) {
 }
 
 const addPatternHandlers = () => {
-  $('.pattern-return-content').on('click', savePattern).on('mouseover', '.info-td', (event) => {
-    $(this).css('cursor', 'pointer')
-  })
-  $('#showHidePatternsButton').click((event) => {
-    store.showHideCounter % 2 === 0 ? onGetPatterns(event) : onClearPatterns(event)
-    store.showHideCounter++
-  })
+  // $('.pattern-return-content').on('click', savePattern).on('mouseover', '.info-td', (event) => {
+  //   $(this).css('cursor', 'pointer')
+  // })
+  // $('#showHidePatternsButton').click((event) => {
+  //   store.showHideCounter % 2 === 0 ? onGetPatterns(event) : onClearPatterns(event)
+  //   store.showHideCounter++
+  // })
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
   $('#new-pattern').on('submit', onNewPattern)
@@ -151,6 +152,7 @@ const createGrid = () => {
   // if (preGame === true) {
   //   animateGameBoard(preGame)
   // }
+  $('#black').addClass('selected-color')
   $('.grid-cell').on('click', onClickCell)
 }
 
