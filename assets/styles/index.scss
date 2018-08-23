@@ -111,7 +111,7 @@ BUTTON STYLES
   cursor: pointer;
   font-family: 'Mukta', sans-serif;
   font-weight: 600;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.25rem;
   margin: 0.5rem 0.7em;
   padding: 0.1rem 3rem 0;
   text-transform: uppercase;
@@ -129,7 +129,7 @@ BUTTON STYLES
   display: inline;
   flex-grow: 1;
   font-size: 16px;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.25rem;
   margin: 0 8px 10px;
   padding: 3px 12px;
   position: relative;
@@ -187,6 +187,7 @@ COLORS & PATTERNS MENUS
 ************************************/
 
 .main-elements {
+  align-content: flex-end;
   align-items: flex-end;
   display: flex;
   flex-direction: row;
@@ -215,8 +216,8 @@ COLORS & PATTERNS MENUS
   }
 
   &.pattern-menu {
-    flex-direction: column;
     align-content: space-between;
+    flex-direction: column;
   }
 }
 
@@ -260,8 +261,8 @@ COLORS & PATTERNS MENUS
   }
 }
 
-.new-pattern-container,
-.get-patterns-container {
+.pattern-field-container,
+.pattern-new-and-get-container {
   background-color: $thirty-percent-gray;
   border-radius: 1rem;
   height: 90px;
@@ -272,12 +273,25 @@ COLORS & PATTERNS MENUS
     margin-top: -2%;
   }
 
-  &.get-patterns-container {
-    align-content: center;
-    margin-top: 5%;
-    padding: 2% 5% 0;
+  &.pattern-new-and-get-container {
+    // align-content: center;
+    // align-items: flex-start;
+    // display: flex;
+    // flex-direction: column;
+    margin-top: 20px;
+    padding: 0;
+
+    & .form-button {
+      position: relative;
+      top: -1px;
+      width: 90%;
+    }
   }
 }
+
+/************************************
+GRID & CELLS
+************************************/
 
 .grid-cell {
   background-color: $white;
@@ -307,10 +321,6 @@ COLORS & PATTERNS MENUS
   }
 }
 
-/************************************
-GRID & CELLS
-************************************/
-
 .grid-container {
   background-color: $white;
   display: grid;
@@ -327,24 +337,6 @@ GRID & CELLS
   top: 50px;
   user-select: none; // This makes each x and o non-highlightable by the cursor
   // vertical-align: middle;
-}
-
-.modify-pattern-button {
-  background-color: $blue-muted;
-  border-radius: 5px;
-  color: $cloud-white;
-  cursor: pointer;
-  font-size: 10px;
-  height: 20px;
-  text-transform: uppercase;
-
-  &:focus {
-    outline: 0;
-  }
-
-  &:hover {
-    background-color: $blue-amped;
-  }
 }
 
 /************************************
@@ -381,7 +373,7 @@ th {
 
 td {
   color: $lines-brown;
-  cursor: pointer;
+  // cursor: pointer;
   // font-family: 'Varela Round', sans-serif;
   font-size: 15px;
   // max-height: 20px;
@@ -394,6 +386,24 @@ td {
   vertical-align: bottom;
   white-space: nowrap;
   z-index: 1;
+}
+
+.modify-pattern-button {
+  background-color: $fifty-percent-gray;
+  border-radius: 5px;
+  color: $cloud-white;
+  cursor: pointer;
+  font-size: 10px;
+  height: 20px;
+  text-transform: uppercase;
+
+  &:focus {
+    outline: 0;
+  }
+
+  // &:hover {
+  //   background-color: $blue-amped;
+  // }
 }
 
 /************************************

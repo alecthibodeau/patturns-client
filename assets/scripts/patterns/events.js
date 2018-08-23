@@ -51,8 +51,9 @@ const fillField = () => {
   // Reset form field on selection of Update Pattern modal…
   $('#save-pattern-button').hide()
   $('#update-pattern-button').show()
-  $('#get-patterns-button').hide()
+  // $('#get-patterns-button').hide()
   $('#modal-field-info').val(store.pattern.info)
+  $('#getPatternsModal').modal('hide')
 }
 
 const onUpdatePattern = (event) => {
@@ -85,7 +86,7 @@ const pickColor = function (event) {
 const addPatternHandlers = () => {
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
-  $('#new-pattern-button').on('submit', onNewPattern)
+  $('#clear-grid-button').on('click', store.clearGrid)
   // $('#update-pattern').on('submit', onUpdatePattern)
   // $('#delete-pattern-button').on('submit', onDeletePattern)
   $('.color-box').on('click', pickColor)
@@ -93,24 +94,16 @@ const addPatternHandlers = () => {
   $('#get-patterns-button').on('click', onGetPatterns)
   $('#update-pattern-button').hide()
   // $('#modify-pattern-button').on('click', onUpdatePattern)
+
+  // This runs savePattern when a Saved Patterns modify button is clicked
   $('.pattern-return-content').on('click', 'button', savePattern)
+
   // $('#modify-pattern-button').on('click', savePattern).on('mouseover', '.info-td', (event) => {
   //   $(this).css('cursor', 'pointer')
   // })
 }
 
-let grid = [
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-]
+let grid = []
 
 let gridIndex = null
 
@@ -123,7 +116,7 @@ const onClickCell = function (event) {
   console.log(grid)
 }
 
-const createGrid = () => {
+const createGrid = (grid) => {
   for (let i = 0; i < 100; i++) {
     const elementCell = document.createElement('div')
     elementCell.setAttribute('class', 'grid-cell')
@@ -131,6 +124,7 @@ const createGrid = () => {
     elementCell.setAttribute('id', 'cell-' + i)
     document.getElementById('grid-container').appendChild(elementCell)
   }
+  store.clearGrid(grid)
   console.log('Grid created.')
   // $('.board-cell').addClass('played').addClass('game-over') // PUT PREGAME BACK HERE
   // console.log('Board created.')
