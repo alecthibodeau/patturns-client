@@ -84,7 +84,7 @@ header {
   justify-content: space-between;
   // margin-bottom: -1rem;
   // height: 100px;
-  padding: 1px 10px;
+  padding: 1px 10px 0 40px;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -266,6 +266,18 @@ COLORS, GRID, CREATE
 
   &.black {
     background-color: $lines-brown;
+  }
+
+  &.white {
+    background-color: $white;
+  }
+
+  &.red {
+    background-color: $red-muted;
+  }
+
+  &.blue {
+    background-color: $blue-muted;
   }
 }
 

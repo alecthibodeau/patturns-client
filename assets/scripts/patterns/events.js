@@ -5,6 +5,8 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store')
 
+let currentColor = null
+
 const getPatterns = () => {
   api.getPatterns()
     .then(ui.getPatternsSuccess)
@@ -75,9 +77,10 @@ const onDeletePattern = (event) => {
 
 const pickColor = function (event) {
   event.preventDefault()
+  $('.color-box').removeClass('selected-color')
   $(this).addClass('selected-color')
-  console.log('Hi!')
-  console.log(this)
+  currentColor = this.getAttribute('id')
+  console.log(currentColor)
 }
 
 const addPatternHandlers = () => {
@@ -111,14 +114,13 @@ let grid = [
 
 let gridIndex = null
 
-const color = 'black'
-
 const onClickCell = function (event) {
   event.preventDefault()
   gridIndex = this.getAttribute('data-id')
-  grid[gridIndex] = 1
-  $(this).addClass(`${color}`)
-  // console.log(grid)
+  grid[gridIndex] = currentColor
+  $(this).attr('class', 'grid-cell')
+  $(this).addClass(`${currentColor}`)
+  console.log(grid)
 
   // turnCounter % 2 === 0 ? playerPiece = 'x' : playerPiece = 'o'
   // turnCounter % 2 !== 0 ? $('#game-status').text(`player x's turn`).removeClass('o') : $('#game-status').text(`player o's turn`).addClass('o')
