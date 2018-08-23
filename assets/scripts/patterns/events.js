@@ -6,6 +6,8 @@ const ui = require('./ui.js')
 const store = require('../store')
 
 let currentColor = 'black'
+let grid = []
+let gridIndex = null
 
 const getPatterns = () => {
   api.getPatterns()
@@ -18,10 +20,10 @@ const onGetPatterns = (event) => {
   getPatterns()
 }
 
-const onClearPatterns = (event) => {
-  event.preventDefault()
-  ui.clearPatterns()
-}
+// const onClearPatterns = (event) => {
+//   event.preventDefault()
+//   ui.clearPatterns()
+// }
 
 const onNewPattern = (event) => {
   event.preventDefault()
@@ -34,9 +36,9 @@ const onNewPattern = (event) => {
     .catch(ui.failure)
 }
 
-const savePattern = (event) => {
-  console.log('Save pattern runs.')
-  // Retrieve table row data on selection of Update Pattern modal's row…
+// Capture table row data from Saved Patterns modal…
+const capturePattern = (event) => {
+  console.log('capturePattern runs.')
   store.pattern = {
     pattern_id: $(event.target).closest('tr').attr('data-id'),
     thumbnail: $(event.target).closest('tr').attr('data-thumbnail'),
@@ -47,7 +49,7 @@ const savePattern = (event) => {
 }
 
 const fillField = () => {
-  console.log('Fill field runs.')
+  console.log('fillField runs.')
   // Reset form field on selection of Update Pattern modal…
   $('#save-pattern-button').hide()
   $('#update-pattern-button').show()
@@ -56,20 +58,29 @@ const fillField = () => {
   $('#getPatternsModal').modal('hide')
 }
 
-const onUpdatePattern = (event) => {
-  // On clicking submit button after updating pattern…
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  api.updatePattern(data, store.pattern.pattern_id)
-    .then(ui.updatePatternSuccess)
-    .then(getPatterns)
-    .catch(ui.failure)
-}
+// const onUpdatePattern = (event) => {
+//   // On clicking submit button after updating pattern…
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.updatePattern(data, store.pattern.pattern_id)
+//     .then(ui.updatePatternSuccess)
+//     .then(getPatterns)
+//     .catch(ui.failure)
+// }
+
+// const onDeletePattern = (event) => {
+//   event.preventDefault()
+//   api.deletePattern(store.pattern.pattern_id)
+//     .then(ui.deletePatternSuccess)
+//     .then(() => onGetPatterns(event))
+//     .catch(ui.failure)
+// }
 
 const onDeletePattern = (event) => {
   event.preventDefault()
-  api.deletePattern(store.pattern.pattern_id)
-    .then(ui.deletePatternSuccess)
+  // closest is a handlebar method that will look for the closest tr and target the data-id
+  const patternId = $(event.target).closest('tr').attr('data-id')
+  api.deletePattern(patternId)
     .then(() => onGetPatterns(event))
     .catch(ui.failure)
 }
@@ -86,7 +97,8 @@ const pickColor = function (event) {
 const addPatternHandlers = () => {
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
-  $('#clear-grid-button').on('click', store.clearGrid)
+  $('#clear-grid-button').on('click', clearGrid)
+  $('#new-pattern').on('submit', onNewPattern)
   // $('#update-pattern').on('submit', onUpdatePattern)
   // $('#delete-pattern-button').on('submit', onDeletePattern)
   $('.color-box').on('click', pickColor)
@@ -95,17 +107,34 @@ const addPatternHandlers = () => {
   $('#update-pattern-button').hide()
   // $('#modify-pattern-button').on('click', onUpdatePattern)
 
-  // This runs savePattern when a Saved Patterns modify button is clicked
-  $('.pattern-return-content').on('click', 'button', savePattern)
+  // This runs capturePattern when a Saved Patterns modify button is clicked
+  $('.pattern-return-content').on('click', '#modify-pattern-button', capturePattern)
 
-  // $('#modify-pattern-button').on('click', savePattern).on('mouseover', '.info-td', (event) => {
+  $('.pattern-return-content').on('click', '#delete-button', onDeletePattern)
+
+  // $('#modify-pattern-button').on('click', capturePattern).on('mouseover', '.info-td', (event) => {
   //   $(this).css('cursor', 'pointer')
   // })
 }
 
-let grid = []
-
-let gridIndex = null
+const clearGrid = function () {
+  $('.grid-cell').removeClass('black').removeClass('red').removeClass('blue')
+  $('#modal-field-info').val('')
+  grid = [
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'
+  ]
+  console.log(grid)
+  return grid
+}
 
 const onClickCell = function (event) {
   event.preventDefault()
@@ -124,7 +153,7 @@ const createGrid = (grid) => {
     elementCell.setAttribute('id', 'cell-' + i)
     document.getElementById('grid-container').appendChild(elementCell)
   }
-  store.clearGrid(grid)
+  clearGrid(grid)
   console.log('Grid created.')
   // $('.board-cell').addClass('played').addClass('game-over') // PUT PREGAME BACK HERE
   // console.log('Board created.')

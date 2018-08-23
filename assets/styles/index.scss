@@ -359,11 +359,11 @@ table {
 }
 
 th {
-  color: $seventy-five-percent-gray;
+  color: $fifty-percent-gray;
   // font-family: 'Varela Round', sans-serif;
   font-size: 18px;
-  font-weight: bold;
-  max-width: 200px;
+  // font-weight: bold;
+  max-width: 180px;
   padding: 5px 20px;
   pointer-events: none;
   text-align: left;
@@ -377,7 +377,7 @@ td {
   // font-family: 'Varela Round', sans-serif;
   font-size: 15px;
   // max-height: 20px;
-  max-width: 200px;
+  max-width: 180px;
   overflow: hidden;
   padding: 2px 20px;
   position: relative;
@@ -388,8 +388,9 @@ td {
   z-index: 1;
 }
 
-.modify-pattern-button {
-  background-color: $fifty-percent-gray;
+.modify-pattern-button,
+.delete-pattern-button {
+  background-color: $blue-muted;
   border-radius: 5px;
   color: $cloud-white;
   cursor: pointer;
@@ -399,6 +400,10 @@ td {
 
   &:focus {
     outline: 0;
+  }
+
+  &.delete-pattern-button {
+    background-color: $red-muted;
   }
 
   // &:hover {

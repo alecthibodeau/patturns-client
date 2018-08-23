@@ -12,22 +12,6 @@ const store = {
   },
   defaultMessageColor: () => {
     $('.modal-title').removeClass('modal-title-green').removeClass('modal-title-red')
-  },
-  clearGrid: (grid) => {
-    $('.grid-cell').removeClass('black').removeClass('red').removeClass('blue')
-    $('#modal-field-info').val('')
-    grid = [
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'
-    ]
   }
 }
 
