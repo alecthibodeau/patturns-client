@@ -24,8 +24,11 @@
         </div>
         <!-- NAV BAR SIGNED IN -->
         <div class="nav-bar-signed-in">
-          <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">change password</button>
-          <button class="nav-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">sign out</button>
+          <img src="public/images/p.svg" class="p-logo" alt="P">
+          <span>
+            <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">change password</button>
+            <button class="nav-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">sign out</button>
+          </span>
         </div>
       </header>
 
@@ -69,28 +72,6 @@
             </div>
           </div>
        </div>
-
-        <!-- PATTERNS -->
-        <section class="info-section">
-            <table>
-              <thead>
-                <tr>
-                  <th class="date-th">Date</th>
-                  <th class="project-name-th">Project</th>
-                  <th class="task-th">Task</th>
-                  <th class="time-spent-th">Minutes</th>
-                  <th class="notes-th">Notes</th>
-                  <th class="modify-th">Modify</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr><!-- Sum info here? --></tr>
-              </tfoot>
-              <tbody id="pattern-return-content" class="pattern-return-content">
-              </tbody>
-            </table>
-          <div class="credits"><span>Developed by Alec Thibodeau in 2018.</span></div>
-        </section>
 
       <!-- SIGN-UP MODAL BEGINS -->
       <div class="modal" id="signUpModal" tabindex="-1" role="dialog">
@@ -159,6 +140,38 @@
       </div>
       <!-- CHANGE PASSWORD MODAL ENDS -->
 
+      <!-- GET PATTERNS MODAL BEGINS -->
+      <div class="modal" id="getPatternsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-top">
+              <span class="modal-title" id="modalTitleGetPatterns">Saved Patterns</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <section class="info-section">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="thumbnail-th">Thumbnail</th>
+                    <th class="date-th">Date</th>
+                    <th class="info-th">Information</th>
+                    <th class="modify-th">Modify</th>
+                  </tr>
+                </thead>
+                <tbody id="pattern-return-content" class="pattern-return-content">
+                </tbody>
+                <tfoot>
+                  <tr><!-- Sum info here? --></tr>
+                </tfoot>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- GET PATTERNS MODAL BEGINS -->
       <!-- New Pattern Modal Begins -->
       <!-- <div class="modal fade" id="newPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -205,6 +218,7 @@
         </div>
       </div> -->
       <!-- Modify Pattern Modal Ends -->
+
 
       <!-- SIGN-OUT MODAL BEGINS -->
       <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

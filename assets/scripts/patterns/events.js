@@ -84,6 +84,10 @@ const pickColor = function (event) {
   console.log(currentColor)
 }
 
+const showInfoSection = () => {
+  $('.info-section').show()
+}
+
 const addPatternHandlers = () => {
   // $('.pattern-return-content').on('click', savePattern).on('mouseover', '.info-td', (event) => {
   //   $(this).css('cursor', 'pointer')
@@ -98,6 +102,8 @@ const addPatternHandlers = () => {
   $('#update-pattern').on('submit', onUpdatePattern)
   $('#delete-pattern').on('submit', onDeletePattern)
   $('.color-box').on('click', pickColor)
+  $('#black').addClass('selected-color')
+  $('#get-patterns').on('click', onGetPatterns)
 }
 
 let grid = [
@@ -152,7 +158,6 @@ const createGrid = () => {
   // if (preGame === true) {
   //   animateGameBoard(preGame)
   // }
-  $('#black').addClass('selected-color')
   $('.grid-cell').on('click', onClickCell)
 }
 

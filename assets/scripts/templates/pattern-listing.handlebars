@@ -4,42 +4,26 @@
 
   <tr data-id="{{pattern.id}}"
     data-date="{{pattern.date}}"
-    data-project_name="{{pattern.project_name}}"
-    data-task="{{pattern.task}}"
-    data-time_spent="{{pattern.time_spent}}"
-    data-notes="{{pattern.notes}}"
+    data-thumbnail="{{pattern.thumbnail}}"
+    data-info="{{pattern.info}}"
     data-toggle="modal" data-target="#modifyPatternModal">
+    <td class="thumbnail-td">
+      {{#if pattern.thumbnail}}
+        {{pattern.thumbnail}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
     <td class="date-td">
-      {{#if pattern.date}}
-        {{pattern.date}}
+      {{#if pattern.modifiedAt}}
+        {{pattern.modifiedAt}}
       {{else}}
-        —
+        {{pattern.createdAt}}
       {{/if}}
     </td>
-    <td class="project-name-td">
-      {{#if pattern.project_name}}
-        {{pattern.project_name}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="task-td">
-      {{#if pattern.task}}
-        {{pattern.task}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="time-spent-td">
-      {{#if pattern.time_spent}}
-        {{pattern.time_spent}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="notes-td">
-      {{#if pattern.notes}}
-        {{pattern.notes}}
+    <td class="info-td">
+      {{#if pattern.info}}
+        {{pattern.info}}
       {{else}}
         —
       {{/if}}

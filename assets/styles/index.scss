@@ -118,9 +118,9 @@ BUTTON STYLES
 }
 
 .form-button,
-.new-tab-form-button,
-.update-tab-form-button,
-.delete-tab-form-button {
+.new-pattern-form-button,
+.update-pattern-form-button,
+.delete-pattern-form-button {
   background-color: $fifty-percent-gray;
   border: 0;
   border-radius: 0.5rem;
@@ -129,7 +129,6 @@ BUTTON STYLES
   display: inline;
   flex-grow: 1;
   font-size: 16px;
-  // letter-spacing: 0;
   letter-spacing: 0.5rem;
   margin: 0 8px 10px;
   padding: 3px 12px;
@@ -138,15 +137,15 @@ BUTTON STYLES
   top: 4px;
 
   &.form-button,
-  &.new-tab-form-button,
-  &.update-tab-form-button,
-  &.delete-tab-form-button {
+  &.new-pattern-form-button,
+  &.update-pattern-form-button,
+  &.delete-pattern-form-button {
     display: block;
     margin: 10px auto;
     max-width: 100%;
     padding: 3px 7px;
 
-    &.new-tab-form-button {
+    &.new-pattern-form-button {
       background-color: $green-muted;
       color: $cloud-white;
 
@@ -155,7 +154,7 @@ BUTTON STYLES
       }
     }
 
-    &.update-tab-form-button {
+    &.update-pattern-form-button {
       background-color: $blue-muted;
       color: $cloud-white;
 
@@ -164,7 +163,7 @@ BUTTON STYLES
       }
     }
 
-    &.delete-tab-form-button {
+    &.delete-pattern-form-button {
       background-color: $red-muted;
       color: $cloud-white;
 
@@ -178,7 +177,7 @@ BUTTON STYLES
     outline: 0;
   }
 
-  // &:hover:not(.new-tab-form-button):not(.update-tab-form-button):not(.delete-tab-form-button) {
+  // &:hover:not(.new-pattern-form-button):not(.update-pattern-form-button):not(.delete-pattern-form-button) {
   //   background-color: $yellow-amped;
   // }
 }
@@ -330,11 +329,11 @@ GRID & CELLS
   // vertical-align: middle;
 }
 
-.modify-tab-button {
+.modify-pattern-button {
   background-color: $blue-muted;
   border-radius: 5px;
   color: $cloud-white;
-  // cursor: pointer;
+  cursor: pointer;
   font-size: 10px;
   height: 20px;
   text-transform: uppercase;
@@ -346,6 +345,55 @@ GRID & CELLS
   &:hover {
     background-color: $blue-amped;
   }
+}
+
+/************************************
+INFO SECTION
+************************************/
+
+.info-section {
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  vertical-align: top;
+}
+
+table {
+  margin: 0 auto;
+  overflow: auto;
+  position: relative;
+  vertical-align: top;
+  width: 90%;
+}
+
+th {
+  color: $seventy-five-percent-gray;
+  // font-family: 'Varela Round', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  max-width: 200px;
+  padding: 5px 20px;
+  pointer-events: none;
+  text-align: left;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+td {
+  color: $lines-brown;
+  cursor: pointer;
+  // font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+  // max-height: 20px;
+  max-width: 200px;
+  overflow: hidden;
+  padding: 2px 20px;
+  position: relative;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  white-space: nowrap;
+  z-index: 1;
 }
 
 /************************************
