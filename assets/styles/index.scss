@@ -231,10 +231,23 @@ COLORS, GRID, CREATE
 .color-red,
 .color-blue {
   background-color: $black;
+  border: 2px solid $seventy-five-percent-gray;
   border-radius: 50%;
   height: 75%;
   top: 50%;
   width: 75%;
+
+  &.color-white {
+    background-color: $white;
+  }
+
+  &.color-red {
+    background-color: $red-muted;
+  }
+
+  &.color-blue {
+    background-color: $blue-muted;
+  }
 }
 
 .grid-cell {
