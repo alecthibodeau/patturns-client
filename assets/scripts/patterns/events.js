@@ -35,26 +35,24 @@ const onNewPattern = (event) => {
 }
 
 const savePattern = (event) => {
-  // Retrieve table row data on launch of Update Pattern modal…
+  console.log('Save pattern runs.')
+  // Retrieve table row data on selection of Update Pattern modal's row…
   store.pattern = {
     pattern_id: $(event.target).closest('tr').attr('data-id'),
+    thumbnail: $(event.target).closest('tr').attr('data-thumbnail'),
     date: $(event.target).closest('tr').attr('data-date'),
-    project_name: $(event.target).closest('tr').attr('data-project_name'),
-    task: $(event.target).closest('tr').attr('data-task'),
-    time_spent: $(event.target).closest('tr').attr('data-time_spent'),
-    notes: $(event.target).closest('tr').attr('data-notes')
+    info: $(event.target).closest('tr').attr('data-info')
   }
   fillField()
 }
 
 const fillField = () => {
-  // Reset form fields on launch of Update Pattern modal…
-  $('#update-pattern').show()
-  $('#modal-field-date').val(store.pattern.date)
-  $('#modal-field-project-name').val(store.pattern.project_name)
-  $('#modal-field-task').val(store.pattern.task)
-  $('#modal-field-time-spent').val(store.pattern.time_spent)
-  $('#modal-field-notes').val(store.pattern.notes)
+  console.log('Fill field runs.')
+  // Reset form field on selection of Update Pattern modal…
+  $('#save-pattern-button').hide()
+  $('#update-pattern-button').show()
+  $('#get-patterns-button').hide()
+  $('#modal-field-info').val(store.pattern.info)
 }
 
 const onUpdatePattern = (event) => {
@@ -75,7 +73,7 @@ const onDeletePattern = (event) => {
     .catch(ui.failure)
 }
 
-// This function selects currentColor: 'black' on page load.
+// This function selects currentColor: It's set to 'black' on page load.
 const pickColor = function (event) {
   event.preventDefault()
   $('.color-box').removeClass('selected-color')
@@ -84,26 +82,21 @@ const pickColor = function (event) {
   console.log(currentColor)
 }
 
-const showInfoSection = () => {
-  $('.info-section').show()
-}
-
 const addPatternHandlers = () => {
-  // $('.pattern-return-content').on('click', savePattern).on('mouseover', '.info-td', (event) => {
-  //   $(this).css('cursor', 'pointer')
-  // })
-  // $('#showHidePatternsButton').click((event) => {
-  //   store.showHideCounter % 2 === 0 ? onGetPatterns(event) : onClearPatterns(event)
-  //   store.showHideCounter++
-  // })
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
-  $('#new-pattern').on('submit', onNewPattern)
-  $('#update-pattern').on('submit', onUpdatePattern)
-  $('#delete-pattern').on('submit', onDeletePattern)
+  $('#new-pattern-button').on('submit', onNewPattern)
+  // $('#update-pattern').on('submit', onUpdatePattern)
+  // $('#delete-pattern-button').on('submit', onDeletePattern)
   $('.color-box').on('click', pickColor)
   $('#black').addClass('selected-color')
-  $('#get-patterns').on('click', onGetPatterns)
+  $('#get-patterns-button').on('click', onGetPatterns)
+  $('#update-pattern-button').hide()
+  // $('#modify-pattern-button').on('click', onUpdatePattern)
+  $('.pattern-return-content').on('click', 'button', savePattern)
+  // $('#modify-pattern-button').on('click', savePattern).on('mouseover', '.info-td', (event) => {
+  //   $(this).css('cursor', 'pointer')
+  // })
 }
 
 let grid = [
@@ -128,29 +121,15 @@ const onClickCell = function (event) {
   $(this).attr('class', 'grid-cell')
   $(this).addClass(`${currentColor}`)
   console.log(grid)
-
-  // turnCounter % 2 === 0 ? playerPiece = 'x' : playerPiece = 'o'
-  // turnCounter % 2 !== 0 ? $('#game-status').text(`player x's turn`).removeClass('o') : $('#game-status').text(`player o's turn`).addClass('o')
-  // cells[cellsIndex] = playerPiece
-  // $(this).addClass(`${playerPiece}`).addClass('played').unbind('click', onClickCell)
-  // document.querySelector('#' + this.getAttribute('id')).innerHTML = playerPiece
-  // console.log(`cell index: ${cellsIndex}`)
-  // console.log(`Win value: ${winValue}`)
-  // console.log(`Cells array: ${cells}`)
-  // console.log(`Game is over? ${over}`)
-  // turnCounter++
-  // logic.checkForMatch(cells, over, turnCounter, gameData, cellsIndex, playerPiece, onClickCell)
 }
 
 const createGrid = () => {
-  // console.log('Grid function runs.')
   for (let i = 0; i < 100; i++) {
     const elementCell = document.createElement('div')
     elementCell.setAttribute('class', 'grid-cell')
     elementCell.setAttribute('data-id', i)
     elementCell.setAttribute('id', 'cell-' + i)
     document.getElementById('grid-container').appendChild(elementCell)
-    // console.log('Cell added.')
   }
   console.log('Grid created.')
   // $('.board-cell').addClass('played').addClass('game-over') // PUT PREGAME BACK HERE

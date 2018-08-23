@@ -3,10 +3,11 @@
   <!-- {{> partial}} -->
 
   <tr data-id="{{pattern.id}}"
-    data-date="{{pattern.date}}"
     data-thumbnail="{{pattern.thumbnail}}"
-    data-info="{{pattern.info}}"
-    data-toggle="modal" data-target="#modifyPatternModal">
+    data-date="{{pattern.date}}"
+    data-info="{{pattern.info}}">
+    <!-- This was removed from end of tr… -->
+    <!-- data-toggle="modal" data-target="#modifyPatternModal" -->
     <td class="thumbnail-td">
       {{#if pattern.thumbnail}}
         {{pattern.thumbnail}}
