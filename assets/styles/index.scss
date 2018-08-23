@@ -203,21 +203,15 @@ COLORS, GRID, CREATE
   width: 200px;
 
   &.color-palette {
-    align-items: center;
+    align-content: center;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    overflow: visible;
   }
 
   &.new-pattern {
-    // padding-top: 5rem;
     padding: 1% 1% 0;
-    // vertical-align: middle;
-
-    // & input {
-    //   line-height: 60px;
-    // }
   }
 }
 
@@ -228,7 +222,7 @@ COLORS, GRID, CREATE
   display: flex;
   justify-content: center;
   height: 40%;
-  margin: 0 5px;
+  margin: 5px 5px;
   width: 40%;
 }
 
@@ -242,7 +236,6 @@ COLORS, GRID, CREATE
   top: 50%;
   width: 75%;
 }
-
 
 .grid-cell {
   background-color: $white;
