@@ -201,7 +201,6 @@ COLORS & PATTERNS MENUS
   background-color: transparent;
   border-radius: 1rem;
   display: flex;
-  flex-direction: column;
   height: 200px;
   position: relative;
   top: 50px;
@@ -210,12 +209,14 @@ COLORS & PATTERNS MENUS
   &.color-menu {
     align-content: center;
     background-color: $thirty-percent-gray;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     overflow: visible;
   }
 
   &.pattern-menu {
+    flex-direction: column;
     align-content: space-between;
   }
 }
