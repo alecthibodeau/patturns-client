@@ -2,15 +2,15 @@
   {{log pattern}}
   <!-- {{> partial}} -->
 
-  <tr data-id="{{pattern.id}}"
+  <tr data-id="{{pattern._id}}"
     data-thumbnail="{{pattern.thumbnail}}"
     data-date="{{pattern.date}}"
     data-info="{{pattern.info}}">
     <!-- This was removed from end of tr… -->
     <!-- data-toggle="modal" data-target="#modifyPatternModal" -->
-    <td class="thumbnail-td">
-      {{#if pattern.thumbnail}}
-        {{pattern.thumbnail}}
+    <td class="id-td">
+      {{#if pattern._id}}
+        {{pattern._id}}
       {{else}}
         —
       {{/if}}

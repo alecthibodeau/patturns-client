@@ -80,6 +80,7 @@ const onDeletePattern = (event) => {
   event.preventDefault()
   // closest is a handlebar method that will look for the closest tr and target the data-id
   const patternId = $(event.target).closest('tr').attr('data-id')
+  console.log(`patternId = ${patternId}`)
   api.deletePattern(patternId)
     .then(() => onGetPatterns(event))
     .catch(ui.failure)
