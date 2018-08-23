@@ -6,6 +6,8 @@ const store = require('../store')
 const showPatternsTemplate = require('../templates/pattern-listing.handlebars')
 
 const getPatternsSuccess = (data) => {
+  // go through each pattern in data and add a new
+  // key called `niceDate` which has the value Date(date).toLocaleDateString("en-US", { day: 'numeric', month: 'long', year: 'numeric' })
   const showPatternsHtml = showPatternsTemplate({ patterns: data.patterns })
   $('.info-section').show()
   $('.pattern-return-content').html(showPatternsHtml)

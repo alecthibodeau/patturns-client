@@ -83,7 +83,9 @@ const signOutSuccess = function (data) {
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
   $('.nav-bar-start').show()
-  store.showHideCounter = 0
+  $('#modal-field-info').val('')
+  $('#update-pattern-button').hide()
+  $('#save-pattern-button').show()
 
   setTimeout(function () {
     $('#signOutModal').modal('hide')

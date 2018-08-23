@@ -36,21 +36,23 @@ const onNewPattern = (event) => {
     .catch(ui.failure)
 }
 
-// Capture table row data from Saved Patterns modal…
+// capturePattern captures table row data from the Saved Patterns modal.
+// The 'closest' method here looks for the closest tr and targets its data-id…
 const capturePattern = (event) => {
   console.log('capturePattern runs.')
   store.pattern = {
     pattern_id: $(event.target).closest('tr').attr('data-id'),
     thumbnail: $(event.target).closest('tr').attr('data-thumbnail'),
     date: $(event.target).closest('tr').attr('data-date'),
+    grid: $(event.target).closest('tr').attr('data-grid'),
     info: $(event.target).closest('tr').attr('data-info')
   }
   fillField()
 }
 
+// Fill form field with closest info on 'MODIFY' button click …
 const fillField = () => {
   console.log('fillField runs.')
-  // Reset form field on selection of Update Pattern modal…
   $('#save-pattern-button').hide()
   $('#update-pattern-button').show()
   // $('#get-patterns-button').hide()
@@ -68,17 +70,9 @@ const fillField = () => {
 //     .catch(ui.failure)
 // }
 
-// const onDeletePattern = (event) => {
-//   event.preventDefault()
-//   api.deletePattern(store.pattern.pattern_id)
-//     .then(ui.deletePatternSuccess)
-//     .then(() => onGetPatterns(event))
-//     .catch(ui.failure)
-// }
-
+// The 'closest' method here looks for the closest tr and targets its data-id…
 const onDeletePattern = (event) => {
   event.preventDefault()
-  // closest is a handlebar method that will look for the closest tr and target the data-id
   const patternId = $(event.target).closest('tr').attr('data-id')
   console.log(`patternId = ${patternId}`)
   api.deletePattern(patternId)
@@ -86,7 +80,7 @@ const onDeletePattern = (event) => {
     .catch(ui.failure)
 }
 
-// This function selects currentColor: It's set to 'black' on page load.
+// This function selects currentColor…
 const pickColor = function (event) {
   event.preventDefault()
   $('.color-box').removeClass('selected-color')
@@ -96,26 +90,36 @@ const pickColor = function (event) {
 }
 
 const addPatternHandlers = () => {
+  // Handlers the run on Page Load…
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
-  $('#clear-grid-button').on('click', clearGrid)
-  $('#new-pattern').on('submit', onNewPattern)
-  // $('#update-pattern').on('submit', onUpdatePattern)
-  // $('#delete-pattern-button').on('submit', onDeletePattern)
-  $('.color-box').on('click', pickColor)
-  $('#black').addClass('selected-color')
-  $('#get-patterns-button').on('click', onGetPatterns)
   $('#update-pattern-button').hide()
-  // $('#modify-pattern-button').on('click', onUpdatePattern)
+  $('#black').addClass('selected-color') // <= This sets the default color to black.
 
-  // This runs capturePattern when a Saved Patterns modify button is clicked
+  // The 'color-box' class is for the color menu squares.
+  // pickColor sets the color for cell clicks…
+  $('.color-box').on('click', pickColor)
+
+  // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
+  $('#clear-grid-button').on('click', clearGrid)
+
+  // The 'new-pattern' ID is for the form to make a new pattern.
+  // onNewPerson is the function that runs on 'SAVE' button click…
+  $('#new-pattern').on('submit', onNewPattern)
+
+  // Gets the API's DB through Handlebars and other functions.
+  // onGetPatterns is the initial function that runs on 'GET PATTERNS' button click
+  $('#get-patterns-button').on('click', onGetPatterns)
+
+  // This runs capturePattern when a Saved Patterns modify button is clicked…
   $('.pattern-return-content').on('click', '#modify-pattern-button', capturePattern)
 
+  // This runs onDeletePattern when a Saved Patterns delete button is clicked…
   $('.pattern-return-content').on('click', '#delete-button', onDeletePattern)
 
-  // $('#modify-pattern-button').on('click', capturePattern).on('mouseover', '.info-td', (event) => {
-  //   $(this).css('cursor', 'pointer')
-  // })
+  // $('#update-pattern').on('submit', onUpdatePattern)
+  // $('#delete-pattern-button').on('submit', onDeletePattern)
+  // $('#modify-pattern-button').on('click', onUpdatePattern)
 }
 
 const clearGrid = function () {
