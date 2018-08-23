@@ -49,7 +49,7 @@ $yellow-amped: #fff200;
 $pale-blue: rgb(219, 255, 254);
 
 /******************
-BODY & HEADER
+HEADER & NAV BAR
 ******************/
 
 body {
@@ -112,7 +112,10 @@ header {
   text-transform: uppercase;
 }
 
-// Various Button Styles…
+/******************
+VARIOUS BUTTON STYLES
+******************/
+
 .form-button,
 .new-tab-form-button,
 .update-tab-form-button,
@@ -179,25 +182,8 @@ header {
 }
 
 /******************
-BODY & HEADER
+COLORS, GRID, CREATE
 ******************/
-
-// .test-test-test {
-//   background-color: $blue-muted;
-//   border: 2px solid $lines-brown;
-//   color: $lines-brown;
-//   display: inline-block;
-//   float: left;
-//   // font-family: 'Varela Round', sans-serif;
-//   // font-size: 5px;
-//   height: 10px;
-//   // line-height: 105px;
-//   margin: 0 -2px 0 -2px;
-//   // text-align: center;
-//   // user-select: none;
-//   vertical-align: middle;
-//   width: 10px;
-// }
 
 .main-elements {
   align-items: flex-end;
@@ -216,6 +202,14 @@ BODY & HEADER
   top: 50px;
   width: 200px;
 
+  &.color-palette {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   &.new-pattern {
     // padding-top: 5rem;
     padding: 1% 1% 0;
@@ -226,6 +220,29 @@ BODY & HEADER
     // }
   }
 }
+
+.color-box {
+  align-items: center;
+  background-color: $six-percent-gray;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  height: 40%;
+  margin: 0 5px;
+  width: 40%;
+}
+
+.color-white,
+.color-black,
+.color-red,
+.color-blue {
+  background-color: $black;
+  border-radius: 50%;
+  height: 75%;
+  top: 50%;
+  width: 75%;
+}
+
 
 .grid-cell {
   background-color: $white;
@@ -244,8 +261,6 @@ BODY & HEADER
 
 .grid-container {
   background-color: $white;
-  // border: 4px solid $fifty-percent-gray;
-  // clear: left;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
   grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
@@ -256,7 +271,6 @@ BODY & HEADER
   outline-style: solid;
   outline-width: 2px;
   overflow: auto;
-  // padding-bottom: 2px;
   position: relative;
   top: 50px;
   user-select: none; // This makes each x and o non-highlightable by the cursor
