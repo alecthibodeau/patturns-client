@@ -13,6 +13,7 @@ CRUD ACTIONS
 ************************************/
 
 // CREATE
+// On clicking 'SAVE' button…
 const onNewPattern = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -37,15 +38,17 @@ const onGetPatterns = (event) => {
 }
 
 // UPDATE
-// const onUpdatePattern = (event) => {
-//   // On clicking submit button after updating pattern…
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.updatePattern(data, store.pattern.pattern_id)
-//     .then(ui.updatePatternSuccess)
-//     .then(getPatterns)
-//     .catch(ui.failure)
-// }
+// On clicking 'UPDATE' button…
+const onUpdatePattern = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  data.pattern.grid = store.mainGrid.slice()
+  console.log(data)
+  api.updatePattern(data, store.pattern.pattern_id)
+    .then(ui.updatePatternSuccess)
+    .then(getPatterns)
+    .catch(ui.failure)
+}
 
 // DESTROY
 // The 'closest' method here looks for the closest tr and targets its data-id…
@@ -160,6 +163,11 @@ const addPatternHandlers = () => {
   // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
   $('#clear-grid-button').on('click', store.clearGrid)
 
+  // This runs capturePattern when a Saved Patterns modify button is clicked…
+  $('.pattern-return-content').on('click', '#modify-pattern-button', capturePattern)
+
+  // CRUD Handlers…
+
   // The 'new-pattern' ID is for the form to make a new pattern.
   // onNewPerson is the function that runs on 'SAVE' button click…
   $('#new-pattern').on('submit', onNewPattern)
@@ -168,15 +176,11 @@ const addPatternHandlers = () => {
   // onGetPatterns is the initial function that runs on 'GET PATTERNS' button click
   $('#get-patterns-button').on('click', onGetPatterns)
 
-  // This runs capturePattern when a Saved Patterns modify button is clicked…
-  $('.pattern-return-content').on('click', '#modify-pattern-button', capturePattern)
+  // onUpdatePattern is the function that runs on 'SAVE' button click…
+  $('#update-pattern-button').on('submit', onUpdatePattern)
 
   // This runs onDeletePattern when a Saved Patterns delete button is clicked…
   $('.pattern-return-content').on('click', '#delete-button', onDeletePattern)
-
-  // $('#update-pattern').on('submit', onUpdatePattern)
-  // $('#delete-pattern-button').on('submit', onDeletePattern)
-  // $('#modify-pattern-button').on('click', onUpdatePattern)
 }
 
 /************************************
