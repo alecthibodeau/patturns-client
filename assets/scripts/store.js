@@ -30,7 +30,7 @@ const store = {
       'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
       'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'
     ]
-    // console.log(store.mainGrid)
+    console.log('clearGrid runs')
   }
 }
 

@@ -48,6 +48,7 @@ const capturePattern = (event) => {
     info: $(event.target).closest('tr').attr('data-info')
   }
   fillField()
+  fillGrid()
 }
 
 // Fill form field with closest info on 'MODIFY' button click …
@@ -58,6 +59,22 @@ const fillField = () => {
   // $('#get-patterns-button').hide()
   $('#modal-field-info').val(store.pattern.info)
   $('#getPatternsModal').modal('hide')
+}
+
+const fillGrid = () => {
+  console.log('fillGrid runs.')
+  // store.clearGrid()
+  const savedGridAsArray = store.pattern.grid.split(',')
+  console.log('Saved grid as array:')
+  console.log(savedGridAsArray)
+  console.log('Main grid as array:')
+  console.log(store.mainGrid)
+  // for (let i = 0; i < savedGridAsArray; i++) {
+  //   store.mainGrid[i] = savedGridAsArray[i]
+  //   $(`#cell-${i}`).addClass(`${savedGridAsArray[i]}`)
+  //   console.log(`Central grid cell is ${store.mainGrid[i]}`)
+  //   console.log(`Saved grid cell is ${savedGridAsArray[i]}`)
+  // }
 }
 
 // const onUpdatePattern = (event) => {
