@@ -15,6 +15,7 @@ CRUD ACTIONS
 // CREATE
 // On clicking 'SAVE' button…
 const onNewPattern = (event) => {
+  console.log('Create runs.')
   event.preventDefault()
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
@@ -40,6 +41,7 @@ const onGetPatterns = (event) => {
 // UPDATE
 // On clicking 'UPDATE' button…
 const onUpdatePattern = (event) => {
+  console.log('Update runs.')
   event.preventDefault()
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
