@@ -6,7 +6,7 @@ const ui = require('./ui.js')
 const store = require('../store')
 
 let currentColor = 'black'
-let grid = []
+// let grid = []
 let gridIndex = null
 
 const getPatterns = () => {
@@ -28,7 +28,7 @@ const onGetPatterns = (event) => {
 const onNewPattern = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  data.pattern.grid = grid.slice()
+  data.pattern.grid = store.mainGrid.slice()
   console.log(data)
   api.newPattern(data)
     .then(ui.newPatternSuccess(data))
@@ -39,7 +39,7 @@ const onNewPattern = (event) => {
 // capturePattern captures table row data from the Saved Patterns modal.
 // The 'closest' method here looks for the closest tr and targets its data-id…
 const capturePattern = (event) => {
-  console.log('capturePattern runs.')
+  // console.log('capturePattern runs.')
   store.pattern = {
     pattern_id: $(event.target).closest('tr').attr('data-id'),
     thumbnail: $(event.target).closest('tr').attr('data-thumbnail'),
@@ -48,15 +48,11 @@ const capturePattern = (event) => {
     info: $(event.target).closest('tr').attr('data-info')
   }
   fillField()
-  console.log(`Saved id is ${store.pattern.pattern_id}`)
-  console.log(`Saved date is ${store.pattern.date}`)
-  console.log(`Saved grid is ${store.pattern.grid}`)
-  console.log(`Saved info is ${store.pattern.info}`)
 }
 
 // Fill form field with closest info on 'MODIFY' button click …
 const fillField = () => {
-  console.log('fillField runs.')
+  // console.log('fillField runs.')
   $('#save-pattern-button').hide()
   $('#update-pattern-button').show()
   // $('#get-patterns-button').hide()
@@ -105,7 +101,7 @@ const addPatternHandlers = () => {
   $('.color-box').on('click', pickColor)
 
   // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
-  $('#clear-grid-button').on('click', clearGrid)
+  $('#clear-grid-button').on('click', store.clearGrid)
 
   // The 'new-pattern' ID is for the form to make a new pattern.
   // onNewPerson is the function that runs on 'SAVE' button click…
@@ -126,34 +122,13 @@ const addPatternHandlers = () => {
   // $('#modify-pattern-button').on('click', onUpdatePattern)
 }
 
-const clearGrid = function () {
-  $('.grid-cell').removeClass('black').removeClass('red').removeClass('blue')
-  $('#modal-field-info').val('')
-  $('#update-pattern-button').hide()
-  $('#save-pattern-button').show()
-  grid = [
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
-    'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'
-  ]
-  console.log(grid)
-  return grid
-}
-
 const onClickCell = function (event) {
   event.preventDefault()
   gridIndex = this.getAttribute('data-id')
-  grid[gridIndex] = currentColor
+  store.mainGrid[gridIndex] = currentColor
   $(this).attr('class', 'grid-cell')
   $(this).addClass(`${currentColor}`)
-  console.log(grid)
+  console.log(store.mainGrid)
 }
 
 const createGrid = (grid) => {
@@ -164,8 +139,9 @@ const createGrid = (grid) => {
     elementCell.setAttribute('id', 'cell-' + i)
     document.getElementById('grid-container').appendChild(elementCell)
   }
-  clearGrid(grid)
+  store.clearGrid(grid)
   console.log('Grid created.')
+  console.log(store.mainGrid)
   // $('.board-cell').addClass('played').addClass('game-over') // PUT PREGAME BACK HERE
   // console.log('Board created.')
   // if (preGame === true) {

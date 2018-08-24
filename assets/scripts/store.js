@@ -1,7 +1,7 @@
 'use strict'
 
 const store = {
-  showHideCounter: 0,
+  mainGrid: [],
   successTimeout: 1500,
   failureTimeout: 3000,
   successMessageColor: () => {
@@ -12,6 +12,25 @@ const store = {
   },
   defaultMessageColor: () => {
     $('.modal-title').removeClass('modal-title-green').removeClass('modal-title-red')
+  },
+  clearGrid: function () {
+    $('.grid-cell').removeClass('black').removeClass('red').removeClass('blue')
+    $('#modal-field-info').val('')
+    $('#update-pattern-button').hide()
+    $('#save-pattern-button').show()
+    store.mainGrid = [
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
+      'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'
+    ]
+    // console.log(store.mainGrid)
   }
 }
 
