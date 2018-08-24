@@ -48,6 +48,10 @@ const capturePattern = (event) => {
     info: $(event.target).closest('tr').attr('data-info')
   }
   fillField()
+  console.log(`Saved id is ${store.pattern.pattern_id}`)
+  console.log(`Saved date is ${store.pattern.date}`)
+  console.log(`Saved grid is ${store.pattern.grid}`)
+  console.log(`Saved info is ${store.pattern.info}`)
 }
 
 // Fill form field with closest info on 'MODIFY' button click …
@@ -90,7 +94,7 @@ const pickColor = function (event) {
 }
 
 const addPatternHandlers = () => {
-  // Handlers the run on Page Load…
+  // Handlers that run on Page Load…
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
   $('#update-pattern-button').hide()
