@@ -6,9 +6,25 @@ const ui = require('./ui.js')
 const store = require('../store')
 
 let currentColor = 'black'
-// let grid = []
 let gridIndex = null
 
+/************************************
+CRUD ACTIONS
+************************************/
+
+// CREATE
+const onNewPattern = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  data.pattern.grid = store.mainGrid.slice()
+  console.log(data)
+  api.newPattern(data)
+    .then(ui.newPatternSuccess(data))
+    // .then(getPatterns)
+    .catch(ui.failure)
+}
+
+// READ
 const getPatterns = () => {
   api.getPatterns()
     .then(ui.getPatternsSuccess)
@@ -20,20 +36,58 @@ const onGetPatterns = (event) => {
   getPatterns()
 }
 
-// const onClearPatterns = (event) => {
+// UPDATE
+// const onUpdatePattern = (event) => {
+//   // On clicking submit button after updating pattern…
 //   event.preventDefault()
-//   ui.clearPatterns()
+//   const data = getFormFields(event.target)
+//   api.updatePattern(data, store.pattern.pattern_id)
+//     .then(ui.updatePatternSuccess)
+//     .then(getPatterns)
+//     .catch(ui.failure)
 // }
 
-const onNewPattern = (event) => {
+// DESTROY
+// The 'closest' method here looks for the closest tr and targets its data-id…
+const onDeletePattern = (event) => {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  data.pattern.grid = store.mainGrid.slice()
-  console.log(data)
-  api.newPattern(data)
-    .then(ui.newPatternSuccess(data))
-    // .then(getPatterns)
+  const patternId = $(event.target).closest('tr').attr('data-id')
+  console.log(`patternId = ${patternId}`)
+  api.deletePattern(patternId)
+    .then(() => onGetPatterns(event))
     .catch(ui.failure)
+}
+
+/************************************
+FUNCTIONS
+************************************/
+
+const onClickCell = function (event) {
+  event.preventDefault()
+  gridIndex = this.getAttribute('data-id')
+  store.mainGrid[gridIndex] = currentColor
+  $(this).attr('class', 'grid-cell')
+  $(this).addClass(`${currentColor}`)
+  console.log(store.mainGrid)
+}
+
+const createGrid = (grid) => {
+  for (let i = 0; i < 100; i++) {
+    const elementCell = document.createElement('div')
+    elementCell.setAttribute('class', 'grid-cell')
+    elementCell.setAttribute('data-id', i)
+    elementCell.setAttribute('id', 'cell-' + i)
+    document.getElementById('grid-container').appendChild(elementCell)
+  }
+  store.clearGrid(grid)
+  console.log('Grid created.')
+  console.log(store.mainGrid)
+  // $('.board-cell').addClass('played').addClass('game-over') // PUT PREGAME BACK HERE
+  // console.log('Board created.')
+  // if (preGame === true) {
+  //   animateGameBoard(preGame)
+  // }
+  $('.grid-cell').on('click', onClickCell)
 }
 
 // capturePattern captures table row data from the Saved Patterns modal.
@@ -79,26 +133,6 @@ const fillGrid = () => {
   console.log(`Saved grid is ${savedGridAsArray}`)
 }
 
-// const onUpdatePattern = (event) => {
-//   // On clicking submit button after updating pattern…
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.updatePattern(data, store.pattern.pattern_id)
-//     .then(ui.updatePatternSuccess)
-//     .then(getPatterns)
-//     .catch(ui.failure)
-// }
-
-// The 'closest' method here looks for the closest tr and targets its data-id…
-const onDeletePattern = (event) => {
-  event.preventDefault()
-  const patternId = $(event.target).closest('tr').attr('data-id')
-  console.log(`patternId = ${patternId}`)
-  api.deletePattern(patternId)
-    .then(() => onGetPatterns(event))
-    .catch(ui.failure)
-}
-
 // This function selects currentColor…
 const pickColor = function (event) {
   event.preventDefault()
@@ -107,6 +141,10 @@ const pickColor = function (event) {
   currentColor = this.getAttribute('id')
   console.log(currentColor)
 }
+
+/************************************
+HANDLERS
+************************************/
 
 const addPatternHandlers = () => {
   // Handlers that run on Page Load…
@@ -141,33 +179,9 @@ const addPatternHandlers = () => {
   // $('#modify-pattern-button').on('click', onUpdatePattern)
 }
 
-const onClickCell = function (event) {
-  event.preventDefault()
-  gridIndex = this.getAttribute('data-id')
-  store.mainGrid[gridIndex] = currentColor
-  $(this).attr('class', 'grid-cell')
-  $(this).addClass(`${currentColor}`)
-  console.log(store.mainGrid)
-}
-
-const createGrid = (grid) => {
-  for (let i = 0; i < 100; i++) {
-    const elementCell = document.createElement('div')
-    elementCell.setAttribute('class', 'grid-cell')
-    elementCell.setAttribute('data-id', i)
-    elementCell.setAttribute('id', 'cell-' + i)
-    document.getElementById('grid-container').appendChild(elementCell)
-  }
-  store.clearGrid(grid)
-  console.log('Grid created.')
-  console.log(store.mainGrid)
-  // $('.board-cell').addClass('played').addClass('game-over') // PUT PREGAME BACK HERE
-  // console.log('Board created.')
-  // if (preGame === true) {
-  //   animateGameBoard(preGame)
-  // }
-  $('.grid-cell').on('click', onClickCell)
-}
+/************************************
+EXPORTS
+************************************/
 
 module.exports = {
   createGrid,
