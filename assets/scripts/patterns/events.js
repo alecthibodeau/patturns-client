@@ -69,12 +69,14 @@ const fillGrid = () => {
   console.log(savedGridAsArray)
   console.log('Main grid as array:')
   console.log(store.mainGrid)
-  // for (let i = 0; i < savedGridAsArray; i++) {
-  //   store.mainGrid[i] = savedGridAsArray[i]
-  //   $(`#cell-${i}`).addClass(`${savedGridAsArray[i]}`)
-  //   console.log(`Central grid cell is ${store.mainGrid[i]}`)
-  //   console.log(`Saved grid cell is ${savedGridAsArray[i]}`)
-  // }
+  for (let i = 0; i < savedGridAsArray.length; i++) {
+    store.mainGrid[i] = savedGridAsArray[i]
+    $(`#cell-${i}`).attr('class', 'grid-cell').addClass(`${savedGridAsArray[i]}`)
+    // console.log(`Central grid cell is ${store.mainGrid[i]}`)
+    // console.log(`Saved grid cell is ${savedGridAsArray[i]}`)
+  }
+  console.log(`Central grid is ${store.mainGrid}`)
+  console.log(`Saved grid is ${savedGridAsArray}`)
 }
 
 // const onUpdatePattern = (event) => {
