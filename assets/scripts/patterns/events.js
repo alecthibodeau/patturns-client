@@ -52,7 +52,7 @@ const onUpdatePattern = (event) => {
     .catch(ui.failure)
 }
 
-// DESTROY
+// DELETE
 // The 'closest' method here looks for the closest tr and targets its data-id…
 const onDeletePattern = (event) => {
   event.preventDefault()
