@@ -34,30 +34,27 @@
 
       <main>
         <div class="main-elements">
-          <!-- COLOR PALETTE -->
+
+          <!-- COLOR MENU -->
           <div class="color-menu">
             <div class="color-box" id="black">
-              <div class="color-black">
-              </div>
+              <div class="color-black"></div>
             </div>
             <div class="color-box" id="white">
-              <div class="color-white">
-              </div>
+              <div class="color-white"></div>
             </div>
             <div class="color-box" id="red">
-              <div class="color-red">
-              </div>
+              <div class="color-red"></div>
             </div>
             <div class="color-box" id="blue">
-              <div class="color-blue">
-              </div>
+              <div class="color-blue"></div>
             </div>
           </div>
 
-          <!-- GRID CONTAINER -->
+          <!-- GRID CONTAINER: WHERE THE 100 GRID CELLS GO -->
           <div class='grid-container' id='grid-container'></div>
 
-          <!-- SAVE PATTERN -->
+          <!-- PATTERN MENU -->
           <div class="pattern-menu">
             <div class="pattern-field-container">
               <form id="new-pattern" class="submit-pattern-panel">
@@ -74,6 +71,10 @@
             </div>
           </div>
        </div>
+
+      <!-- **************************************************** -->
+      <!-- M O D A L S – F O R – A U T H E N T I C A T I O N -->
+      <!-- **************************************************** -->
 
       <!-- SIGN-UP MODAL BEGINS -->
       <div class="modal" id="signUpModal" tabindex="-1" role="dialog">
@@ -98,7 +99,7 @@
       </div>
       <!-- SIGN-UP MODAL ENDS -->
 
-      <!-- SIGN-IN MODAL ENDS -->
+      <!-- SIGN-IN MODAL BEGINS -->
       <div class="modal" id="signInModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -142,6 +143,25 @@
       </div>
       <!-- CHANGE PASSWORD MODAL ENDS -->
 
+      <!-- SIGN-OUT MODAL BEGINS -->
+      <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-top">
+              <span class="modal-title" id="modalTitleSignOut">Sign Out</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SIGN-OUT MODAL ENDS -->
+
+      <!-- **************************************************** -->
+      <!-- M O D A L S – F O R – C R U D  A C T I O N S -->
+      <!-- **************************************************** -->
+
       <!-- GET PATTERNS MODAL BEGINS -->
       <div class="modal" id="getPatternsModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
@@ -158,7 +178,7 @@
                   <tr>
                     <th class="thumbnail-th">ID</th>
                     <th class="date-th">Date</th>
-                    <th class="info-th">Information</th>
+                    <th class="info-th">Info</th>
                     <!-- <th class="modify-th">Modify</th> -->
                   </tr>
                 </thead>
@@ -172,70 +192,7 @@
           </div>
         </div>
       </div>
-
-      <!-- GET PATTERNS MODAL BEGINS -->
-      <!-- New Pattern Modal Begins -->
-      <!-- <div class="modal fade" id="newPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalTitleNewPattern">New Pattern</h4>
-            <form id="new-pattern" class="new-pattern-panel">
-              <fieldset>
-                <input type="text" class="modal-field" name="pattern[date]" placeholder="Date">
-                <input type="text" class="modal-field" name="pattern[project_name]" placeholder="Project Name">
-                <input type="text" class="modal-field" name="pattern[task]" placeholder="Task">
-                <input type="number" class="modal-field" name="pattern[time_spent]" placeholder="Time (in minutes)">
-                <input type="text" class="modal-field" name="pattern[notes]" placeholder="Notes">
-                <input type="submit" class="new-pattern-form-button" value="submit">
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div> -->
-      <!-- New Pattern Modal Ends -->
-
-      <!-- Modify Pattern Modal Begins -->
-      <!-- <div class="modal fade" id="modifyPatternModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalTitleModifyPattern">Modify Pattern</h4>
-            <form id="update-pattern" class="update-pattern-panel">
-              <fieldset>
-                <input type="date" class="modal-field" id="modal-field-date" name="pattern[date]" placeholder="Date">
-                <input type="text" class="modal-field" id="modal-field-project-name" name="pattern[project_name]" placeholder="Project Name">
-                <input type="text" class="modal-field" id="modal-field-task" name="pattern[task]" placeholder="Task">
-                <input type="number" class="modal-field" id="modal-field-time-spent" name="pattern[time_spent]" placeholder="Time (in minutes)">
-                <input type="text" class="modal-field" id="modal-field-notes" name="pattern[notes]" placeholder="Notes">
-                <input type="submit" class="update-pattern-form-button" value="update pattern">
-              </fieldset>
-            </form>
-            <form id="delete-pattern" class="delete-pattern-panel">
-              <fieldset>
-                <input type="submit" class="delete-pattern-form-button" value="delete pattern">
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div> -->
-      <!-- Modify Pattern Modal Ends -->
-
-
-      <!-- SIGN-OUT MODAL BEGINS -->
-      <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-top">
-              <span class="modal-title" id="modalTitleSignOut">Sign Out</span>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- SIGN-OUT MODAL ENDS -->
+      <!-- GET PATTERNS MODAL ENDS -->
 
       </main>
     </body>

@@ -13,10 +13,10 @@ const getPatternsSuccess = (data) => {
   $('.pattern-return-content').html(showPatternsHtml)
 }
 
-const clearPatterns = () => {
-  $('.pattern-return-content').empty()
-  $('.info-section').hide()
-}
+// const clearPatterns = () => {
+//   $('.pattern-return-content').empty()
+//   $('.info-section').hide()
+// }
 
 const newPatternSuccess = (data) => {
   $('#modalTitleNewPattern').text('New pattern created')
@@ -35,8 +35,8 @@ const successfulModification = () => {
   $('#update-pattern').slideToggle(200)
   $('#delete-pattern').slideToggle(200)
   setTimeout(function () {
-    $('#modifyPatternModal').modal('hide')
-    $('#modalTitleModifyPattern').text('Modify pattern')
+    // $('#modifyPatternModal').modal('hide')
+    $('#modalTitleGetPatterns').text('Saved patterns')
     store.defaultMessageColor()
     $('#modify-pattern').show()
     $('#delete-pattern').show()
@@ -49,7 +49,8 @@ const updatePatternSuccess = (data) => {
 }
 
 const deletePatternSuccess = (data) => {
-  $('#modalTitleModifyPattern').text('Pattern deleted')
+  store.successMessageColor()
+  $('#modalTitleGetPatterns').text('Pattern deleted')
   successfulModification()
 }
 
@@ -62,6 +63,6 @@ module.exports = {
   updatePatternSuccess,
   deletePatternSuccess,
   getPatternsSuccess,
-  clearPatterns,
+  // clearPatterns,
   failure
 }

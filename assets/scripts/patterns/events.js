@@ -60,6 +60,7 @@ const onDeletePattern = (event) => {
   console.log(`patternId = ${patternId}`)
   api.deletePattern(patternId)
     .then(() => onGetPatterns(event))
+    .then(ui.deletePatternSuccess)
     .catch(ui.failure)
 }
 
@@ -124,6 +125,8 @@ const fillGrid = () => {
   console.log('fillGrid runs.')
   // store.clearGrid()
   const savedGridAsArray = store.pattern.grid.split(',')
+  console.log('Saved grid as returned:')
+  console.log(store.pattern.grid)
   console.log('Saved grid as array:')
   console.log(savedGridAsArray)
   console.log('Main grid as array:')
@@ -134,8 +137,8 @@ const fillGrid = () => {
     // console.log(`Central grid cell is ${store.mainGrid[i]}`)
     // console.log(`Saved grid cell is ${savedGridAsArray[i]}`)
   }
-  console.log(`Central grid is ${store.mainGrid}`)
-  console.log(`Saved grid is ${savedGridAsArray}`)
+  console.log('Central grid is: ' + store.mainGrid) // This returns a string in the console
+  console.log('Saved grid is: ' + savedGridAsArray) // This returns a string in the console
 }
 
 // This function selects currentColor…
@@ -178,7 +181,7 @@ const addPatternHandlers = () => {
   // onGetPatterns is the initial function that runs on 'GET PATTERNS' button click
   $('#get-patterns-button').on('click', onGetPatterns)
 
-  // onUpdatePattern is the function that runs on 'SAVE' button click…
+  // onUpdatePattern is the function that runs on 'UPDATE' button click…
   $('#update-pattern-button').on('submit', onUpdatePattern)
 
   // This runs onDeletePattern when a Saved Patterns delete button is clicked…
