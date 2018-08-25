@@ -16,8 +16,8 @@ const store = {
   clearGrid: function () {
     $('.grid-cell').removeClass('black').removeClass('red').removeClass('blue')
     $('.pattern-field-input-info').val('')
-    $('#update-pattern-button').hide()
-    $('#save-pattern-button').show()
+    $('#update-pattern-panel').hide()
+    $('#new-pattern-panel').show()
     store.mainGrid = [
       'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
       'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',

@@ -114,8 +114,8 @@ const capturePattern = (event) => {
 // Fill form field with closest info on 'MODIFY' button click …
 const fillField = () => {
   // console.log('fillField runs.')
-  $('#save-pattern-button').hide()
-  $('#update-pattern-button').show()
+  $('#new-pattern-panel').hide()
+  $('#update-pattern-panel').show()
   // $('#get-patterns-button').hide()
   $('.pattern-field-input-info').val(store.pattern.info)
   $('#getPatternsModal').modal('hide')
@@ -182,7 +182,7 @@ const addPatternHandlers = () => {
   $('#get-patterns-button').on('click', onGetPatterns)
 
   // onUpdatePattern is the function that runs on 'UPDATE' button click…
-  $('#update-pattern-button').on('submit', onUpdatePattern)
+  $('#update-pattern-panel').on('submit', onUpdatePattern)
 
   // This runs onDeletePattern when a Saved Patterns delete button is clicked…
   $('.pattern-return-content').on('click', '#delete-button', onDeletePattern)
