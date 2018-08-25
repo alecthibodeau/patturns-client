@@ -192,7 +192,7 @@ const addPatternHandlers = () => {
   $('#update-pattern-panel').on('submit', onUpdatePattern)
 
   // This runs onDeletePattern when a Saved Patterns delete button is clicked…
-  $('.pattern-return-content').on('click', '#delete-button', onDeletePattern)
+  $('.pattern-return-content').on('click', '#delete-pattern-button', onDeletePattern)
 }
 
 /************************************
