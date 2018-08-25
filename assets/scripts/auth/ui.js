@@ -29,10 +29,8 @@ const signInSuccess = function (data) {
   $('#modalTitleSignIn').text('Signed in successfully')
   store.successMessageColor()
   $('#sign-in').slideToggle(200)
-  $('#nav-sign-up').hide()
-  $('#nav-sign-in').hide()
-  $('.nav-bar-signed-in').show()
   $('.nav-bar-start').hide()
+  $('.nav-bar-signed-in').show()
   setTimeout(function () {
     $('#signInModal').modal('hide')
     $('#modalTitleSignIn').text('Sign in')
@@ -78,15 +76,11 @@ const changePasswordFailure = function (error) {
 const signOutSuccess = function (data) {
   $('#modalTitleSignOut').text('Signed out successfully')
   store.successMessageColor()
-  $('#nav-sign-up').show()
-  $('#nav-sign-in').show()
-  $('.info-section').hide()
-  $('.nav-bar-signed-in').hide()
+  store.clearGrid()
   $('.nav-bar-start').show()
+  $('.nav-bar-signed-in').hide()
+  $('.info-section').hide()
   $('.pattern-field-input-info').val('')
-  $('#update-pattern-button').hide()
-  $('#save-pattern-button').show()
-
   setTimeout(function () {
     $('#signOutModal').modal('hide')
     $('#modalTitleSignOut').text('Sign out')
