@@ -5,7 +5,6 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store')
 
-let currentColor = 'black'
 let gridIndex = null
 
 /************************************
@@ -13,7 +12,6 @@ CRUD ACTIONS — CREATE
 ************************************/
 // On clicking 'SAVE' button…
 const onNewPattern = (event) => {
-  // console.log('Create runs.')
   event.preventDefault()
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
@@ -22,6 +20,7 @@ const onNewPattern = (event) => {
     .then(ui.newPatternSuccess(data))
     // .then(getPatterns)
     .catch(ui.failure)
+  // console.log('Create runs.')
 }
 
 /************************************
@@ -51,17 +50,18 @@ const capturePattern = (event) => {
     grid: $(event.target).closest('tr').attr('data-grid'),
     info: $(event.target).closest('tr').attr('data-info')
   }
+  $('#savedPatternsModal').modal('hide')
+  $('.info-section').hide()
   fillFieldWithSavedInfo()
   fillGridWithSavedPattern()
 }
 
-// fillFieldWithSavedInfo fills the form field with the closest info on 'MODIFY' button click …
+// fillFieldWithSavedInfo fills the form input field with the closest info on 'MODIFY' button click …
 const fillFieldWithSavedInfo = () => {
-  // console.log('fillFieldWithSavedInfo runs.')
+  $('.pattern-field-input-info').val(store.pattern.info)
   $('#new-pattern-panel').hide()
   $('#update-pattern-panel').show()
-  $('.pattern-field-input-info').val(store.pattern.info)
-  $('#savedPatternsModal').modal('hide')
+  // console.log('fillFieldWithSavedInfo runs.')
 }
 
 // fillGridWithSavedPattern fills the form field with the closest info on 'MODIFY' button click.
@@ -69,18 +69,16 @@ const fillFieldWithSavedInfo = () => {
 //   Step 1. Modifies the 'store.mainGrid' array to have the same index values as the saved array.
 //   Step 2. Modifies cell colors.
 const fillGridWithSavedPattern = () => {
-  // console.log('fillGridWithSavedPattern runs.')
-  const savedGridAsArray = store.pattern.grid.split(',') // Makes a new array from the string 'store.pattern.grid'
-  $('.grid-cell').attr('class', 'grid-cell')
+  const savedGridAsArray = store.pattern.grid.split(',') // Step 1a: Makes a new array from the string 'store.pattern.grid'
+  store.mainGrid = savedGridAsArray // Step 1b: Sets the values of main grid array to match saved grid array.
+  $('.grid-cell').attr('class', 'grid-cell') // Step 2a: Removes color classes from all cells.
+  for (let i = 0; i < 100; i++) { // Step 2b: Adds color class of each grid-cell from corresponding cell in saved grid array.
+    $(`#cell-${i}`).addClass(`${savedGridAsArray[i]}`)
+  }
   // console.log('Saved grid as returned string:', store.pattern.grid)
   // console.log('Saved grid as array:', savedGridAsArray)
   // console.log('Main grid as array:', store.mainGrid)
-  for (let i = 0; i < savedGridAsArray.length; i++) {
-    store.mainGrid[i] = savedGridAsArray[i]
-    $(`#cell-${i}`).addClass(`${savedGridAsArray[i]}`)
-  }
-  // console.log('Central grid is: ' + store.mainGrid) // This returns a string in the console.
-  // console.log('Saved grid is: ' + savedGridAsArray) // This returns a string in the console.
+  // console.log('fillGridWithSavedPattern runs.')
 }
 
 /************************************
@@ -88,7 +86,6 @@ CRUD ACTIONS — UPDATE
 ************************************/
 // On clicking 'UPDATE' button…
 const onUpdatePattern = (event) => {
-  // console.log('Update runs.')
   event.preventDefault()
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
@@ -97,6 +94,7 @@ const onUpdatePattern = (event) => {
     .then(ui.updatePatternSuccess)
     .then(getPatterns)
     .catch(ui.failure)
+  // console.log('Update runs.')
 }
 
 /************************************
@@ -134,24 +132,25 @@ const createGrid = () => {
 /************************************
 FUNCTIONS FOR COLORING GRID CELLS
 ************************************/
-// This function selects currentColor…
+// This function selects store.currentColor…
 const pickColor = function (event) {
   event.preventDefault()
   $('.color-box').removeClass('selected-color')
   $(this).addClass('selected-color')
-  currentColor = this.getAttribute('id')
-  // console.log(currentColor)
+  store.currentColor = this.getAttribute('id')
+  // console.log(store.currentColor)
 }
 
 // onClickCell has two major steps:
-// Step 1. Modifies the 'store.mainGrid' array with the currentColor.
+// Step 1. Modifies the 'store.mainGrid' array with the store.currentColor.
 // Step 2. Modifies the cell color.
 const onClickCell = function (event) {
   event.preventDefault()
   gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the index number of the cell
-  store.mainGrid[gridIndex] = currentColor // Step 1b: Modifies the index in 'store.mainGrid' array with the currentColor.
+  store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies the index in 'store.mainGrid' array with the store.currentColor.
   $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except the '.grid-cell' default.
-  $(this).addClass(`${currentColor}`) // Step 2b: Adds a color class (as defined by currentColor) which changes the cell color.
+  $(this).addClass(`${store.currentColor}`) // Step 2b: Adds a color class (as defined by store.currentColor) which changes the cell color.
+  // console.log(store.mainGrid)
 }
 
 /************************************
@@ -167,15 +166,16 @@ const addPatternHandlers = () => {
   $('#update-pattern-panel').hide()
   $('#black').addClass('selected-color') // <= This sets the default color to black.
 
+  /************************************
+  HANDLERS — PICK COLOR & CLEAR GRID
+  ************************************/
+
   // The 'color-box' class is for the color menu squares.
   // pickColor sets the color for cell clicks…
   $('.color-box').on('click', pickColor)
 
   // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
   $('#clear-grid-button').on('click', store.clearGrid)
-
-  // capturePattern captures table row data from the savedPatternsModal modal when that row's 'MODIFY' button is clicked…
-  $('.pattern-return-content').on('click', '#modify-pattern-button', capturePattern)
 
   /************************************
   HANDLERS — CRUD
@@ -187,6 +187,9 @@ const addPatternHandlers = () => {
   // Gets the API's DB through Handlebars and other functions.
   // onGetPatterns is the initial function that runs on 'GET PATTERNS' button click
   $('#get-patterns-button').on('click', onGetPatterns)
+
+  // capturePattern captures table row data from the savedPatternsModal modal when that row's 'MODIFY' button is clicked…
+  $('.pattern-return-content').on('click', '#modify-pattern-button', capturePattern)
 
   // onUpdatePattern is the function that runs on 'UPDATE' button click…
   $('#update-pattern-panel').on('submit', onUpdatePattern)

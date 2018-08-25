@@ -1,7 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap/scss/bootstrap';
-@import '~bootstrap/scss/bootstrap';
 // @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Mitr:200,300,400,500,600,700|Aldrich|Basic|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Monoton|Varela+Round|Roboto');
 
@@ -70,7 +69,6 @@ html {
 header {
   margin: 0 auto;
   position: relative;
-  // top: 5px;
   width: 100%;
 }
 
@@ -82,8 +80,6 @@ header {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  // margin-bottom: -1rem;
-  // height: 100px;
   padding: 1px 10px 0 40px;
   position: fixed;
   width: 100%;
@@ -91,7 +87,6 @@ header {
 }
 
 .p-logo {
-  // flex-grow: 2;
   height: 30px;
   position: relative;
   top: 3px;
@@ -124,15 +119,12 @@ BUTTON STYLES
   color: $cloud-white;
   cursor: pointer;
   display: block;
-  // display: inline;
   flex-grow: 1;
   font-size: 16px;
   letter-spacing: 0.25rem;
   margin: 10px auto;
-  // margin: 0 8px 10px;
   max-width: 100%;
   padding: 3px 7px;
-  // padding: 3px 12px;
   position: relative;
   text-transform: uppercase;
   top: 4px;
@@ -153,7 +145,6 @@ COLORS & PATTERNS MENUS
 
 .color-menu,
 .pattern-menu {
-  // align-items: center;
   background-color: transparent;
   border-radius: 1rem;
   display: flex;
@@ -197,12 +188,15 @@ COLORS & PATTERNS MENUS
 .color-black,
 .color-red,
 .color-blue {
-  background-color: $black;
   border: 2px solid $seventy-five-percent-gray;
   border-radius: 50%;
   height: 75%;
   top: 50%;
   width: 75%;
+
+  &.color-black {
+    background-color: $black;
+  }
 
   &.color-white {
     background-color: $white;
@@ -217,8 +211,16 @@ COLORS & PATTERNS MENUS
   }
 }
 
+input { // form input fields
+  color: $lines-brown;
+  font-size: 16px;
+  letter-spacing: 0.125rem;
+  margin: 2% 5%;
+  width: 90%;
+}
+
 .pattern-field-container,
-.pattern-new-and-get-container {
+.pattern-clear-and-get-container {
   background-color: $thirty-percent-gray;
   border-radius: 1rem;
   height: 90px;
@@ -231,11 +233,7 @@ COLORS & PATTERNS MENUS
     padding: 0 0.5rem;
   }
 
-  &.pattern-new-and-get-container {
-    // align-content: center;
-    // align-items: flex-start;
-    // display: flex;
-    // flex-direction: column;
+  &.pattern-clear-and-get-container {
     margin-top: 20px;
     padding: 0;
 
@@ -294,8 +292,7 @@ GRID & CELLS
   overflow: auto;
   position: relative;
   top: 50px;
-  user-select: none; // This makes each x and o non-highlightable by the cursor
-  // vertical-align: middle;
+  user-select: none;
 }
 
 /************************************
@@ -319,9 +316,7 @@ table {
 
 th {
   color: $fifty-percent-gray;
-  // font-family: 'Varela Round', sans-serif;
   font-size: 18px;
-  // font-weight: bold;
   max-width: 180px;
   padding: 5px 10px;
   pointer-events: none;
@@ -333,9 +328,7 @@ th {
 td {
   color: $lines-brown;
   // cursor: pointer;
-  // font-family: 'Varela Round', sans-serif;
   font-size: 15px;
-  // max-height: 20px;
   max-width: 180px;
   overflow: hidden;
   padding: 2px 10px;
@@ -375,10 +368,6 @@ td {
       background-color: $red;
     }
   }
-
-  // &:hover {
-  //   background-color: $blue-amped;
-  // }
 }
 
 /************************************
@@ -415,14 +404,6 @@ MODALS
   &.modal-title-red {
     color: $red-muted;
   }
-}
-
-input { // form input fields
-  color: $lines-brown;
-  font-size: 16px;
-  letter-spacing: 0.125rem;
-  margin: 2% 5%;
-  width: 90%;
 }
 
 .modal-content {
