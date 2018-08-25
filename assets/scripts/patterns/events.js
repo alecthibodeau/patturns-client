@@ -26,12 +26,20 @@ const onNewPattern = (event) => {
 /************************************
 CRUD ACTIONS — READ: INDEX
 ************************************/
+// This is borrowed code from the RadTabs project.
+// .then(getTabs) is called twice — for CREATE and UPDATE:
+// 1. Within the onNewTab function after api.newTab(data)
+// 2. Within the onUpdateTab function after api.updateTab(data, store.tab.tab_id)
 const getPatterns = () => {
   api.getPatterns()
     .then(ui.getPatternsSuccess)
     .catch(ui.failure)
 }
 
+// This is borrowed code from the RadTabs project.
+// onGetTabs is called to refresh/show the returned API data upon two events — for READ (index) and DELETE:
+//  1. Toggling the 'VIEW TABS' button in the nav bar (when the API data wasn't visible).
+//  2. Deleting a tab via the 'modify' modal's 'DELETE TAB' button.
 const onGetPatterns = (event) => {
   event.preventDefault()
   getPatterns()
