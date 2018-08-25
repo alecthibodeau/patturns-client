@@ -14,7 +14,7 @@ const store = {
     $('.modal-title').removeClass('modal-title-green').removeClass('modal-title-red')
   },
   clearGrid: function () {
-    $('.grid-cell').removeClass('black').removeClass('red').removeClass('blue')
+    $('.grid-cell').attr('class', 'grid-cell')
     $('.pattern-field-input-info').val('')
     $('#update-pattern-panel').hide()
     $('#new-pattern-panel').show()
@@ -30,7 +30,6 @@ const store = {
       'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white',
       'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'
     ]
-    console.log('clearGrid runs')
   }
 }
 

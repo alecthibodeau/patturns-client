@@ -9,24 +9,24 @@ let currentColor = 'black'
 let gridIndex = null
 
 /************************************
-CRUD ACTIONS
+CRUD ACTIONS — CREATE
 ************************************/
-
-// CREATE
 // On clicking 'SAVE' button…
 const onNewPattern = (event) => {
-  console.log('Create runs.')
+  // console.log('Create runs.')
   event.preventDefault()
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
-  console.log(data)
+  // console.log(data)
   api.newPattern(data)
     .then(ui.newPatternSuccess(data))
     // .then(getPatterns)
     .catch(ui.failure)
 }
 
-// READ
+/************************************
+CRUD ACTIONS — READ: INDEX
+************************************/
 const getPatterns = () => {
   api.getPatterns()
     .then(ui.getPatternsSuccess)
@@ -38,68 +38,12 @@ const onGetPatterns = (event) => {
   getPatterns()
 }
 
-// UPDATE
-// On clicking 'UPDATE' button…
-const onUpdatePattern = (event) => {
-  console.log('Update runs.')
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  data.pattern.grid = store.mainGrid.slice()
-  console.log(data)
-  api.updatePattern(data, store.pattern.pattern_id)
-    .then(ui.updatePatternSuccess)
-    .then(getPatterns)
-    .catch(ui.failure)
-}
-
-// DELETE
-// The 'closest' method here looks for the closest tr and targets its data-id…
-const onDeletePattern = (event) => {
-  event.preventDefault()
-  const patternId = $(event.target).closest('tr').attr('data-id')
-  console.log(`patternId = ${patternId}`)
-  api.deletePattern(patternId)
-    .then(() => onGetPatterns(event))
-    .then(ui.deletePatternSuccess)
-    .catch(ui.failure)
-}
-
 /************************************
-FUNCTIONS
+CRUD ACTIONS — READ: SHOW
 ************************************/
-
-const onClickCell = function (event) {
-  event.preventDefault()
-  gridIndex = this.getAttribute('data-id')
-  store.mainGrid[gridIndex] = currentColor
-  $(this).attr('class', 'grid-cell')
-  $(this).addClass(`${currentColor}`)
-  console.log(store.mainGrid)
-}
-
-const createGrid = (grid) => {
-  for (let i = 0; i < 100; i++) {
-    const elementCell = document.createElement('div')
-    elementCell.setAttribute('class', 'grid-cell')
-    elementCell.setAttribute('data-id', i)
-    elementCell.setAttribute('id', 'cell-' + i)
-    document.getElementById('grid-container').appendChild(elementCell)
-  }
-  store.clearGrid(grid)
-  console.log('Grid created.')
-  console.log(store.mainGrid)
-  // $('.board-cell').addClass('played').addClass('game-over') // PUT PREGAME BACK HERE
-  // console.log('Board created.')
-  // if (preGame === true) {
-  //   animateGameBoard(preGame)
-  // }
-  $('.grid-cell').on('click', onClickCell)
-}
-
-// capturePattern captures table row data from the Saved Patterns modal.
+// capturePattern captures table row data from the savedPatternsModal modal when that row's 'MODIFY' button is clicked…
 // The 'closest' method here looks for the closest tr and targets its data-id…
 const capturePattern = (event) => {
-  // console.log('capturePattern runs.')
   store.pattern = {
     pattern_id: $(event.target).closest('tr').attr('data-id'),
     thumbnail: $(event.target).closest('tr').attr('data-thumbnail'),
@@ -107,47 +51,107 @@ const capturePattern = (event) => {
     grid: $(event.target).closest('tr').attr('data-grid'),
     info: $(event.target).closest('tr').attr('data-info')
   }
-  fillField()
-  fillGrid()
+  fillFieldWithSavedInfo()
+  fillGridWithSavedPattern()
 }
 
-// Fill form field with closest info on 'MODIFY' button click …
-const fillField = () => {
-  // console.log('fillField runs.')
+// fillFieldWithSavedInfo fills the form field with the closest info on 'MODIFY' button click …
+const fillFieldWithSavedInfo = () => {
+  // console.log('fillFieldWithSavedInfo runs.')
   $('#new-pattern-panel').hide()
   $('#update-pattern-panel').show()
-  // $('#get-patterns-button').hide()
   $('.pattern-field-input-info').val(store.pattern.info)
-  $('#getPatternsModal').modal('hide')
+  $('#savedPatternsModal').modal('hide')
 }
 
-const fillGrid = () => {
-  console.log('fillGrid runs.')
-  // store.clearGrid()
-  const savedGridAsArray = store.pattern.grid.split(',')
-  console.log('Saved grid as returned:')
-  console.log(store.pattern.grid)
-  console.log('Saved grid as array:')
-  console.log(savedGridAsArray)
-  console.log('Main grid as array:')
-  console.log(store.mainGrid)
+// fillGridWithSavedPattern fills the form field with the closest info on 'MODIFY' button click.
+// The for loop in fillGridWithSavedPattern has two major steps:
+//   Step 1. Modifies the 'store.mainGrid' array to have the same index values as the saved array.
+//   Step 2. Modifies cell colors.
+const fillGridWithSavedPattern = () => {
+  // console.log('fillGridWithSavedPattern runs.')
+  const savedGridAsArray = store.pattern.grid.split(',') // Makes a new array from the string 'store.pattern.grid'
+  $('.grid-cell').attr('class', 'grid-cell')
+  // console.log('Saved grid as returned string:', store.pattern.grid)
+  // console.log('Saved grid as array:', savedGridAsArray)
+  // console.log('Main grid as array:', store.mainGrid)
   for (let i = 0; i < savedGridAsArray.length; i++) {
     store.mainGrid[i] = savedGridAsArray[i]
-    $(`#cell-${i}`).attr('class', 'grid-cell').addClass(`${savedGridAsArray[i]}`)
-    // console.log(`Central grid cell is ${store.mainGrid[i]}`)
-    // console.log(`Saved grid cell is ${savedGridAsArray[i]}`)
+    $(`#cell-${i}`).addClass(`${savedGridAsArray[i]}`)
   }
-  console.log('Central grid is: ' + store.mainGrid) // This returns a string in the console
-  console.log('Saved grid is: ' + savedGridAsArray) // This returns a string in the console
+  // console.log('Central grid is: ' + store.mainGrid) // This returns a string in the console.
+  // console.log('Saved grid is: ' + savedGridAsArray) // This returns a string in the console.
 }
 
+/************************************
+CRUD ACTIONS — UPDATE
+************************************/
+// On clicking 'UPDATE' button…
+const onUpdatePattern = (event) => {
+  // console.log('Update runs.')
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  data.pattern.grid = store.mainGrid.slice()
+  // console.log(data)
+  api.updatePattern(data, store.pattern.pattern_id)
+    .then(ui.updatePatternSuccess)
+    .then(getPatterns)
+    .catch(ui.failure)
+}
+
+/************************************
+CRUD ACTIONS — DELETE
+************************************/
+// The 'closest' method here looks for the closest tr and targets its data-id…
+const onDeletePattern = (event) => {
+  event.preventDefault()
+  const patternId = $(event.target).closest('tr').attr('data-id')
+  // console.log(`patternId = ${patternId}`)
+  api.deletePattern(patternId)
+    .then(() => onGetPatterns(event))
+    .then(ui.deletePatternSuccess)
+    .catch(ui.failure)
+}
+
+/************************************
+FUNCTION FOR CREATING THE GRID
+************************************/
+// createGrid fills the 'grid-container' empty div with 100 cells.
+// 'store.clearGrid' sets the empty array 'store.mainGrid' to 100 values of "white".
+const createGrid = () => {
+  for (let i = 0; i < 100; i++) {
+    const elementCell = document.createElement('div')
+    elementCell.setAttribute('class', 'grid-cell')
+    elementCell.setAttribute('data-id', i)
+    elementCell.setAttribute('id', 'cell-' + i)
+    document.getElementById('grid-container').appendChild(elementCell)
+  }
+  store.clearGrid()
+  $('.grid-cell').on('click', onClickCell)
+  // console.log(store.mainGrid)
+}
+
+/************************************
+FUNCTIONS FOR COLORING GRID CELLS
+************************************/
 // This function selects currentColor…
 const pickColor = function (event) {
   event.preventDefault()
   $('.color-box').removeClass('selected-color')
   $(this).addClass('selected-color')
   currentColor = this.getAttribute('id')
-  console.log(currentColor)
+  // console.log(currentColor)
+}
+
+// onClickCell has two major steps:
+// Step 1. Modifies the 'store.mainGrid' array with the currentColor.
+// Step 2. Modifies the cell color.
+const onClickCell = function (event) {
+  event.preventDefault()
+  gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the index number of the cell
+  store.mainGrid[gridIndex] = currentColor // Step 1b: Modifies the index in 'store.mainGrid' array with the currentColor.
+  $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except the '.grid-cell' default.
+  $(this).addClass(`${currentColor}`) // Step 2b: Adds a color class (as defined by currentColor) which changes the cell color.
 }
 
 /************************************
@@ -155,7 +159,9 @@ HANDLERS
 ************************************/
 
 const addPatternHandlers = () => {
-  // Handlers that run on Page Load…
+  /************************************
+  HANDLERS — PAGE LOAD
+  ************************************/
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
   $('#update-pattern-panel').hide()
@@ -168,11 +174,12 @@ const addPatternHandlers = () => {
   // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
   $('#clear-grid-button').on('click', store.clearGrid)
 
-  // This runs capturePattern when a Saved Patterns modify button is clicked…
+  // capturePattern captures table row data from the savedPatternsModal modal when that row's 'MODIFY' button is clicked…
   $('.pattern-return-content').on('click', '#modify-pattern-button', capturePattern)
 
-  // CRUD Handlers…
-
+  /************************************
+  HANDLERS — CRUD
+  ************************************/
   // The 'new-pattern' ID is for the form to make a new pattern.
   // onNewPerson is the function that runs on 'SAVE' button click…
   $('#new-pattern-panel').on('submit', onNewPattern)
