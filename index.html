@@ -57,10 +57,15 @@
           <!-- PATTERN MENU -->
           <div class="pattern-menu">
             <div class="pattern-field-container">
-              <form id="new-pattern" class="submit-pattern-panel">
+              <form id="new-pattern-panel" class="new-pattern-panel">
                 <fieldset>
-                  <input type="text" class="modal-field" id="modal-field-info" name="pattern[info]" placeholder="pattern info">
+                  <input type="text" class="pattern-field-input-info" id="save-pattern-input-info" name="pattern[info]" placeholder="pattern info">
                   <input type="submit" id="save-pattern-button" class="form-button" value="save">
+                </fieldset>
+              </form>
+              <form id="update-pattern-panel" class="update-pattern-panel">
+                <fieldset>
+                  <input type="text" class="pattern-field-input-info" id="update-pattern-input-info" name="pattern[info]" placeholder="pattern info">
                   <input type="submit" id="update-pattern-button" class="form-button" value="update">
                 </fieldset>
               </form>
@@ -161,6 +166,21 @@
       <!-- **************************************************** -->
       <!-- M O D A L S – F O R – C R U D  A C T I O N S -->
       <!-- **************************************************** -->
+
+      <!-- MESSAGE MODAL (FOR CRUD SUCCESS/ERROR) BEGINS -->
+      <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document"> <!-- "modal-dialog-centered" vertically centers modal -->
+          <div class="modal-content">
+            <div class="modal-top">
+              <span class="modal-title" id="modalTitleMessage">Message</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MESSAGE MODAL (FOR CRUD SUCCESS/ERROR) ENDS -->
 
       <!-- GET PATTERNS MODAL BEGINS -->
       <div class="modal" id="getPatternsModal" tabindex="-1" role="dialog">

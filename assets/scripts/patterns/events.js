@@ -117,7 +117,7 @@ const fillField = () => {
   $('#save-pattern-button').hide()
   $('#update-pattern-button').show()
   // $('#get-patterns-button').hide()
-  $('#modal-field-info').val(store.pattern.info)
+  $('.pattern-field-input-info').val(store.pattern.info)
   $('#getPatternsModal').modal('hide')
 }
 
@@ -158,7 +158,7 @@ const addPatternHandlers = () => {
   // Handlers that run on Page Load…
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
-  $('#update-pattern-button').hide()
+  $('#update-pattern-panel').hide()
   $('#black').addClass('selected-color') // <= This sets the default color to black.
 
   // The 'color-box' class is for the color menu squares.
@@ -175,7 +175,7 @@ const addPatternHandlers = () => {
 
   // The 'new-pattern' ID is for the form to make a new pattern.
   // onNewPerson is the function that runs on 'SAVE' button click…
-  $('#new-pattern').on('submit', onNewPattern)
+  $('#new-pattern-panel').on('submit', onNewPattern)
 
   // Gets the API's DB through Handlebars and other functions.
   // onGetPatterns is the initial function that runs on 'GET PATTERNS' button click

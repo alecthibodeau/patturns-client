@@ -117,69 +117,25 @@ BUTTON STYLES
   text-transform: uppercase;
 }
 
-.form-button,
-.new-pattern-form-button,
-.update-pattern-form-button,
-.delete-pattern-form-button {
+.form-button {
   background-color: $fifty-percent-gray;
   border: 0;
   border-radius: 0.5rem;
   color: $cloud-white;
   cursor: pointer;
-  display: inline;
+  display: block;
+  // display: inline;
   flex-grow: 1;
   font-size: 16px;
   letter-spacing: 0.25rem;
-  margin: 0 8px 10px;
-  padding: 3px 12px;
+  margin: 10px auto;
+  // margin: 0 8px 10px;
+  max-width: 100%;
+  padding: 3px 7px;
+  // padding: 3px 12px;
   position: relative;
   text-transform: uppercase;
   top: 4px;
-
-  &.form-button,
-  &.new-pattern-form-button,
-  &.update-pattern-form-button,
-  &.delete-pattern-form-button {
-    display: block;
-    margin: 10px auto;
-    max-width: 100%;
-    padding: 3px 7px;
-
-    &.new-pattern-form-button {
-      background-color: $green-muted;
-      color: $cloud-white;
-
-      &:hover {
-        background-color: $green-amped;
-      }
-    }
-
-    &.update-pattern-form-button {
-      background-color: $blue-muted;
-      color: $cloud-white;
-
-      &:hover {
-        background-color: $blue-amped;
-      }
-    }
-
-    &.delete-pattern-form-button {
-      background-color: $red-muted;
-      color: $cloud-white;
-
-      &:hover {
-        background-color: $red-amped;
-      }
-    }
-  }
-
-  &:focus {
-    outline: 0;
-  }
-
-  // &:hover:not(.new-pattern-form-button):not(.update-pattern-form-button):not(.delete-pattern-form-button) {
-  //   background-color: $yellow-amped;
-  // }
 }
 
 /************************************
@@ -393,7 +349,6 @@ td {
 
 .modify-pattern-button,
 .delete-pattern-button {
-  background-color: $blue-muted;
   border-radius: 5px;
   color: $cloud-white;
   cursor: pointer;
@@ -405,8 +360,20 @@ td {
     outline: 0;
   }
 
+  &.modify-pattern-button {
+    background-color: $blue-muted;
+
+    &:hover {
+      background-color: $blue-amped;
+    }
+  }
+
   &.delete-pattern-button {
     background-color: $red-muted;
+
+    &:hover {
+      background-color: $red;
+    }
   }
 
   // &:hover {

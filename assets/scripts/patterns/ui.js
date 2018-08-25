@@ -19,21 +19,20 @@ const getPatternsSuccess = (data) => {
 // }
 
 const newPatternSuccess = (data) => {
-  $('#modalTitleNewPattern').text('New pattern created')
-  $('#new-pattern').slideToggle(200)
   store.successMessageColor()
+  $('#messageModal').modal('show')
+  $('#modalTitleMessage').text('New pattern created')
   setTimeout(function () {
-    $('#newPatternModal').modal('hide')
-    $('#modalTitleNewPattern').text('New pattern')
+    $('#messageModal').modal('hide')
+    $('#modalTitleMessage').text('Message')
     store.defaultMessageColor()
-    $('#new-pattern').show()
   }, store.successTimeout)
 }
 
 const successfulModification = () => {
   store.successMessageColor()
-  $('#update-pattern').slideToggle(200)
-  $('#delete-pattern').slideToggle(200)
+  // $('#update-pattern').slideToggle(200)
+  // $('#delete-pattern').slideToggle(200)
   setTimeout(function () {
     // $('#modifyPatternModal').modal('hide')
     $('#modalTitleGetPatterns').text('Saved patterns')
@@ -44,7 +43,7 @@ const successfulModification = () => {
 }
 
 const updatePatternSuccess = (data) => {
-  $('#modalTitleModifyPattern').text('Pattern updated')
+  $('#modalTitleGetPatterns').text('Pattern updated')
   successfulModification()
 }
 

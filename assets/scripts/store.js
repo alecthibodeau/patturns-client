@@ -15,7 +15,7 @@ const store = {
   },
   clearGrid: function () {
     $('.grid-cell').removeClass('black').removeClass('red').removeClass('blue')
-    $('#modal-field-info').val('')
+    $('.pattern-field-input-info').val('')
     $('#update-pattern-button').hide()
     $('#save-pattern-button').show()
     store.mainGrid = [

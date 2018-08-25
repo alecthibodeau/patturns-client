@@ -83,7 +83,7 @@ const signOutSuccess = function (data) {
   $('.info-section').hide()
   $('.nav-bar-signed-in').hide()
   $('.nav-bar-start').show()
-  $('#modal-field-info').val('')
+  $('.pattern-field-input-info').val('')
   $('#update-pattern-button').hide()
   $('#save-pattern-button').show()
 
