@@ -13,6 +13,7 @@ CRUD ACTIONS — CREATE
 // On clicking 'SAVE' button…
 const onNewPattern = (event) => {
   event.preventDefault()
+  store.mouseDown = false
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
   // console.log(data)
@@ -30,6 +31,7 @@ CRUD ACTIONS — READ: INDEX
 // .then(getTabs) is called twice — for CREATE and UPDATE:
 // 1. Within the onNewTab function after api.newTab(data)
 // 2. Within the onUpdateTab function after api.updateTab(data, store.tab.tab_id)
+// NOTE: getPatterns is never called directly in this project (except from onGetPatterns), but may be useful later.
 const getPatterns = () => {
   api.getPatterns()
     .then(ui.getPatternsSuccess)
@@ -42,6 +44,7 @@ const getPatterns = () => {
 //  2. Deleting a tab via the 'modify' modal's 'DELETE TAB' button.
 const onGetPatterns = (event) => {
   event.preventDefault()
+  store.mouseDown = false
   getPatterns()
 }
 
@@ -100,7 +103,7 @@ const onUpdatePattern = (event) => {
   // console.log(data)
   api.updatePattern(data, store.pattern.pattern_id)
     .then(ui.updatePatternSuccess)
-    .then(getPatterns)
+    // .then(getPatterns)
     .catch(ui.failure)
   // console.log('Update runs.')
 }
@@ -119,9 +122,30 @@ const onDeletePattern = (event) => {
     .catch(ui.failure)
 }
 
+// store.mouseDownState = false
+//
+// const setMouseStateTrue = function (event) {
+//   store.mouseDownState = true
+//   onClickCell(event)
+// }
+//
+// const setMouseStateFalse = function () {
+//   store.mouseDownState = false
+//   $('.grid-cell').off(onClickCell)
+// }
+
 /************************************
 FUNCTION FOR CREATING THE GRID
 ************************************/
+
+// $('.grid-container').mouseup(function () {
+//   $('grid-cell').off()
+// }).mousedown(function () {
+//   $('.grid-cell').mouseenter(function () {
+//     $(this).on('mousemove', onClickCell)
+//   })
+// })
+
 // createGrid fills the 'grid-container' empty div with 100 cells.
 // 'store.clearGrid' sets the empty array 'store.mainGrid' to 100 values of "white".
 const createGrid = () => {
@@ -133,8 +157,17 @@ const createGrid = () => {
     document.getElementById('grid-container').appendChild(elementCell)
   }
   store.clearGrid()
-  $('.grid-cell').on('click', onClickCell)
-  // console.log(store.mainGrid)
+  $('.grid-cell').on('mouseup', function () { $('grid-cell').off() })
+  $('.grid-cell').on('mousedown', onClickCell)
+  $('.grid-cell').mouseenter(function () {
+    if (store.mouseDown) {
+      $(this).on('mousemove', onClickCell)
+      $(this).mouseleave(function () { $('grid-cell').off() })
+      $(this).hover(function () { $('grid-cell').off() })
+    } else {
+      $('grid-cell').off()
+    }
+  })
 }
 
 /************************************
@@ -143,6 +176,7 @@ FUNCTIONS FOR COLORING GRID CELLS
 // This function selects store.currentColor…
 const pickColor = function (event) {
   event.preventDefault()
+  store.mouseDown = false
   $('.color-box').removeClass('selected-color')
   $(this).addClass('selected-color')
   store.currentColor = this.getAttribute('id')
@@ -173,6 +207,12 @@ const addPatternHandlers = () => {
   $('.nav-bar-signed-in').hide()
   $('#update-pattern-panel').hide()
   $('#black').addClass('selected-color') // <= This sets the default color to black.
+
+  $(document).mousedown(function () {
+    store.mouseDown = true// ; console.log(store.mouseDown)
+  }).mouseup(function () {
+    store.mouseDown = false// ; console.log(store.mouseDown)
+  })
 
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID
