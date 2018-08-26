@@ -1,3 +1,4 @@
+
 'use strict'
 
 const store = require('../store')
@@ -83,7 +84,7 @@ const signOutSuccess = function (data) {
   $('.pattern-field-input-info').val('')
   setTimeout(function () {
     $('#signOutModal').modal('hide')
-    $('#modalTitleSignOut').text('Sign out')
+    $('#modalTitleSignOut').text('Signing out…')
     store.defaultMessageColor()
   }, store.successTimeout)
   store.user = null
@@ -94,7 +95,7 @@ const signOutFailure = function (error) {
   store.errorMessageColor()
   setTimeout(function () {
     $('#signOutModal').modal('hide')
-    $('#modalTitleSignOut').text('Sign out')
+    $('#modalTitleSignOut').text('Signing out…')
     store.defaultMessageColor()
   }, store.failureTimeout)
   console.log('signOutFailure ran. Error is :', error)
