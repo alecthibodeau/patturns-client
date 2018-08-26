@@ -2,6 +2,9 @@
 
 const store = require('../store')
 
+/************************************
+SIGN UP
+************************************/
 const signUpSuccess = function (data) {
   $('#modalTitleSignUp').text('Signed up successfully')
   store.successMessageColor()
@@ -25,6 +28,9 @@ const signUpFailure = function (error) {
   console.log('signUpFailure ran. Error is :', error)
 }
 
+/************************************
+SIGN IN
+************************************/
 const signInSuccess = function (data) {
   $('#modalTitleSignIn').text('Signed in successfully')
   store.successMessageColor()
@@ -51,6 +57,9 @@ const signInFailure = function (error) {
   console.log('signInFailure ran. Error is :', error)
 }
 
+/************************************
+CHANGE PASSWORD
+************************************/
 const changePasswordSuccess = function (data) {
   $('#modalTitleChangePassword').text('Changed password successfully')
   store.successMessageColor()
@@ -73,6 +82,9 @@ const changePasswordFailure = function (error) {
   console.log('changePasswordFailure ran. Error is :', error)
 }
 
+/************************************
+SIGN OUT
+************************************/
 const signOutSuccess = function (data) {
   $('#modalTitleSignOut').text('Signed out successfully')
   store.successMessageColor()
@@ -83,7 +95,7 @@ const signOutSuccess = function (data) {
   $('.pattern-field-input-info').val('')
   setTimeout(function () {
     $('#signOutModal').modal('hide')
-    $('#modalTitleSignOut').text('Sign out')
+    $('#modalTitleSignOut').text('Signing out…')
     store.defaultMessageColor()
   }, store.successTimeout)
   store.user = null
@@ -94,7 +106,7 @@ const signOutFailure = function (error) {
   store.errorMessageColor()
   setTimeout(function () {
     $('#signOutModal').modal('hide')
-    $('#modalTitleSignOut').text('Sign out')
+    $('#modalTitleSignOut').text('Signing out…')
     store.defaultMessageColor()
   }, store.failureTimeout)
   console.log('signOutFailure ran. Error is :', error)
