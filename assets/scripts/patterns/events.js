@@ -122,29 +122,13 @@ const onDeletePattern = (event) => {
     .catch(ui.failure)
 }
 
-// store.mouseDownState = false
-//
-// const setMouseStateTrue = function (event) {
-//   store.mouseDownState = true
-//   onClickCell(event)
-// }
-//
-// const setMouseStateFalse = function () {
-//   store.mouseDownState = false
-//   $('.grid-cell').off(onClickCell)
-// }
-
 /************************************
 FUNCTION FOR CREATING THE GRID
 ************************************/
 
-// $('.grid-container').mouseup(function () {
-//   $('grid-cell').off()
-// }).mousedown(function () {
-//   $('.grid-cell').mouseenter(function () {
-//     $(this).on('mousemove', onClickCell)
-//   })
-// })
+const redBar = function () {
+  $('.nav-bar-start').css('background-color', 'red')
+}
 
 // createGrid fills the 'grid-container' empty div with 100 cells.
 // 'store.clearGrid' sets the empty array 'store.mainGrid' to 100 values of "white".
@@ -157,18 +141,30 @@ const createGrid = () => {
     document.getElementById('grid-container').appendChild(elementCell)
   }
   store.clearGrid()
-  $('.grid-cell').on('mouseup', function () { $('grid-cell').off() })
-  $('.grid-cell').on('mousedown', onClickCell)
-  $('.grid-cell').mouseenter(function () {
-    if (store.mouseDown) {
-      $(this).on('mousemove', onClickCell)
-      $(this).mouseleave(function () { $('grid-cell').off() })
-      $(this).hover(function () { $('grid-cell').off() })
-    } else {
-      $('grid-cell').off()
-    }
-  })
+  // $('.grid-cell').on('mouseup', function () { $('grid-cell').off() })
+
+  $('.nav-bar-start').mousedown(redBar).mouseup(function () { $('.nav-bar-start').css('background-color', 'green') })
+
+  $('.grid-cell').mouseenter(onClickCell).mouseup(function () { $('grid-cell').off() })
+
+  // $('.grid-cell').mousedown(function () {
+  //   // onClickCell()
+  //   if (store.mouseDown) {
+  //     $('.nav-bar-signed-in').css('background-color', 'red')
+  //     $('.grid-cell').mouseenter(onClickCell)
+  //     // $(this).mouseleave(function () { $('grid-cell').off() })
+  //     // $(this).hover(function () { $('grid-cell').off() })
+  //   } else {
+  //     $('grid-cell').off()
+  //   }
+  // })
 }
+
+$(document).mousedown(function () {
+  store.mouseDown = true; console.log(store.mouseDown)
+}).mouseup(function () {
+  store.mouseDown = false; console.log(store.mouseDown)
+})
 
 /************************************
 FUNCTIONS FOR COLORING GRID CELLS
@@ -187,12 +183,14 @@ const pickColor = function (event) {
 // Step 1. Modifies the 'store.mainGrid' array with the store.currentColor.
 // Step 2. Modifies the cell color.
 const onClickCell = function (event) {
-  event.preventDefault()
-  gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the index number of the cell
-  store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies the index in 'store.mainGrid' array with the store.currentColor.
-  $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except the '.grid-cell' default.
-  $(this).addClass(`${store.currentColor}`) // Step 2b: Adds a color class (as defined by store.currentColor) which changes the cell color.
-  // console.log(store.mainGrid)
+  if (store.mouseDown) {
+    event.preventDefault()
+    gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the index number of the cell
+    store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies the index in 'store.mainGrid' array with the store.currentColor.
+    $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except the '.grid-cell' default.
+    $(this).addClass(`${store.currentColor}`) // Step 2b: Adds a color class (as defined by store.currentColor) which changes the cell color.
+    // console.log(store.mainGrid)
+  }
 }
 
 /************************************
@@ -207,12 +205,6 @@ const addPatternHandlers = () => {
   $('.nav-bar-signed-in').hide()
   $('#update-pattern-panel').hide()
   $('#black').addClass('selected-color') // <= This sets the default color to black.
-
-  $(document).mousedown(function () {
-    store.mouseDown = true// ; console.log(store.mouseDown)
-  }).mouseup(function () {
-    store.mouseDown = false// ; console.log(store.mouseDown)
-  })
 
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID
