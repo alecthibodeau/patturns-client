@@ -1,8 +1,10 @@
-
 'use strict'
 
 const store = require('../store')
 
+/************************************
+SIGN UP
+************************************/
 const signUpSuccess = function (data) {
   $('#modalTitleSignUp').text('Signed up successfully')
   store.successMessageColor()
@@ -26,6 +28,9 @@ const signUpFailure = function (error) {
   console.log('signUpFailure ran. Error is :', error)
 }
 
+/************************************
+SIGN IN
+************************************/
 const signInSuccess = function (data) {
   $('#modalTitleSignIn').text('Signed in successfully')
   store.successMessageColor()
@@ -52,6 +57,9 @@ const signInFailure = function (error) {
   console.log('signInFailure ran. Error is :', error)
 }
 
+/************************************
+CHANGE PASSWORD
+************************************/
 const changePasswordSuccess = function (data) {
   $('#modalTitleChangePassword').text('Changed password successfully')
   store.successMessageColor()
@@ -74,6 +82,9 @@ const changePasswordFailure = function (error) {
   console.log('changePasswordFailure ran. Error is :', error)
 }
 
+/************************************
+SIGN OUT
+************************************/
 const signOutSuccess = function (data) {
   $('#modalTitleSignOut').text('Signed out successfully')
   store.successMessageColor()
