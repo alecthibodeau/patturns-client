@@ -13,7 +13,6 @@ CRUD ACTIONS — CREATE
 // On clicking 'SAVE' button…
 const onNewPattern = (event) => {
   event.preventDefault()
-  store.mouseDown = false
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
   // console.log(data)
@@ -44,7 +43,6 @@ const getPatterns = () => {
 //  2. Deleting a tab via the 'modify' modal's 'DELETE TAB' button.
 const onGetPatterns = (event) => {
   event.preventDefault()
-  store.mouseDown = false
   getPatterns()
 }
 
@@ -148,7 +146,6 @@ FUNCTIONS FOR COLORING GRID CELLS
 // This function selects store.currentColor…
 const pickColor = function (event) {
   event.preventDefault()
-  store.mouseDown = false
   $('.color-box').removeClass('selected-color')
   $(this).addClass('selected-color')
   store.currentColor = this.getAttribute('id')
