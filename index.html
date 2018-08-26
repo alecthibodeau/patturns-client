@@ -17,7 +17,7 @@
         <!-- NAV BAR START -->
         <div class="nav-bar-start">
           <img src="public/images/p.svg" class="p-logo" alt="P">
-          <span>
+          <span class="nav-buttons-span">
             <button class="nav-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">sign up</button>
             <button class="nav-button" id="nav-sign-in" data-toggle="modal" data-target="#signInModal">sign in</button>
           </span>
@@ -25,7 +25,7 @@
         <!-- NAV BAR SIGNED IN -->
         <div class="nav-bar-signed-in">
           <img src="public/images/p.svg" class="p-logo" alt="P">
-          <span>
+          <span class="nav-buttons-span">
             <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">change password</button>
             <button class="nav-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">sign out</button>
           </span>
@@ -33,6 +33,9 @@
       </header>
 
       <main>
+        <!-- GRID CONTAINER: WHERE THE 100 GRID CELLS GO -->
+        <div class='grid-container' id='grid-container'></div>
+
         <div class="main-elements">
 
           <!-- COLOR MENU -->
@@ -50,9 +53,6 @@
               <div class="color-blue"></div>
             </div>
           </div>
-
-          <!-- GRID CONTAINER: WHERE THE 100 GRID CELLS GO -->
-          <div class='grid-container' id='grid-container'></div>
 
           <!-- PATTERN MENU -->
           <div class="pattern-menu">

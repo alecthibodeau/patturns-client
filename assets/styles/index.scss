@@ -90,8 +90,14 @@ header {
   height: 30px;
   position: relative;
   top: 3px;
-  vertical-align: middle;
+  // vertical-align: middle;
   width: 30px;
+}
+
+.nav-buttons-span {
+  // width: 80%;
+  display: flex;
+  flex-direction: row;
 }
 
 /************************************
@@ -104,11 +110,14 @@ BUTTON STYLES
   border-radius: 0.5rem;
   color: $cloud-white;
   cursor: pointer;
+  display: inline;
+  flex-grow: 1;
   font-family: 'Mukta', sans-serif;
   font-weight: 600;
   letter-spacing: 0.25rem;
   margin: 0.5rem 0.7em;
   padding: 0.1rem 3rem 0;
+  // width: 50%;
   text-transform: uppercase;
 }
 
@@ -135,12 +144,16 @@ COLORS & PATTERNS MENUS
 ************************************/
 
 .main-elements {
-  align-content: flex-end;
-  align-items: flex-end;
+  // align-content: flex-start;
+  // align-items: flex-start;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   margin: 0 auto;
-  width: 92%;
+  position: relative;
+  top: -200px;
+  width: 1000px;
+  z-index: 1;
 }
 
 .color-menu,
@@ -149,6 +162,7 @@ COLORS & PATTERNS MENUS
   border-radius: 1rem;
   display: flex;
   height: 200px;
+  overflow: visible;
   position: relative;
   top: 50px;
   width: 200px;
@@ -159,12 +173,13 @@ COLORS & PATTERNS MENUS
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    overflow: visible;
+    order: 1;
   }
 
   &.pattern-menu {
     align-content: space-between;
     flex-direction: column;
+    order: 3;
   }
 }
 
@@ -283,16 +298,18 @@ GRID & CELLS
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
   grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+  height: 500px;
   margin: 0 auto;
-  max-height: 500px;
-  max-width: 500px;
+  order: 2;
   outline-color: $lines-brown;
   outline-style: solid;
   outline-width: 2px;
-  overflow: auto;
+  overflow: visible;
   position: relative;
   top: 50px;
   user-select: none;
+  width: 500px;
+  z-index: 2;
 }
 
 /************************************
@@ -409,4 +426,33 @@ MODALS
 .modal-content {
   background-color: $white;
   padding: 3%;
+}
+
+/******************
+BREAKPOINT 500px
+******************/
+
+@media only screen and (max-width: 1000px) {
+  .main-elements {
+    // align-content: flex-end;
+    // align-items: flex-end;
+    // display: flex;
+    // flex-direction: column;
+    // flex-wrap: wrap;
+    // margin: 0 auto;
+    // width: 95vw;
+  }
+
+  .color-menu {
+    order: 2;
+  }
+
+  .grid-container {
+    order: 1;
+  }
+
+  .pattern-menu {
+    display: none;
+    // order: 3;
+  }
 }
