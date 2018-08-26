@@ -254,12 +254,12 @@ GRID & CELLS
   border: 1px solid $lines-brown;
   cursor: pointer;
   height: 50px;
-  transition: background-color 0.3s linear;
+  transition: background-color 0.1s linear;
   width: 50px;
 
-  &:hover {
-    background-color: $rainbow-yellow;
-  }
+  // &:hover {
+  //   background-color: $rainbow-yellow;
+  // }
 
   &.black {
     background-color: $lines-brown;

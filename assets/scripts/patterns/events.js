@@ -30,6 +30,7 @@ CRUD ACTIONS — READ: INDEX
 // .then(getTabs) is called twice — for CREATE and UPDATE:
 // 1. Within the onNewTab function after api.newTab(data)
 // 2. Within the onUpdateTab function after api.updateTab(data, store.tab.tab_id)
+// NOTE: getPatterns is never called directly in this project (except from onGetPatterns), but may be useful later.
 const getPatterns = () => {
   api.getPatterns()
     .then(ui.getPatternsSuccess)
@@ -100,7 +101,7 @@ const onUpdatePattern = (event) => {
   // console.log(data)
   api.updatePattern(data, store.pattern.pattern_id)
     .then(ui.updatePatternSuccess)
-    .then(getPatterns)
+    // .then(getPatterns)
     .catch(ui.failure)
   // console.log('Update runs.')
 }
@@ -133,8 +134,10 @@ const createGrid = () => {
     document.getElementById('grid-container').appendChild(elementCell)
   }
   store.clearGrid()
-  $('.grid-cell').on('click', onClickCell)
-  // console.log(store.mainGrid)
+  // Adding handlers for coloring the cells…
+  $('.grid-cell').mousedown(onClickCell).mouseenter(onEnterCell).mouseup(function () {
+    $('grid-cell').off()
+  })
 }
 
 /************************************
@@ -154,11 +157,24 @@ const pickColor = function (event) {
 // Step 2. Modifies the cell color.
 const onClickCell = function (event) {
   event.preventDefault()
-  gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the index number of the cell
-  store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies the index in 'store.mainGrid' array with the store.currentColor.
-  $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except the '.grid-cell' default.
-  $(this).addClass(`${store.currentColor}`) // Step 2b: Adds a color class (as defined by store.currentColor) which changes the cell color.
-  // console.log(store.mainGrid)
+  gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the cell element's id number
+  store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies index in 'store.mainGrid' array with store.currentColor.
+  $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except '.grid-cell' default.
+  $(this).addClass(`${store.currentColor}`) // Step 2b: Adds store.currentColor class, which changes the cell color.
+}
+
+// onEnterCell has two major steps: [repeating onClickCell, so it needs refactoring]
+// Step 1. Modifies the 'store.mainGrid' array with the store.currentColor.
+// Step 2. Modifies the cell color.
+const onEnterCell = function (event) {
+  event.preventDefault()
+  if (store.mouseDown) {
+    event.preventDefault()
+    gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the cell element's id number
+    store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies index in 'store.mainGrid' array with store.currentColor.
+    $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except '.grid-cell' default.
+    $(this).addClass(`${store.currentColor}`) // Step 2b: Adds store.currentColor class, which changes the cell color.
+  }
 }
 
 /************************************
@@ -174,6 +190,12 @@ const addPatternHandlers = () => {
   $('#update-pattern-panel').hide()
   $('#black').addClass('selected-color') // <= This sets the default color to black.
 
+  // Boolean for whether or not the mouse is down…
+  $(document).mousedown(function () {
+    store.mouseDown = true// ; console.log(store.mouseDown)
+  }).mouseup(function () {
+    store.mouseDown = false// ; console.log(store.mouseDown)
+  })
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID
   ************************************/

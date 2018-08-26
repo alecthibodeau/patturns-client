@@ -13,6 +13,7 @@ const store = {
     $('.modal-title').removeClass('modal-title-green').removeClass('modal-title-red')
   },
   clearGrid: function () {
+    store.mouseDown = false
     $('.color-box').removeClass('selected-color') // Removes yellow highlight from all color boxes.
     $('#black').addClass('selected-color') // Adds yellow highlight to black color box.
     store.currentColor = 'black' // Sets picked color to black.
