@@ -145,7 +145,7 @@ const createGrid = () => {
 
   $('.nav-bar-start').mousedown(redBar).mouseup(function () { $('.nav-bar-start').css('background-color', 'green') })
 
-  $('.grid-cell').mouseenter(onClickCell).mouseup(function () { $('grid-cell').off() })
+  $('.grid-cell').mousedown(fillCell).mouseenter(onClickCell).mouseup(function () { $('grid-cell').off() })
 
   // $('.grid-cell').mousedown(function () {
   //   // onClickCell()
@@ -177,6 +177,15 @@ const pickColor = function (event) {
   $(this).addClass('selected-color')
   store.currentColor = this.getAttribute('id')
   // console.log(store.currentColor)
+}
+
+const fillCell = function (event) {
+  event.preventDefault()
+  gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the index number of the cell
+  store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies the index in 'store.mainGrid' array with the store.currentColor.
+  $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except the '.grid-cell' default.
+  $(this).addClass(`${store.currentColor}`) // Step 2b: Adds a color class (as defined by store.currentColor) which changes the cell color.
+  // console.log(store.mainGrid)
 }
 
 // onClickCell has two major steps:
