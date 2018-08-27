@@ -37,6 +37,8 @@ const signInSuccess = function (data) {
   $('#sign-in').slideToggle(200)
   $('.nav-bar-start').hide()
   $('.nav-bar-signed-in').show()
+  $('.intro-menu').hide()
+  $('.patterns-menu').show()
   setTimeout(function () {
     $('#signInModal').modal('hide')
     $('#modalTitleSignIn').text('Sign in')
@@ -93,6 +95,8 @@ const signOutSuccess = function (data) {
   $('.nav-bar-signed-in').hide()
   $('.info-section').hide()
   $('.pattern-field-input-info').val('')
+  $('.intro-menu').show()
+  $('.patterns-menu').hide()
   setTimeout(function () {
     $('#signOutModal').modal('hide')
     $('#modalTitleSignOut').text('Signing out…')

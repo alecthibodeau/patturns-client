@@ -186,6 +186,7 @@ const addPatternHandlers = () => {
   HANDLERS — PAGE LOAD
   ************************************/
   $('.info-section').hide()
+  $('.patterns-menu').hide()
   $('.nav-bar-signed-in').hide()
   $('#update-pattern-panel').hide()
   $('#black').addClass('selected-color') // <= This sets the default color to black.

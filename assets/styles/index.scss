@@ -152,6 +152,7 @@ COLORS & PATTERNS MENUS
   z-index: 1;
 }
 
+.intro-menu,
 .colors-menu,
 .patterns-menu {
   background-color: transparent;
@@ -162,6 +163,17 @@ COLORS & PATTERNS MENUS
   position: relative;
   top: 50px;
   width: 200px;
+
+  &.intro-menu {
+    background-color: $thirty-percent-gray;
+    color: $lines-brown;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    order: 3;
+    padding: 1rem;
+    text-transform: uppercase;
+  }
 
   &.colors-menu {
     align-content: center;
@@ -463,6 +475,7 @@ BREAKPOINT 1000px
     margin: 0 0 1rem 2rem;
   }
 
+  .intro-menu,
   .patterns-menu {
     margin: 0 0 0 2rem;
   }
@@ -494,6 +507,7 @@ BREAKPOINT 750px
     margin: 1rem auto;
   }
 
+  .intro-menu,
   .patterns-menu {
     margin: 1rem auto;
   }
@@ -545,6 +559,7 @@ BREAKPOINT 500px
     width: 9vw;
   }
 
+  .intro-menu,
   .colors-menu,
   .patterns-menu {
     background-color: transparent;
@@ -565,10 +580,16 @@ BREAKPOINT 500px
       order: 1;
     }
 
+    &.intro-menu,
     &.patterns-menu {
       align-content: space-between;
       flex-direction: column;
       order: 3;
+
+      &.intro-menu {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+      }
     }
   }
 
