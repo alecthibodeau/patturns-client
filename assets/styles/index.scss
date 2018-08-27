@@ -143,21 +143,22 @@ BUTTON STYLES
 COLORS & PATTERNS MENUS
 ************************************/
 
-.main-elements {
+.menu-elements {
   // align-content: flex-start;
   // align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
   top: -200px;
-  width: 1000px;
+  width: 90vw;
   z-index: 1;
 }
 
-.color-menu,
-.pattern-menu {
+.colors-menu,
+.patterns-menu {
   background-color: transparent;
   border-radius: 1rem;
   display: flex;
@@ -167,7 +168,7 @@ COLORS & PATTERNS MENUS
   top: 50px;
   width: 200px;
 
-  &.color-menu {
+  &.colors-menu {
     align-content: center;
     background-color: $thirty-percent-gray;
     flex-direction: row;
@@ -176,7 +177,7 @@ COLORS & PATTERNS MENUS
     order: 1;
   }
 
-  &.pattern-menu {
+  &.patterns-menu {
     align-content: space-between;
     flex-direction: column;
     order: 3;
@@ -238,8 +239,8 @@ input { // form input fields
 .pattern-clear-and-get-container {
   background-color: $thirty-percent-gray;
   border-radius: 1rem;
-  height: 90px;
-  padding: 6% 0;
+  height: 95px;
+  padding: 7% 0;
 
   & input:not(.form-button) {
     border-radius: 0.5rem;
@@ -249,12 +250,12 @@ input { // form input fields
   }
 
   &.pattern-clear-and-get-container {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 0;
 
     & .form-button {
       position: relative;
-      top: -1px;
+      top: 0.125rem;
       width: 90%;
     }
   }
@@ -432,27 +433,64 @@ MODALS
 BREAKPOINT 500px
 ******************/
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1050px) {
   .main-elements {
-    // align-content: flex-end;
-    // align-items: flex-end;
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: wrap;
-    // margin: 0 auto;
-    // width: 95vw;
-  }
-
-  .color-menu {
-    order: 2;
+    align-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    width: 60vw;
   }
 
   .grid-container {
-    order: 1;
+    margin: 0;
   }
 
-  .pattern-menu {
-    display: none;
-    // order: 3;
+  // .menu-elements {
+  //   // align-content: flex-start;
+  //   // align-items: flex-start;
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: space-between;
+  //   margin: 0 auto;
+  //   position: relative;
+  //   top: -200px;
+  //   width: 90vw;
+  //   z-index: 1;
+  // }
+
+  .menu-elements {
+    // align-content: flex-end;
+    // align-items: flex-end;
+    // display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    // margin: 0 auto;
+    // width: 95vw;
+    order: 2;
+    top: 0;
   }
+
+  .colors-menu {
+    margin: 0 0 1rem 2rem;
+  }
+
+  .patterns-menu {
+    margin: 0 0 0 2rem;
+  }
+
+  // .colors-menu {
+  //   order: 1;
+  // }
+  //
+  // .grid-container {
+  //   order: 1;
+  // }
+  //
+  // .patterns-menu {
+  //   display: none;
+  //   // order: 3;
+  // }
 }
