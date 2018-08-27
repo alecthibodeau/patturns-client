@@ -187,7 +187,7 @@ COLORS & PATTERNS MENUS
   display: flex;
   height: 40%;
   justify-content: center;
-  margin: 5px 5px;
+  margin: 5px;
   width: 40%;
 
   &.selected-color {
@@ -496,5 +496,113 @@ BREAKPOINT 750px
 
   .patterns-menu {
     margin: 1rem auto;
+  }
+}
+
+/******************
+BREAKPOINT 500px
+******************/
+
+@media only screen and (max-width: 500px) {
+  .menu-elements {
+    flex-direction: row;
+    top: 0;
+    width: 100%; // changed
+  }
+
+  .nav-button {
+    background-color: $fifty-percent-gray;
+    border: 0;
+    border-radius: 0.5rem;
+    color: $cloud-white;
+    cursor: pointer;
+    display: inline;
+    flex-grow: 1;
+    font-family: 'Mukta', sans-serif;
+    font-size: 0.8rem; // changed
+    font-weight: 600;
+    letter-spacing: 0.25rem;
+    margin: 0.5rem 0.7em;
+    padding: 0 1rem; // changed
+    text-transform: uppercase;
+  }
+
+  .p-logo {
+    height: 25px; // changed
+    position: relative;
+    // top: 3px;
+    width: 25px; // changed
+  }
+
+  .grid-container {
+    height: 90vw;
+    top: 45px; // changed
+    width: 90vw;
+  }
+
+  .grid-cell {
+    height: 9vw;
+    width: 9vw;
+  }
+
+  .colors-menu,
+  .patterns-menu {
+    background-color: transparent;
+    border-radius: 1rem;
+    display: flex;
+    height: 140px; // changed
+    overflow: visible;
+    position: relative;
+    top: 45px; // changed
+    width: 140px; // changed
+
+    &.colors-menu {
+      align-content: center;
+      background-color: $thirty-percent-gray;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      order: 1;
+    }
+
+    &.patterns-menu {
+      align-content: space-between;
+      flex-direction: column;
+      order: 3;
+    }
+  }
+
+  .pattern-field-container,
+  .pattern-clear-and-get-container {
+    height: 68px;
+    padding: 0.25rem 0;
+
+    & input:not(.form-button) {
+      border-radius: 0.5rem;
+      font-size: 0.7rem;
+      height: 25px;
+      margin-bottom: 0; //-2%;
+      margin-top: 0; //-3%;
+    }
+
+    &.pattern-field-container {
+      & .form-button {
+        font-size: 0.7rem;
+        padding: 3px 5px;
+        top: -0.05rem;
+      }
+    }
+
+    &.pattern-clear-and-get-container {
+      margin-top: 4px;
+      padding: 0.1875rem 0 0;
+
+      & .form-button {
+        font-size: 0.7rem;
+        margin: 0.5rem auto;
+        padding: 3px 5px;
+        top: -0.125rem;
+      }
+    }
   }
 }
