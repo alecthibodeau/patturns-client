@@ -21,8 +21,16 @@ const successfulPatternCrud = () => {
   }, store.successTimeout)
 }
 
-const failure = (error) => {
-  console.error(error)
+const failure = function (error) {
+  $('#messageModal').modal('show')
+  $('#modalTitleMessage').text('Error. Try again')
+  store.errorMessageColor()
+  setTimeout(function () {
+    $('#messageModal').modal('hide')
+    $('#modalTitleMessage').text('')
+    store.defaultMessageColor()
+  }, store.failureTimeout)
+  console.log('Error is :', error)
 }
 
 /************************************
