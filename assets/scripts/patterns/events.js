@@ -169,7 +169,6 @@ const onClickCell = function (event) {
 const onEnterCell = function (event) {
   event.preventDefault()
   if (store.mouseDown) {
-    event.preventDefault()
     gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the cell element's id number
     store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies index in 'store.mainGrid' array with store.currentColor.
     $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except '.grid-cell' default.
