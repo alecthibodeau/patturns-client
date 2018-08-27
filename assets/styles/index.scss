@@ -539,8 +539,9 @@ BREAKPOINT 500px
 
 @media only screen and (max-width: 500px) {
   .menu-elements {
-    flex-direction: row;
-    top: 0;
+    // flex-direction: row;
+    // top: 0;
+    top: -5px;
     width: 100%; // changed
   }
 
@@ -583,6 +584,40 @@ BREAKPOINT 500px
   .grid-cell {
     height: 9vw;
     width: 9vw;
+  }
+
+  .pattern-field-container,
+  .pattern-clear-and-get-container {
+    height: 68px;
+    padding: 0.25rem 0;
+
+    & input:not(.form-button) {
+      border-radius: 0.5rem;
+      font-size: 0.7rem;
+      height: 25px;
+      margin-bottom: 0; //-2%;
+      margin-top: 0; //-3%;
+    }
+
+    &.pattern-field-container {
+      & .form-button {
+        font-size: 0.7rem;
+        padding: 3px 5px;
+        top: -0.05rem;
+      }
+    }
+
+    &.pattern-clear-and-get-container {
+      margin-top: 4px;
+      padding: 0.1875rem 0 0;
+
+      & .form-button {
+        font-size: 0.7rem;
+        margin: 0.5rem auto;
+        padding: 3px 5px;
+        top: -0.125rem;
+      }
+    }
   }
 
   .intro-menu,
@@ -629,39 +664,5 @@ BREAKPOINT 500px
 
   .intro-text {
     padding: 0 0 0 2px;
-  }
-
-  .pattern-field-container,
-  .pattern-clear-and-get-container {
-    height: 68px;
-    padding: 0.25rem 0;
-
-    & input:not(.form-button) {
-      border-radius: 0.5rem;
-      font-size: 0.7rem;
-      height: 25px;
-      margin-bottom: 0; //-2%;
-      margin-top: 0; //-3%;
-    }
-
-    &.pattern-field-container {
-      & .form-button {
-        font-size: 0.7rem;
-        padding: 3px 5px;
-        top: -0.05rem;
-      }
-    }
-
-    &.pattern-clear-and-get-container {
-      margin-top: 4px;
-      padding: 0.1875rem 0 0;
-
-      & .form-button {
-        font-size: 0.7rem;
-        margin: 0.5rem auto;
-        padding: 3px 5px;
-        top: -0.125rem;
-      }
-    }
   }
 }
