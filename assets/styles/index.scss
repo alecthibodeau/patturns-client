@@ -80,7 +80,7 @@ header {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  padding: 1px 10px 0 40px;
+  padding: 1px 1vw 0 3vw;
   position: fixed;
   width: 100%;
   z-index: 3;
@@ -113,7 +113,7 @@ BUTTON STYLES
   font-family: 'Mukta', sans-serif;
   font-weight: 600;
   letter-spacing: 0.25rem;
-  margin: 0.5rem 0.7em;
+  margin: 0.5rem 1vw;
   padding: 0.1rem 3rem 0;
   text-transform: uppercase;
 }
