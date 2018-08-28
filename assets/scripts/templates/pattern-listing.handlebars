@@ -4,7 +4,7 @@
 
   <tr data-id="{{pattern._id}}"
     data-grid="{{pattern.grid}}"
-    data-date="{{pattern.date}}"
+    data-date="{{pattern.niceDate}}"
     data-info="{{pattern.info}}">
     <!-- This was removed from end of tr… -->
     <!-- data-toggle="modal" data-target="#modifyPatternModal" -->
@@ -16,8 +16,8 @@
       {{/if}}
     </td>
     <td class="date-td">
-      {{#if pattern.modifiedAt}}
-        {{pattern.modifiedAt}}
+      {{#if pattern.niceDate}}
+        {{pattern.niceDate}}
       {{else}}
         {{pattern.createdAt}}
       {{/if}}

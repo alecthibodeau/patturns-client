@@ -15,12 +15,13 @@ const onNewPattern = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
+  data.pattern.niceDate = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
   // console.log(data)
   api.newPattern(data)
     .then(ui.newPatternSuccess(data))
     // .then(getPatterns)
     .catch(ui.failure)
-  // console.log('Create runs.')
+  console.log(data.pattern.niceDate)
 }
 
 /************************************
@@ -98,6 +99,7 @@ const onUpdatePattern = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
   data.pattern.grid = store.mainGrid.slice()
+  data.pattern.niceDate = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
   // console.log(data)
   api.updatePattern(data, store.pattern.pattern_id)
     .then(ui.updatePatternSuccess)
