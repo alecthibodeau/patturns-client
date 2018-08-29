@@ -3,23 +3,29 @@
   <!-- {{> partial}} -->
 
   <tr data-id="{{pattern._id}}"
+    data-index="{{@index}}"
     data-grid="{{pattern.grid}}"
-    data-date="{{pattern.niceDate}}"
-    data-info="{{pattern.info}}">
+    data-date="{{pattern.numeralDate}}"
+    data-info="{{pattern.info}}"
+    class="pattern-index-{{@index}}"
+    id="pattern-index-{{@index}}">
     <!-- This was removed from end of tr… -->
     <!-- data-toggle="modal" data-target="#modifyPatternModal" -->
-    <td class="id-td">
+    <!-- <td class="id-td">
       {{#if pattern._id}}
         {{pattern._id}}
       {{else}}
         —
       {{/if}}
+    </td> -->
+    <td class="index-td">
+      {{@index}}
     </td>
     <td class="date-td">
-      {{#if pattern.niceDate}}
-        {{pattern.niceDate}}
+      {{#if pattern.twoDigitDate}}
+        {{pattern.twoDigitDate}}
       {{else}}
-        {{pattern.createdAt}}
+        {{pattern.updatedAt}}
       {{/if}}
     </td>
     <td class="info-td">

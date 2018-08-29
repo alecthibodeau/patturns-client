@@ -48,9 +48,17 @@ const newPatternSuccess = (data) => {
 const getPatternsSuccess = (data) => {
   // go through each pattern in data and add a new
   // key called `niceDate` which has the value Date(date).toLocaleDateString("en-US", { day: 'numeric', month: 'long', year: 'numeric' })
-  console.log('Here is data.patterns:')
-  console.log(data.patterns)
+  // console.log('Here is data.patterns:')
+  // console.log(data.patterns)
   // debugger
+  // This is the 'for loop' version of creating a new key with 2-digit date information…
+  // for (let i = 0; i < data.patterns.length; i++) {
+  //   data.patterns[i]['numeralDate'] = new Date(data.patterns[i].updatedAt).toLocaleDateString('en-US', { day: '2-digit', month: '2-digit', year: '2-digit' })
+  // }
+  // This is the '.forEach' version of creating a new key with 2-digit date information…
+  data.patterns.forEach(function (element) {
+    element['twoDigitDate'] = new Date(element.updatedAt).toLocaleDateString('en-US', { day: '2-digit', month: '2-digit', year: '2-digit' })
+  })
   const showPatternsHtml = showPatternsTemplate({ patterns: data.patterns })
   $('.info-section').show()
   $('.pattern-return-content').html(showPatternsHtml)
