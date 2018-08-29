@@ -159,22 +159,18 @@ const pickColor = function (event) {
 // Step 2. Modifies the cell color.
 const onClickCell = function (event) {
   event.preventDefault()
-  gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the cell element's id number
+  // 'this' is the same as 'event.target', so I'm replacing instances of 'this' with 'event.target' within this function…
+  gridIndex = event.target.getAttribute('data-id') // Step 1a: 'data-id' is the cell element's id number
   store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies index in 'store.mainGrid' array with store.currentColor.
-  $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except '.grid-cell' default.
-  $(this).addClass(`${store.currentColor}`) // Step 2b: Adds store.currentColor class, which changes the cell color.
+  $(event.target).attr('class', 'grid-cell') // Step 2a: Removes all color classes except '.grid-cell' default.
+  $(event.target).addClass(`${store.currentColor}`) // Step 2b: Adds store.currentColor class, which changes the cell color.
 }
 
-// onEnterCell has two major steps: [repeating onClickCell, so it needs refactoring]
-// Step 1. Modifies the 'store.mainGrid' array with the store.currentColor.
-// Step 2. Modifies the cell color.
+// onEnterCell calls onCLickCell when the mouse is down and a new cell is entered.
 const onEnterCell = function (event) {
   event.preventDefault()
   if (store.mouseDown) {
-    gridIndex = this.getAttribute('data-id') // Step 1a: 'data-id' is the cell element's id number
-    store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies index in 'store.mainGrid' array with store.currentColor.
-    $(this).attr('class', 'grid-cell') // Step 2a: Removes all color classes except '.grid-cell' default.
-    $(this).addClass(`${store.currentColor}`) // Step 2b: Adds store.currentColor class, which changes the cell color.
+    onClickCell(event)
   }
 }
 

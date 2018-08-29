@@ -48,6 +48,9 @@ const newPatternSuccess = (data) => {
 const getPatternsSuccess = (data) => {
   // go through each pattern in data and add a new
   // key called `niceDate` which has the value Date(date).toLocaleDateString("en-US", { day: 'numeric', month: 'long', year: 'numeric' })
+  console.log('Here is data.patterns:')
+  console.log(data.patterns)
+  // debugger
   const showPatternsHtml = showPatternsTemplate({ patterns: data.patterns })
   $('.info-section').show()
   $('.pattern-return-content').html(showPatternsHtml)
