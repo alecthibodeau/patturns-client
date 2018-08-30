@@ -72,44 +72,7 @@ header {
   width: 100%;
 }
 
-.pancakes,
-.cross {
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-  font-family: 'Varela Round', sans-serif;
-  font-size: 2em;
-  position: relative;
-  top: -4px;
-
-  &:focus {
-    outline: 0;
-  }
-
-  &.cross {
-    font-size: 5em;
-    left: -3px;
-    top: -25px;
-  }
-}
-
-.nav-drawer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin: 0 auto;
-  position: fixed;
-  top: 50px;
-  width: 100vw;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-}
-
-.nav-bar-signed-in,
-.nav-bar-start {
+nav {
   // align-content: center; Note: this property has no effect when there is only one line of flex items.
   background-color: $thirty-percent-gray;
   display: flex;
@@ -117,52 +80,95 @@ header {
   flex-wrap: nowrap;
   height: 38px;
   justify-content: space-between;
-  padding: 0 1vw 0 3vw;
+  padding: 0.5rem 2rem;
   position: fixed;
   width: 100%;
-  z-index: 3;
+  z-index: 5;
 }
 
-.p-logo-nav {
-  height: 30px;
-  position: relative;
-  top: 4px;
-  width: 30px;
-}
-
-.p-logo-intro {
-  display: block;
-  height: 50px;
-  margin: 0 auto 20px;
-  position: relative;
-  // top: 3px;
-  width: 50px;
-}
-
-.nav-buttons-span {
-  display: flex;
-  flex-direction: row;
-}
-
-/************************************
-BUTTON STYLES
-************************************/
-
-.nav-button {
+.account-button {
   background-color: $fifty-percent-gray;
   border: 0;
   border-radius: 0.5rem;
   color: $cloud-white;
   cursor: pointer;
-  display: inline;
-  flex-grow: 1;
-  font-family: 'Mukta', sans-serif;
-  font-weight: 600;
+  font-size: 1rem;
   letter-spacing: 0.25rem;
-  margin: 0.5rem 1vw;
-  padding: 0.1rem 3rem 0;
+  padding: 0.125rem;
+  position: relative;
   text-transform: uppercase;
+  width: 150px;
 }
+
+.nav-drawer {
+  // margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 38px;
+  width: 100%;
+  z-index: 4;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  // width: 150px;
+}
+
+.nav-sign-up,
+.nav-sign-in {
+  background-color: $cloud-white;
+  border: 1px solid $lines-brown;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  right: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 150px;
+}
+
+.p-logo-nav {
+  height: 30px;
+  position: relative;
+  top: -4px;
+  width: 30px;
+}
+
+.p-logo-intro {
+  display: block;
+  height: 30px;
+  margin: 0 auto 20px;
+  position: relative;
+  // top: 3px;
+  width: 30px;
+}
+
+// .nav-buttons-span {
+//   display: flex;
+//   flex-direction: row;
+// }
+
+/************************************
+BUTTON STYLES
+************************************/
+
+// .nav-button {
+//   background-color: $fifty-percent-gray;
+//   border: 0;
+//   border-radius: 0.5rem;
+//   color: $cloud-white;
+//   cursor: pointer;
+//   display: inline;
+//   flex-grow: 1;
+//   font-family: 'Mukta', sans-serif;
+//   font-weight: 600;
+//   letter-spacing: 0.25rem;
+//   margin: 0.5rem 1vw;
+//   padding: 0.1rem 3rem 0;
+//   text-transform: uppercase;
+// }
 
 .form-button {
   background-color: $fifty-percent-gray;
@@ -173,6 +179,7 @@ BUTTON STYLES
   display: block;
   flex-grow: 1;
   font-size: 16px;
+  height: 20px;
   letter-spacing: 0.25rem;
   margin: 10px auto;
   max-width: 100%;
@@ -223,7 +230,7 @@ COLORS & PATTERNS MENUS
     text-transform: uppercase;
 
     & .form-button {
-      padding: 2px 7px;
+      padding: 1px 7px;
       width: 100%;
     }
   }
@@ -245,8 +252,9 @@ COLORS & PATTERNS MENUS
 }
 
 .intro-text {
+  font-size: 1rem;
   margin: 0 auto;
-  padding: 0 0.5rem;
+  padding: 0;
 }
 
 .color-box {
@@ -582,29 +590,33 @@ BREAKPOINT 500px
     width: 100%; // changed
   }
 
-  .nav-button {
-    background-color: $fifty-percent-gray;
-    border: 0;
-    border-radius: 0.5rem;
-    color: $cloud-white;
-    cursor: pointer;
-    display: inline;
-    flex-grow: 1;
-    font-family: 'Mukta', sans-serif;
-    font-size: 0.8rem; // changed
-    font-weight: 600;
-    letter-spacing: 0.25rem;
-    margin: 0.5rem 0.7em;
-    padding: 0 1rem; // changed
-    text-transform: uppercase;
+  nav {
+    padding: 0.5rem 1rem;
   }
+
+  // .nav-button {
+  //   background-color: $fifty-percent-gray;
+  //   border: 0;
+  //   border-radius: 0.5rem;
+  //   color: $cloud-white;
+  //   cursor: pointer;
+  //   display: inline;
+  //   flex-grow: 1;
+  //   font-family: 'Mukta', sans-serif;
+  //   font-size: 0.8rem; // changed
+  //   font-weight: 600;
+  //   letter-spacing: 0.25rem;
+  //   margin: 0.5rem 0.7em;
+  //   padding: 0 1rem; // changed
+  //   text-transform: uppercase;
+  // }
 
   .p-logo-nav {
     height: 25px; // changed
-    position: relative;
+    // position: relative;
     // top: 3px;
     width: 25px; // changed
-    top: 7px;
+    top: -2px;
   }
 
   .p-logo-intro {

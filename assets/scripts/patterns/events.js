@@ -197,6 +197,10 @@ const addPatternHandlers = () => {
   $('.cross').hide()
   $('.nav-drawer').hide()
 
+  $('.account-button').click(function () {
+    $('.nav-drawer').slideToggle(200)
+  })
+
   $('.pancakes').click(function () {
     $('.nav-drawer').slideToggle(200, function () {
       $('.pancakes').hide()
