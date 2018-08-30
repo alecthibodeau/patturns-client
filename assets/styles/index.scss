@@ -10,6 +10,7 @@ COLOR MIXES
 
 $five-percent-gray: #f2f2f2;
 $six-percent-gray: #f0f0f0;
+$ten-percent-gray: #e5e5e5;
 $thirty-percent-gray: #b3b3b3;
 $fifty-percent-gray: #7f7f7f;
 $seventy-five-percent-gray: #636466;
@@ -122,7 +123,7 @@ nav {
 }
 
 .nav-drawer-button {
-  background-color: $cloud-white;
+  background-color: $ten-percent-gray;
   border: 1px solid $lines-brown;
   cursor: pointer;
   display: block;
@@ -143,11 +144,11 @@ nav {
 
 .p-logo-intro {
   display: block;
-  height: 30px;
+  height: 40px;
   margin: 0 auto 20px;
   position: relative;
-  // top: 3px;
-  width: 30px;
+  top: 7px;
+  width: 40px;
 }
 
 // .nav-buttons-span {
@@ -222,6 +223,7 @@ COLORS & PATTERNS MENUS
   width: 200px;
 
   &.intro-menu {
+    align-items: flex-start;
     background-color: $thirty-percent-gray;
     color: $lines-brown;
     display: flex;
@@ -230,11 +232,11 @@ COLORS & PATTERNS MENUS
     font-weight: 600;
     letter-spacing: 0;
     order: 3;
-    padding: 0.75rem 0.75rem 0.5rem 1rem;
+    padding: 0.25rem 0.75rem 0.25rem 1rem;
     text-transform: uppercase;
 
     & .form-button {
-      padding: 1px 7px;
+      padding: 1px 0 0 0;
       width: 100%;
     }
   }
@@ -595,6 +597,10 @@ BREAKPOINT 500px
 
   nav {
     padding: 0.5rem 1rem;
+  }
+
+  .nav-drawer {
+    right: 15px;
   }
 
   // .nav-button {

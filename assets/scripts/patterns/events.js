@@ -200,17 +200,26 @@ const addPatternHandlers = () => {
   $('.cross').hide()
   $('.nav-drawer').hide()
 
-  // Optional setTimeOut to close open drawer…
-  // $('.account-button').click(function () {
-  //   $('.nav-drawer').slideToggle(200)
-  //   store.drawerOpen ? (store.drawerOpen = false) : (store.drawerOpen = true)
-  //   if (store.drawerOpen === true) {
-  //     setTimeout(function () {
-  //       $('.nav-drawer').slideToggle(200)
-  //       store.drawerOpen = false
-  //     }, 5000)
-  //   }
-  // })
+  const toggleDrawer = () => {
+    $('.nav-drawer').slideToggle(200)
+    store.drawerOpen ? (store.drawerOpen = false) : (store.drawerOpen = true)
+  }
+
+  $('.account-button').click(function () {
+    toggleDrawer()
+    // Optional setTimeOut to close open drawer…
+    // if (store.drawerOpen === true) {
+    //   setTimeout(function () {
+    //     $('.nav-drawer').slideToggle(200)
+    //     store.drawerOpen = false
+    //   }, 5000)
+    // }
+  })
+
+  $('#nav-sign-up').click(toggleDrawer)
+  $('#nav-sign-in').click(toggleDrawer)
+  $('#nav-change-password').click(toggleDrawer)
+  $('#nav-sign-out').click(toggleDrawer)
 
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID
