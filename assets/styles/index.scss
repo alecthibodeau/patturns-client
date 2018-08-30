@@ -105,25 +105,30 @@ nav {
   display: flex;
   justify-content: flex-end;
   position: fixed;
-  top: 38px;
+  right: 30px;
+  top: 40px;
   width: 100%;
   z-index: 4;
 }
 
-.nav-menu {
+.nav-menu-default,
+.nav-menu-signed-in {
   display: flex;
   flex-direction: column;
+  outline: 1px solid $lines-brown;
+  position: relative;
+  // right: 30px;
   // width: 150px;
 }
 
-.nav-sign-up,
-.nav-sign-in {
+.nav-drawer-button {
   background-color: $cloud-white;
   border: 1px solid $lines-brown;
+  cursor: pointer;
+  display: block;
   font-size: 1rem;
+  letter-spacing: 0.25rem;
   padding: 0.5rem 1rem;
-  position: relative;
-  right: 30px;
   text-align: center;
   text-transform: uppercase;
   width: 150px;
@@ -179,7 +184,6 @@ BUTTON STYLES
   display: block;
   flex-grow: 1;
   font-size: 16px;
-  height: 20px;
   letter-spacing: 0.25rem;
   margin: 10px auto;
   max-width: 100%;
@@ -226,7 +230,7 @@ COLORS & PATTERNS MENUS
     font-weight: 600;
     letter-spacing: 0;
     order: 3;
-    padding: 0.75rem 0.75rem 0.5rem 0.75rem;
+    padding: 0.75rem 0.75rem 0.5rem 1rem;
     text-transform: uppercase;
 
     & .form-button {
@@ -255,6 +259,7 @@ COLORS & PATTERNS MENUS
   font-size: 1rem;
   margin: 0 auto;
   padding: 0;
+  position: relative;
 }
 
 .color-box {
@@ -384,9 +389,7 @@ GRID & CELLS
   height: 500px;
   margin: 0 auto;
   order: 2;
-  outline-color: $lines-brown;
-  outline-style: solid;
-  outline-width: 2px;
+  outline: 2px solid $lines-brown;
   overflow: visible;
   position: relative;
   top: 50px;
@@ -620,9 +623,10 @@ BREAKPOINT 500px
   }
 
   .p-logo-intro {
-    height: 35px; // changed
+    height: 30px; // changed
     margin: 0 auto 10px;
-    width: 35px; // changed
+    top: 4px;
+    width: 30px; // changed
   }
 
   .grid-container {
@@ -698,14 +702,12 @@ BREAKPOINT 500px
       order: 3;
 
       &.intro-menu {
-        font-size: 0.75rem;
-        font-weight: 700;
-        padding: 0.5rem 0.5rem 0 0.5rem; // 0.75rem 0.75rem 0.5rem 0.75rem;
+        padding: 0.125rem 0.5rem 0 0.625rem; // 0.75rem 0.75rem 0.5rem 0.75rem;
 
         & .form-button {
-          font-size: 0.75rem;
-          padding: 1px 3px 0;
-          top: -0.1rem;
+          font-size: 0.8rem;
+          padding: 0 3px;
+          top: 0;
           width: 100%;
         }
       }
@@ -713,6 +715,9 @@ BREAKPOINT 500px
   }
 
   .intro-text {
-    padding: 0 0 0 2px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0;
+    top: 4px;
   }
 }

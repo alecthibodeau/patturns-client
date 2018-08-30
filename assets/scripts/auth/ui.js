@@ -35,8 +35,10 @@ const signInSuccess = function (data) {
   $('#modalTitleSignIn').text('Signed in successfully')
   store.successMessageColor()
   $('#sign-in').slideToggle(200)
-  $('.nav-bar-start').hide()
-  $('.nav-bar-signed-in').show()
+  store.drawerOpen = false
+  $('.nav-drawer').hide()
+  $('#nav-menu-default').css('display', 'none')
+  $('#nav-menu-signed-in').css('display', 'block')
   $('.intro-menu').hide()
   $('.patterns-menu').show()
   setTimeout(function () {
@@ -91,8 +93,9 @@ const signOutSuccess = function (data) {
   $('#modalTitleSignOut').text('Signed out successfully')
   store.successMessageColor()
   store.clearGrid()
-  $('.nav-bar-start').show()
-  $('.nav-bar-signed-in').hide()
+  store.drawerOpen = false
+  $('#nav-menu-default').css('display', 'block')
+  $('#nav-menu-signed-in').css('display', 'none')
   $('.info-section').hide()
   $('.pattern-field-input-info').val('')
   $('.intro-menu').show()

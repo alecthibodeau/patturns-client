@@ -182,7 +182,8 @@ const addPatternHandlers = () => {
   ************************************/
   $('.info-section').hide()
   $('.patterns-menu').hide()
-  $('.nav-bar-signed-in').hide()
+  $('#nav-menu-signed-in').css('display', 'none')
+  // $('.nav-bar-signed-in').hide()
   $('#update-pattern-panel').hide()
   $('#black').addClass('selected-color') // <= This sets the default color to black.
 
@@ -193,27 +194,23 @@ const addPatternHandlers = () => {
     store.mouseDown = false// ; console.log(store.mouseDown)
   })
 
-  // HAMBURGER HANDLERS:
+  // NAV MENU HANDLERS:
+  store.drawerOpen = false
+
   $('.cross').hide()
   $('.nav-drawer').hide()
 
-  $('.account-button').click(function () {
-    $('.nav-drawer').slideToggle(200)
-  })
-
-  $('.pancakes').click(function () {
-    $('.nav-drawer').slideToggle(200, function () {
-      $('.pancakes').hide()
-      $('.cross').show()
-    })
-  })
-
-  $('.cross').click(function () {
-    $('.nav-drawer').slideToggle(200, function () {
-      $('.cross').hide()
-      $('.pancakes').show()
-    })
-  })
+  // Optional setTimeOut to close open drawer…
+  // $('.account-button').click(function () {
+  //   $('.nav-drawer').slideToggle(200)
+  //   store.drawerOpen ? (store.drawerOpen = false) : (store.drawerOpen = true)
+  //   if (store.drawerOpen === true) {
+  //     setTimeout(function () {
+  //       $('.nav-drawer').slideToggle(200)
+  //       store.drawerOpen = false
+  //     }, 5000)
+  //   }
+  // })
 
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID

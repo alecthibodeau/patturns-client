@@ -24,9 +24,13 @@
           <button class="account-button" id="account-button">Account</button>
         </nav>
         <div class="nav-drawer">
-          <div class="nav-menu">
-            <div class="nav-sign-up">Sign Up</div>
-            <div class="nav-sign-in">Sign In</div>
+          <div class="nav-menu" id="nav-menu-default">
+            <button class="nav-drawer-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+            <button class="nav-drawer-button" id="nav-sign-in" data-toggle="modal" data-target="#signInModal">Sign In</button>
+          </div>
+          <div class="nav-menu" id="nav-menu-signed-in">
+            <button class="nav-drawer-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+            <button class="nav-drawer-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">Sign Out</button>
           </div>
         </div>
         <!-- NAV BAR SIGNED IN -->
@@ -94,7 +98,7 @@
           <div class="intro-menu">
             <img src="public/images/p.svg" class="p-logo-intro" alt="P">
             <div class='intro-text'>Welcome to Patturns!
-              Sign up for an account or sign in to save your patterns.</div>
+              Sign up for an account (or sign in) to save your patterns.</div>
             <button class="form-button" id="clear-grid-button-intro">clear grid</button>
           </div>
 
