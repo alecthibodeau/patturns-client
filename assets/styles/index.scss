@@ -102,12 +102,11 @@ nav {
 }
 
 .nav-drawer {
-  // margin: 0 auto;
   display: flex;
   justify-content: flex-end;
   position: fixed;
   right: 30px;
-  top: 40px;
+  top: 38px;
   width: 100%;
   z-index: 4;
 }
@@ -118,8 +117,6 @@ nav {
   flex-direction: column;
   outline: 1px solid $lines-brown;
   position: relative;
-  // right: 30px;
-  // width: 150px;
 }
 
 .nav-drawer-button {
@@ -151,30 +148,9 @@ nav {
   width: 40px;
 }
 
-// .nav-buttons-span {
-//   display: flex;
-//   flex-direction: row;
-// }
-
 /************************************
 BUTTON STYLES
 ************************************/
-
-// .nav-button {
-//   background-color: $fifty-percent-gray;
-//   border: 0;
-//   border-radius: 0.5rem;
-//   color: $cloud-white;
-//   cursor: pointer;
-//   display: inline;
-//   flex-grow: 1;
-//   font-family: 'Mukta', sans-serif;
-//   font-weight: 600;
-//   letter-spacing: 0.25rem;
-//   margin: 0.5rem 1vw;
-//   padding: 0.1rem 3rem 0;
-//   text-transform: uppercase;
-// }
 
 .form-button {
   background-color: $fifty-percent-gray;
@@ -356,7 +332,7 @@ GRID & CELLS
 
 .grid-cell {
   background-color: $white;
-  border: 1px solid $lines-brown;
+  border: 0.01rem solid $lines-brown;
   cursor: pointer;
   height: 50px;
   transition: background-color 0.1s linear;
@@ -603,22 +579,19 @@ BREAKPOINT 500px
     right: 15px;
   }
 
-  // .nav-button {
-  //   background-color: $fifty-percent-gray;
-  //   border: 0;
-  //   border-radius: 0.5rem;
-  //   color: $cloud-white;
-  //   cursor: pointer;
-  //   display: inline;
-  //   flex-grow: 1;
-  //   font-family: 'Mukta', sans-serif;
-  //   font-size: 0.8rem; // changed
-  //   font-weight: 600;
-  //   letter-spacing: 0.25rem;
-  //   margin: 0.5rem 0.7em;
-  //   padding: 0 1rem; // changed
-  //   text-transform: uppercase;
-  // }
+  .account-button {
+    background-color: $fifty-percent-gray;
+    border: 0;
+    border-radius: 0.5rem;
+    color: $cloud-white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    letter-spacing: 0.25rem;
+    padding: 0 3px;
+    position: relative;
+    text-transform: uppercase;
+    width: 115px;
+  }
 
   .p-logo-nav {
     height: 25px; // changed
