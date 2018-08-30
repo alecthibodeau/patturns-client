@@ -192,6 +192,25 @@ const addPatternHandlers = () => {
   }).mouseup(function () {
     store.mouseDown = false// ; console.log(store.mouseDown)
   })
+
+  // HAMBURGER HANDLERS:
+  $('.cross').hide()
+  $('.nav-drawer').hide()
+
+  $('.pancakes').click(function () {
+    $('.nav-drawer').slideToggle(200, function () {
+      $('.pancakes').hide()
+      $('.cross').show()
+    })
+  })
+
+  $('.cross').click(function () {
+    $('.nav-drawer').slideToggle(200, function () {
+      $('.cross').hide()
+      $('.pancakes').show()
+    })
+  })
+
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID
   ************************************/
