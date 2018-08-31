@@ -398,8 +398,8 @@ table {
 th {
   color: $fifty-percent-gray;
   font-size: 18px;
-  max-width: 180px;
-  padding: 5px 10px;
+  max-width: 200px;
+  padding: 5px 15px;
   pointer-events: none;
   text-align: left;
   text-transform: uppercase;
@@ -410,9 +410,9 @@ td {
   color: $lines-brown;
   // cursor: pointer;
   font-size: 15px;
-  max-width: 180px;
+  max-width: 200px;
   overflow: hidden;
-  padding: 2px 10px;
+  padding: 2px 15px;
   position: relative;
   text-align: left;
   text-overflow: ellipsis;
@@ -698,5 +698,15 @@ BREAKPOINT 500px
     font-weight: 700;
     padding: 0;
     top: 4px;
+  }
+
+  th {
+    max-width: 80px;
+    padding: 5px 5px;
+  }
+
+  td {
+    max-width: 80px;
+    padding: 2px 5px;
   }
 }
