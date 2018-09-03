@@ -139,15 +139,6 @@ nav {
   width: 30px;
 }
 
-.p-logo-intro {
-  display: block;
-  height: 40px;
-  margin: 0 auto 20px;
-  position: relative;
-  top: 7px;
-  width: 40px;
-}
-
 /************************************
 BUTTON STYLES
 ************************************/
@@ -181,7 +172,7 @@ COLORS & PATTERNS MENUS
   display: block;
   // flex-direction: row;
   // justify-content: center;
-  // margin: 0 auto;
+  margin: 0 auto;
   // width: 60vw;
 }
 
@@ -200,26 +191,20 @@ COLORS & PATTERNS MENUS
 
 .colors-menu,
 .patterns-menu {
-  // background-color: transparent;
+  align-content: center;
+  background-color: $thirty-percent-gray;
   border-radius: 1rem;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   height: 100px;
+  justify-content: space-evenly;
+  order: 1;
   overflow: visible;
   position: relative;
-  // top: 50px;
   width: 200px;
 
-  // &.colors-menu {
-    align-content: center;
-    background-color: $thirty-percent-gray;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    order: 1;
-  // }
-
   &.patterns-menu {
-    align-content: space-between;
     flex-direction: column;
     order: 3;
   }
@@ -236,12 +221,16 @@ COLORS & PATTERNS MENUS
   margin: 10px 0;
   width: 80px;
 
-  &.selected-color {
-    background-color: $rainbow-yellow;
+  & button {
+    background-color: $fifty-percent-gray;
+    border: 0;
+    color: $cloud-white;
+    font-size: 16px;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
   }
 }
 
-.color-white,
 .color-black {
   border: 2px solid $seventy-five-percent-gray;
   border-radius: 50%;
@@ -259,46 +248,14 @@ COLORS & PATTERNS MENUS
 }
 
 input { // form input fields
+  border-radius: 0.5rem;
   color: $lines-brown;
   font-size: 16px;
   letter-spacing: 0.125rem;
   margin: 2% 5%;
+  padding: 0 0.5rem;
   width: 90%;
 }
-
-// .pattern-field-container,
-// .pattern-clear-and-get-container {
-//   background-color: $thirty-percent-gray;
-//   border-radius: 1rem;
-//   height: 95px;
-//   padding: 7% 0;
-//
-//   & input:not(.form-button) {
-//     border-radius: 0.5rem;
-//     height: 33px;
-//     margin-bottom: -2%;
-//     margin-top: -3%;
-//     padding: 0 0.5rem;
-//     position: relative;
-//     top: 0.1rem;
-//   }
-//
-//   &.pattern-field-container {
-//     & .form-button {
-//       position: relative;
-//     }
-//   }
-//
-//   &.pattern-clear-and-get-container {
-//     margin-top: 10px;
-//     padding: 0;
-//
-//     & .form-button {
-//       top: 0.125rem;
-//       width: 90%;
-//     }
-//   }
-// }
 
 /************************************
 GRID & CELLS
@@ -477,7 +434,6 @@ BREAKPOINT 1000px
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 0 auto;
     width: 60vw;
   }
 
@@ -539,10 +495,8 @@ BREAKPOINT 500px
 
 @media only screen and (max-width: 500px) {
   .menu-elements {
-    // flex-direction: row;
-    // top: 0;
     top: -5px;
-    width: 100%; // changed
+    width: 100%;
   }
 
   nav {
@@ -568,23 +522,14 @@ BREAKPOINT 500px
   }
 
   .p-logo-nav {
-    height: 25px; // changed
-    // position: relative;
-    // top: 3px;
-    width: 25px; // changed
+    height: 25px;
+    width: 25px;
     top: -2px;
-  }
-
-  .p-logo-intro {
-    height: 30px; // changed
-    margin: 0 auto 10px;
-    top: 4px;
-    width: 30px; // changed
   }
 
   .grid-container {
     height: 90vw;
-    top: 45px; // changed
+    top: 45px;
     width: 90vw;
   }
 
@@ -593,51 +538,16 @@ BREAKPOINT 500px
     width: 9vw;
   }
 
-  .pattern-field-container,
-  .pattern-clear-and-get-container {
-    height: 68px;
-    padding: 0.25rem 0;
-
-    & input:not(.form-button) {
-      border-radius: 0.5rem;
-      font-size: 0.7rem;
-      height: 25px;
-      margin-bottom: 0; //-2%;
-      margin-top: 0; //-3%;
-    }
-
-    &.pattern-field-container {
-      & .form-button {
-        font-size: 0.7rem;
-        padding: 3px 5px;
-        top: -0.05rem;
-      }
-    }
-
-    &.pattern-clear-and-get-container {
-      margin-top: 4px;
-      padding: 0.1875rem 0 0;
-
-      & .form-button {
-        font-size: 0.7rem;
-        margin: 0.5rem auto;
-        padding: 3px 5px;
-        top: -0.125rem;
-      }
-    }
-  }
-
-  .intro-menu,
   .colors-menu,
   .patterns-menu {
     background-color: transparent;
     border-radius: 1rem;
     display: flex;
-    height: 140px; // changed
+    height: 140px;
     overflow: visible;
     position: relative;
-    top: 45px; // changed
-    width: 140px; // changed
+    top: 45px;
+    width: 140px;
 
     &.colors-menu {
       align-content: center;
@@ -648,30 +558,18 @@ BREAKPOINT 500px
       order: 1;
     }
 
-    &.intro-menu,
     &.patterns-menu {
       align-content: space-between;
       flex-direction: column;
       order: 3;
 
-      &.intro-menu {
-        padding: 0.125rem 0.5rem 0 0.625rem; // 0.75rem 0.75rem 0.5rem 0.75rem;
-
-        & .form-button {
-          font-size: 0.8rem;
-          padding: 0 3px;
-          top: 0;
-          width: 100%;
-        }
+      & .form-button {
+        font-size: 0.8rem;
+        padding: 0 3px;
+        top: 0;
+        width: 100%;
       }
     }
-  }
-
-  .intro-text {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0;
-    top: 4px;
   }
 
   th {

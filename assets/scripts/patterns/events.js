@@ -185,7 +185,7 @@ const addPatternHandlers = () => {
   $('#nav-menu-signed-in').css('display', 'none')
   // $('.nav-bar-signed-in').hide()
   $('#update-pattern-panel').hide()
-  $('#black').addClass('selected-color') // <= This sets the default color to black.
+  // $('#black').addClass('selected-color') // <= This sets the default color to black.
 
   // Boolean for whether or not the mouse is down…
   $(document).mousedown(function () {

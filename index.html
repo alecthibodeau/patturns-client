@@ -13,14 +13,14 @@
     </head>
     <body>
 
+      <!-- <div class="pattern-clear-and-get-container">
+        <button class="form-button" id="clear-grid-button">clear grid</button>
+        <button class="form-button" id="get-patterns-button" data-toggle="modal" data-target="#savedPatternsModal">get patterns</button>
+      </div> -->
+
       <header>
-        <!-- NAV BAR START -->
         <nav class="nav-bar-start">
           <img src="public/images/p.svg" class="p-logo-nav" alt="P">
-          <!-- <span class="nav-buttons-span">
-            <button class="nav-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">sign up</button>
-            <button class="nav-button" id="nav-sign-in" data-toggle="modal" data-target="#signInModal">sign in</button>
-          </span> -->
           <button class="account-button" id="account-button">Account</button>
         </nav>
         <div class="nav-drawer">
@@ -33,14 +33,6 @@
             <button class="nav-drawer-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">Sign Out</button>
           </div>
         </div>
-        <!-- NAV BAR SIGNED IN -->
-        <!-- <div class="nav-bar-signed-in">
-          <img src="public/images/p.svg" class="p-logo-nav" alt="P">
-          <span class="nav-buttons-span">
-            <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">change password</button>
-            <button class="nav-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">sign out</button>
-          </span>
-        </div> -->
       </header>
 
 
@@ -61,40 +53,26 @@
             <div class="color-box" id="black"> <!-- The color circle's square border -->
               <div class="color-black"></div> <!-- The color circle -->
             </div>
-            <div class="color-box" id="white"> <!-- The color circle's square border -->
-              <div class="color-white"></div> <!-- The color circle -->
+            <div class="color-box" id="clear-grid"> <!-- The color circle's square border -->
+              <button class="color-box" id="clear-grid-button">clear grid</button>
             </div>
           </div>
 
           <!-- PATTERNS MENU -->
           <div class="patterns-menu">
-            <div class="pattern-field-container">
-              <form id="new-pattern-panel" class="new-pattern-panel">
-                <fieldset>
-                  <input type="text" class="pattern-field-input-info" id="save-pattern-input-info" name="pattern[info]" placeholder="Add pattern info!">
-                  <input type="submit" id="save-pattern-button" class="form-button" value="save">
-                </fieldset>
-              </form>
-              <form id="update-pattern-panel" class="update-pattern-panel">
-                <fieldset>
-                  <input type="text" class="pattern-field-input-info" id="update-pattern-input-info" name="pattern[info]" placeholder="pattern info">
-                  <input type="submit" id="update-pattern-button" class="form-button" value="update">
-                </fieldset>
-              </form>
-            </div>
-            <!-- <div class="pattern-clear-and-get-container">
-              <button class="form-button" id="clear-grid-button">clear grid</button>
-              <button class="form-button" id="get-patterns-button" data-toggle="modal" data-target="#savedPatternsModal">get patterns</button>
-            </div> -->
+            <form id="new-pattern-panel" class="new-pattern-panel">
+              <fieldset>
+                <input type="text" class="pattern-field-input-info" id="save-pattern-input-info" name="pattern[info]" placeholder="Add pattern info!">
+                <input type="submit" id="save-pattern-button" class="form-button" value="save">
+              </fieldset>
+            </form>
+            <form id="update-pattern-panel" class="update-pattern-panel">
+              <fieldset>
+                <input type="text" class="pattern-field-input-info" id="update-pattern-input-info" name="pattern[info]" placeholder="pattern info">
+                <input type="submit" id="update-pattern-button" class="form-button" value="update">
+              </fieldset>
+            </form>
           </div>
-
-          <!-- INTRO INFO -->
-          <!-- <div class="intro-menu">
-            <img src="public/images/p.svg" class="p-logo-intro" alt="P">
-            <div class='intro-text'>Welcome to Patturns!
-              Sign up for an account (or sign in) to save your patterns.</div>
-            <button class="form-button" id="clear-grid-button-intro">clear grid</button>
-          </div> -->
 
         </div>
         <!-- MENU ELEMENTS CONTAINER ENDS -->
