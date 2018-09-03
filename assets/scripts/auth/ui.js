@@ -36,6 +36,8 @@ const signInSuccess = function (data) {
   store.successMessageColor()
   $('#sign-in').slideToggle(200)
   store.drawerOpen = false
+  $('.colors-menu').removeClass('all-rounded')
+  $('#get-patterns-button').show()
   $('.nav-drawer').hide()
   $('#nav-menu-default').css('display', 'none')
   $('#nav-menu-signed-in').css('display', 'block')

@@ -181,10 +181,11 @@ const addPatternHandlers = () => {
   HANDLERS — PAGE LOAD
   ************************************/
   $('.info-section').hide()
-  // $('.patterns-menu').hide()
+  $('.patterns-menu').hide()
   $('#nav-menu-signed-in').css('display', 'none')
-  // $('.nav-bar-signed-in').hide()
+  $('#get-patterns-button').hide()
   $('#update-pattern-panel').hide()
+  $('.colors-menu').addClass('all-rounded')
   // $('#black').addClass('selected-color') // <= This sets the default color to black.
 
   // Boolean for whether or not the mouse is down…
