@@ -171,6 +171,8 @@ COLORS & PATTERNS MENUS
 .main-elements {
   display: block;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 // This is the inner flexbox for colors and patterns menus
@@ -183,7 +185,7 @@ COLORS & PATTERNS MENUS
   position: relative;
   top: -50px;
   width: 95vw;
-  z-index: 1;
+  z-index: 5;
 }
 
 .colors-menu,
@@ -231,6 +233,20 @@ COLORS & PATTERNS MENUS
   }
 }
 
+.color-drawer {
+  position: absolute;
+  top: -175px;
+}
+
+.color-bar {
+  background-color: $white;
+  border-radius: 0.5rem;
+  height: 25px;
+  margin: 0 1rem;
+  position: relative;
+  width: 100px;
+}
+
 .color-black {
   border: 2px solid $seventy-five-percent-gray;
   border-radius: 50%;
@@ -254,7 +270,9 @@ input { // form input fields
   letter-spacing: 0.125rem;
   margin: 2% 5%;
   padding: 0 0.5rem;
+  position: relative;
   width: 90%;
+  z-index: 2;
 }
 
 /************************************
@@ -291,7 +309,7 @@ GRID & CELLS
 }
 
 .grid-container {
-  background-color: $white;
+  background-color: transparent;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
   grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
