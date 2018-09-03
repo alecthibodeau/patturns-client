@@ -36,8 +36,9 @@ const signInSuccess = function (data) {
   store.successMessageColor()
   $('#sign-in').slideToggle(200)
   store.drawerOpen = false
-  $('.colors-menu').removeClass('all-rounded')
   $('#get-patterns-button').show()
+  $('#account-button').html('Welcome!')
+  $('.colors-menu').removeClass('all-rounded')
   $('.nav-drawer').hide()
   $('#nav-menu-default').css('display', 'none')
   $('#nav-menu-signed-in').css('display', 'block')
@@ -96,6 +97,9 @@ const signOutSuccess = function (data) {
   store.successMessageColor()
   store.clearGrid()
   store.drawerOpen = false
+  $('#get-patterns-button').hide()
+  $('#account-button').html('Account')
+  $('.colors-menu').addClass('all-rounded')
   $('#nav-menu-default').css('display', 'block')
   $('#nav-menu-signed-in').css('display', 'none')
   $('.info-section').hide()
