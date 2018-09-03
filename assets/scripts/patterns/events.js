@@ -181,7 +181,7 @@ const addPatternHandlers = () => {
   HANDLERS — PAGE LOAD
   ************************************/
   $('.info-section').hide()
-  $('.patterns-menu').hide()
+  // $('.patterns-menu').hide()
   $('#nav-menu-signed-in').css('display', 'none')
   // $('.nav-bar-signed-in').hide()
   $('#update-pattern-panel').hide()
