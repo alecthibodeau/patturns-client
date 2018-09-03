@@ -161,6 +161,7 @@ FORM BUTTON STYLES
   position: relative;
   text-transform: uppercase;
   top: 4px;
+  user-select: none;
 }
 
 /************************************
@@ -216,7 +217,6 @@ COLORS & PATTERNS MENUS
   align-items: center;
   background-color: $six-percent-gray;
   border-radius: 1rem;
-  cursor: pointer;
   display: flex;
   height: 80px;
   justify-content: center;
@@ -229,6 +229,7 @@ COLORS & PATTERNS MENUS
     color: $cloud-white;
     font-size: 16px;
     letter-spacing: 0.25rem;
+    padding: 0 0 0 4px;
     text-transform: uppercase;
   }
 }
@@ -236,30 +237,82 @@ COLORS & PATTERNS MENUS
 .color-drawer {
   position: absolute;
   top: -175px;
+  width: 75px;
 }
 
 .color-bar {
   background-color: $white;
+  border: 1px solid $lines-brown;
   border-radius: 0.5rem;
+  cursor: pointer;
   height: 25px;
-  margin: 0 1rem;
+  left: -2px;
   position: relative;
-  width: 100px;
+
+  &.bar-black {
+    background-color: $black;
+  }
+
+  &.bar-white {
+    background-color: $white;
+  }
+
+  &.bar-red {
+    background-color: $red-muted;
+  }
+
+  &.bar-orange {
+    background-color: $orange-muted;
+  }
+
+  &.bar-yellow {
+    background-color: $yellow-muted;
+  }
+
+  &.bar-green {
+    background-color: $green-muted;
+  }
+
+  &.bar-blue {
+    background-color: $blue-muted;
+  }
 }
 
-.color-black {
+.current-color {
+  background-color: $fifty-percent-gray;
   border: 2px solid $seventy-five-percent-gray;
   border-radius: 50%;
+  cursor: pointer;
   height: 75%;
   top: 50%;
   width: 75%;
 
   &.color-black {
-    background-color: $lines-brown;
+    background-color: $black;
   }
 
   &.color-white {
     background-color: $white;
+  }
+
+  &.color-red {
+    background-color: $red-muted;
+  }
+
+  &.color-orange {
+    background-color: $orange-muted;
+  }
+
+  &.color-yellow {
+    background-color: $yellow-muted;
+  }
+
+  &.color-green {
+    background-color: $green-muted;
+  }
+
+  &.color-blue {
+    background-color: $blue-muted;
   }
 }
 
@@ -507,6 +560,10 @@ BREAKPOINT 750px
     &.patterns-menu {
       border-radius: 0 1rem 1rem 0;
     }
+  }
+
+  .color-bar {
+    left: 0;
   }
 }
 

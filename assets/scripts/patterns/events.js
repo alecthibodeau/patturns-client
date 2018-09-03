@@ -144,12 +144,22 @@ const createGrid = () => {
 FUNCTIONS FOR COLORING GRID CELLS
 ************************************/
 // This function selects store.currentColor…
+// const pickColor = function (event) {
+//   event.preventDefault()
+//   $('.color-box').removeClass('selected-color')
+//   $(this).addClass('selected-color')
+//   store.currentColor = this.getAttribute('id')
+//   // console.log(store.currentColor)
+// }
+
 const pickColor = function (event) {
   event.preventDefault()
-  $('.color-box').removeClass('selected-color')
-  $(this).addClass('selected-color')
+  // $('.color-bar').removeClass('selected-color')
+  // $(this).addClass('selected-color')
   store.currentColor = this.getAttribute('id')
-  // console.log(store.currentColor)
+  $('.current-color').attr('class', 'current-color')
+  $('.current-color').addClass(`color-${store.currentColor}`)
+  console.log(store.currentColor)
 }
 
 // onClickCell has two major steps:
@@ -228,7 +238,7 @@ const addPatternHandlers = () => {
 
   // The 'color-box' class is for the color menu squares.
   // pickColor sets the color for cell clicks…
-  $('.color-box').on('click', pickColor)
+  $('.color-bar').on('click', pickColor)
 
   // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
   $('#clear-grid-button').on('click', store.clearGrid)
