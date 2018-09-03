@@ -87,6 +87,13 @@ nav {
   z-index: 5;
 }
 
+.p-logo-nav {
+  height: 30px;
+  position: relative;
+  top: -4px;
+  width: 30px;
+}
+
 .account-button {
   background-color: $fifty-percent-gray;
   border: 0;
@@ -132,13 +139,6 @@ nav {
   width: 150px;
 }
 
-.p-logo-nav {
-  height: 30px;
-  position: relative;
-  top: -4px;
-  width: 30px;
-}
-
 /************************************
 BUTTON STYLES
 ************************************/
@@ -167,13 +167,8 @@ COLORS & PATTERNS MENUS
 
 // This is the outer flexbox for the grid plus colors and patterns menus
 .main-elements {
-  // align-content: flex-end;
-  // align-items: flex-end;
   display: block;
-  // flex-direction: row;
-  // justify-content: center;
   margin: 0 auto;
-  // width: 60vw;
 }
 
 // This is the inner flexbox for colors and patterns menus
@@ -206,7 +201,7 @@ COLORS & PATTERNS MENUS
 
   &.patterns-menu {
     flex-direction: column;
-    order: 3;
+    order: 2;
   }
 }
 
@@ -444,16 +439,17 @@ BREAKPOINT 1000px
   .menu-elements {
     flex-direction: column;
     order: 2;
-    top: 0;
+    top: 50px;
   }
 
-  .colors-menu {
-    margin: 0 0 1rem 2rem;
-  }
-
-  .intro-menu,
+  .colors-menu,
   .patterns-menu {
-    margin: 0 0 0 2rem;
+    border-radius: 1rem 1rem 0 0;
+    margin: 0 1rem;
+
+    &.patterns-menu {
+      border-radius: 0 0 1rem 1rem;
+    }
   }
 }
 
@@ -475,17 +471,18 @@ BREAKPOINT 750px
 
   .menu-elements {
     flex-direction: row;
-    top: 0;
+    top: 50px;
     width: 450px;
   }
 
-  .colors-menu {
-    margin: 1rem auto;
-  }
-
-  .intro-menu,
+  .colors-menu,
   .patterns-menu {
-    margin: 1rem auto;
+    border-radius: 1rem;
+    margin: 1rem 0;
+
+    &.patterns-menu {
+      border-radius: 1rem;
+    }
   }
 }
 
@@ -494,17 +491,18 @@ BREAKPOINT 500px
 ******************/
 
 @media only screen and (max-width: 500px) {
-  .menu-elements {
-    top: -5px;
-    width: 100%;
-  }
-
   nav {
     padding: 0.5rem 1rem;
   }
 
   .nav-drawer {
     right: 15px;
+  }
+
+  .menu-elements {
+    justify-content: center;
+    top: -5px;
+    width: 100%;
   }
 
   .account-button {
@@ -540,35 +538,11 @@ BREAKPOINT 500px
 
   .colors-menu,
   .patterns-menu {
-    background-color: transparent;
-    border-radius: 1rem;
-    display: flex;
-    height: 140px;
-    overflow: visible;
-    position: relative;
-    top: 45px;
-    width: 140px;
-
-    &.colors-menu {
-      align-content: center;
-      background-color: $thirty-percent-gray;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      order: 1;
-    }
+    border-radius: 1rem 0 0 1rem;
+    top: 50px;
 
     &.patterns-menu {
-      align-content: space-between;
-      flex-direction: column;
-      order: 3;
-
-      & .form-button {
-        font-size: 0.8rem;
-        padding: 0 3px;
-        top: 0;
-        width: 100%;
-      }
+      border-radius: 0 1rem 1rem 0;
     }
   }
 
