@@ -14,8 +14,7 @@ const store = {
   },
   clearGrid: function () {
     store.mouseDown = false
-    $('.color-box').removeClass('selected-color') // Removes yellow highlight from all color boxes.
-    $('#black').addClass('selected-color') // Adds yellow highlight to black color box.
+    $('.current-color').attr('class', 'current-color').addClass('color-black') // <= This sets the default color to black.
     store.currentColor = 'black' // Sets picked color to black.
     $('.grid-cell').attr('class', 'grid-cell') // Removes all color classes from all grid-cells.
     $('.pattern-field-input-info').val('') // Clears any typed info in the form input field.

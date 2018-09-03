@@ -144,22 +144,18 @@ const createGrid = () => {
 FUNCTIONS FOR COLORING GRID CELLS
 ************************************/
 // This function selects store.currentColor…
-// const pickColor = function (event) {
-//   event.preventDefault()
-//   $('.color-box').removeClass('selected-color')
-//   $(this).addClass('selected-color')
-//   store.currentColor = this.getAttribute('id')
-//   // console.log(store.currentColor)
-// }
-
 const pickColor = function (event) {
   event.preventDefault()
-  // $('.color-bar').removeClass('selected-color')
-  // $(this).addClass('selected-color')
   store.currentColor = this.getAttribute('id')
-  $('.current-color').attr('class', 'current-color')
-  $('.current-color').addClass(`color-${store.currentColor}`)
-  console.log(store.currentColor)
+  $('.current-color').attr('class', 'current-color').addClass(`color-${store.currentColor}`)
+  // console.log(store.currentColor)
+  colorDrawer()
+  $('.menu-elements').css('z-index', '0')
+}
+
+const colorDrawer = () => {
+  $('.menu-elements').css('z-index', '10')
+  $('.color-drawer').fadeToggle(200)
 }
 
 // onClickCell has two major steps:
@@ -172,6 +168,7 @@ const onClickCell = function (event) {
   store.mainGrid[gridIndex] = store.currentColor // Step 1b: Modifies index in 'store.mainGrid' array with store.currentColor.
   $(event.target).attr('class', 'grid-cell') // Step 2a: Removes all color classes except '.grid-cell' default.
   $(event.target).addClass(`${store.currentColor}`) // Step 2b: Adds store.currentColor class, which changes the cell color.
+  // console.log(store.mainGrid)
 }
 
 // onEnterCell calls onCLickCell when the mouse is down and a new cell is entered.
@@ -190,13 +187,16 @@ const addPatternHandlers = () => {
   /************************************
   HANDLERS — PAGE LOAD
   ************************************/
+  store.currentColor = 'black'
+  console.log(store.currentColor)
   $('.info-section').hide()
   $('.patterns-menu').hide()
   $('#nav-menu-signed-in').css('display', 'none')
   $('#get-patterns-button').hide()
   $('#update-pattern-panel').hide()
+  $('#color-drawer').hide()
   $('.colors-menu').addClass('all-rounded')
-  // $('#black').addClass('selected-color') // <= This sets the default color to black.
+  $('.current-color').attr('class', 'current-color').addClass('color-black').on('mousedown', colorDrawer) // <= This sets the default color to black.
 
   // Boolean for whether or not the mouse is down…
   $(document).mousedown(function () {
@@ -211,13 +211,13 @@ const addPatternHandlers = () => {
   $('.cross').hide()
   $('.nav-drawer').hide()
 
-  const toggleDrawer = () => {
+  const toggleNavDrawer = () => {
     $('.nav-drawer').slideToggle(200)
     store.drawerOpen ? (store.drawerOpen = false) : (store.drawerOpen = true)
   }
 
   $('.account-button').click(function () {
-    toggleDrawer()
+    toggleNavDrawer()
     // Optional setTimeOut to close open drawer…
     // if (store.drawerOpen === true) {
     //   setTimeout(function () {
@@ -227,10 +227,10 @@ const addPatternHandlers = () => {
     // }
   })
 
-  $('#nav-sign-up').click(toggleDrawer)
-  $('#nav-sign-in').click(toggleDrawer)
-  $('#nav-change-password').click(toggleDrawer)
-  $('#nav-sign-out').click(toggleDrawer)
+  $('#nav-sign-up').click(toggleNavDrawer)
+  $('#nav-sign-in').click(toggleNavDrawer)
+  $('#nav-change-password').click(toggleNavDrawer)
+  $('#nav-sign-out').click(toggleNavDrawer)
 
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID
