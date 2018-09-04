@@ -103,7 +103,7 @@ nav {
   font-size: 1rem;
   margin: 0 0.25rem;
   letter-spacing: 0.25rem;
-  padding-top: 2px;
+  padding-top: 3px;
   position: relative;
   text-transform: uppercase;
   top: -2px;
@@ -114,9 +114,8 @@ nav {
   display: flex;
   justify-content: flex-end;
   position: fixed;
-  right: 30px;
+  right: 2.25rem;
   top: 38px;
-  width: 100%;
   z-index: 4;
 }
 
@@ -591,13 +590,15 @@ BREAKPOINT 500px
     padding: 0.5rem 1rem;
   }
 
-  .nav-drawer {
-    right: 15px;
-  }
-
   .menu-elements {
     top: -5px;
     width: 100%;
+  }
+
+  .p-logo-nav {
+    height: 25px;
+    width: 25px;
+    top: -2px;
   }
 
   .nav-button {
@@ -608,10 +609,12 @@ BREAKPOINT 500px
     width: 115px;
   }
 
-  .p-logo-nav {
-    height: 25px;
-    width: 25px;
-    top: -2px;
+  .nav-drawer {
+    right: 1.25rem;
+  }
+
+  .nav-drawer-button {
+    width: 115px;
   }
 
   .grid-container {
