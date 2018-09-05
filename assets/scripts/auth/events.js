@@ -6,6 +6,7 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
+  $('#modalTitleSignUp').text('Signing up…')
   const data = getFormFields(this)
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -14,6 +15,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
+  $('#modalTitleSignIn').text('Signing in…')
   const data = getFormFields(this)
   api.signIn(data)
     .then(ui.signInSuccess)
