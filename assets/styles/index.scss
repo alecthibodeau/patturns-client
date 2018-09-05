@@ -206,7 +206,7 @@ BUTTON STYLES
   letter-spacing: 0.25rem;
   margin: 10px auto;
   max-width: 100%;
-  padding: 3px 7px;
+  padding: 0.125rem 0 0.125rem 0.4rem;
   position: relative;
   text-transform: uppercase;
   top: 4px;
@@ -459,6 +459,7 @@ PATTERN RETURN INFO SECTION
 .info-section {
   margin: 0 auto;
   max-width: 100%;
+  // padding: 0.5rem;
   position: relative;
   vertical-align: top;
 }
@@ -471,10 +472,11 @@ table {
   width: 90%;
 }
 
-th {
+.date-th,
+.info-th {
   color: $fifty-percent-gray;
-  font-size: 18px;
-  max-width: 200px;
+  font-size: 1.25rem;
+  max-width: 150px;
   padding: 5px 15px;
   pointer-events: none;
   text-align: left;
@@ -485,8 +487,8 @@ th {
 td {
   color: $lines-brown;
   // cursor: pointer;
-  font-size: 15px;
-  max-width: 200px;
+  font-size: 1rem;
+  max-width: 150px;
   overflow: hidden;
   padding: 2px 15px;
   position: relative;
@@ -546,10 +548,12 @@ MODALS
 .modal-title {
   color: $orange-muted;
   flex-grow: 3;
-  font-size: 20px;
+  font-size: 1.25rem;
+  left: 0.5rem;
   letter-spacing: 0.5rem;
-  margin: 0 auto 5px;
+  margin: 0 auto 0.5rem;
   pointer-events: none;
+  position: relative;
   text-align: center;
   text-transform: uppercase;
   user-select: none;
@@ -668,7 +672,7 @@ BREAKPOINT 500px
     font-size: 0.75rem;
     font-weight: 600;
     height: 22px;
-    padding: 0.125rem 0 0.125rem 0.25rem;
+    padding: 0.125rem 0 0.125rem 0.3rem;
     top: 0;
     width: 115px;
   }
@@ -678,7 +682,7 @@ BREAKPOINT 500px
   }
 
   .nav-drawer-button {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 0.5rem 0.75rem;
     width: 115px;
   }
@@ -704,14 +708,35 @@ BREAKPOINT 500px
     margin: 10px 0;
   }
 
-  th {
-    max-width: 80px;
-    padding: 5px 5px;
+  .modal-title {
+    font-size: 1rem;
   }
 
-  td {
-    max-width: 80px;
-    padding: 2px 5px;
+  .date-th,
+  .info-th {
+    font-size: 1rem;
+    max-width: 85px;
+    padding: 5px 2px;
+
+    &.info-th {
+      max-width: 60px;
+    }
+  }
+
+  .date-td,
+  .info-td {
+    font-size: 1rem;
+    max-width: 85px;
+    padding: 2px 2px;
+
+    &.info-td {
+      max-width: 60px;
+    }
+  }
+
+  .modify-pattern-button-td,
+  .delete-pattern-button-td {
+    padding: 2px 2px;
   }
 }
 
@@ -730,7 +755,7 @@ BREAKPOINT 400px
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.15rem;
-      padding: 0 0 0 0.15rem;
+      padding: 0 0 0 0.17rem;
     }
 
     &.patterns-menu {
@@ -750,6 +775,7 @@ BREAKPOINT 400px
 
         &.form-button {
           font-size: 0.75rem;
+          padding: 0 0 0 0.3rem;
           top: 3px;
         }
       }
