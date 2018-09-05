@@ -243,7 +243,6 @@ const addPatternHandlers = () => {
 
   // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
   $('#clear-grid-button').on('click', store.clearGrid)
-  $('#clear-grid-button-intro').on('click', store.clearGrid)
 
   /************************************
   HANDLERS — CRUD
