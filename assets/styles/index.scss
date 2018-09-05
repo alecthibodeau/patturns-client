@@ -2,7 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap/scss/bootstrap';
 // @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Mitr:200,300,400,500,600,700|Aldrich|Basic|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Monoton|Varela+Round|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Mitr:200,300,400,500,600,700|Aldrich|Basic|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Monoton|Varela+Round|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
 /************************************
 COLOR MIXES
@@ -71,18 +71,26 @@ INTRO MODAL
   width: 40px;
 }
 
+.patturns-title,
 .intro-text {
-  background-color: $white;
-  border: 1px solid $fifty-percent-gray;
-  border-radius: 1rem;
-  color: $seventy-five-percent-gray;
-  font-family: 'Prompt', sans-serif;
+  color: $orange-muted;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.75rem;
-  padding: 1.5rem;
   text-align: left;
   text-transform: uppercase;
+
+  &.intro-text {
+    background-color: $white;
+    border: 1px solid $fifty-percent-gray;
+    border-radius: 1rem;
+    color: $seventy-five-percent-gray;
+    font-style: normal;
+    font-weight: 600;
+    padding: 1.5rem;
+  }
 }
 
 /************************************
@@ -373,10 +381,11 @@ GRID & CELLS
 
 .grid-cell {
   background-color: $white;
-  border-bottom: 0.01rem solid $lines-brown;
-  border-right: 0.01rem solid $lines-brown;
+  // border-bottom: 0.01rem solid $lines-brown;
+  // border-right: 0.01rem solid $lines-brown;
   cursor: pointer;
   height: 50px;
+  outline: 0.01rem solid $lines-brown;
   transition: background-color 0.1s linear;
   width: 50px;
 
@@ -421,7 +430,7 @@ GRID & CELLS
   height: 500px;
   margin: 0 auto;
   order: 2;
-  outline: 2px solid $lines-brown;
+  outline: 0.2rem solid $lines-brown;
   overflow: visible;
   position: relative;
   top: 50px;
@@ -624,6 +633,19 @@ BREAKPOINT 500px
 ******************/
 
 @media only screen and (max-width: 500px) {
+  .p-logo-intro {
+    height: 30px;
+    margin: 0 auto 0.5rem;
+    top: -1rem;
+    width: 30px;
+  }
+
+  .patturns-title,
+  .intro-text {
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+  }
+
   nav {
     padding: 0.5rem 1rem;
   }
@@ -636,7 +658,7 @@ BREAKPOINT 500px
   .nav-button {
     font-size: 0.75rem;
     height: 22px;
-    padding: 0 3px;
+    padding: 0.01rem 3px 0;
     top: 0;
     width: 115px;
   }
@@ -653,6 +675,7 @@ BREAKPOINT 500px
 
   .grid-container {
     height: 90vw;
+    outline: 0.18rem solid $lines-brown;
     top: 45px;
     width: 90vw;
   }
