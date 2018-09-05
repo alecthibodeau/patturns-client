@@ -13,14 +13,9 @@
     </head>
     <body>
 
-      <!-- <div class="pattern-clear-and-get-container">
-        <button class="form-button" id="clear-grid-button">clear grid</button>
-        <button class="form-button" id="get-patterns-button" data-toggle="modal" data-target="#savedPatternsModal">get patterns</button>
-      </div> -->
-
       <header>
         <nav class="nav-bar-start">
-          <img src="public/images/p.svg" class="p-logo-nav" alt="P">
+          <a data-toggle="modal" data-target="#introTextModal"><img src="public/images/p.svg" class="p-logo-nav" alt="P"></a>
           <div class="nav-button-set">
             <button class="nav-button" id="get-patterns-button" data-toggle="modal" data-target="#savedPatternsModal">Patterns</button>
             <button class="nav-button account-button" id="account-button">Account</button>
@@ -164,7 +159,7 @@
       <!-- CHANGE PASSWORD MODAL ENDS -->
 
       <!-- SIGN-OUT MODAL BEGINS -->
-      <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-top">
@@ -183,7 +178,7 @@
       <!-- **************************************************** -->
 
       <!-- MESSAGE MODAL (FOR CRUD SUCCESS/FAILURE) BEGINS -->
-      <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document"> <!-- Adding " modal-dialog-centered" to class would vertically center modal -->
           <div class="modal-content">
             <div class="modal-top">
@@ -227,6 +222,31 @@
         </div>
       </div>
       <!-- SAVED PATTERNS MODAL ENDS -->
+
+      <!-- CHANGE PASSWORD MODAL BEGINS -->
+      <div class="modal fade" id="introTextModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="intro-text-modal">
+            <div class="modal-top">
+              <span class="modal-title" id="modalTitleChangePassword"></span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="intro-p">
+              <img src="public/images/p.svg" class="p-logo-intro" alt="P">
+            </div>
+            <div class="intro-text">
+              Welcome to Patturns! Click on the color circle to select a color.
+              Start making patterns with that color. Switch colors and keep going!
+              <BR><BR>
+              Sign up with an account to save your pattern.
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <!-- CHANGE PASSWORD MODAL ENDS -->
 
       </main>
     </body>

@@ -2,7 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap/scss/bootstrap';
 // @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Mitr:200,300,400,500,600,700|Aldrich|Basic|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Monoton|Varela+Round|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Mitr:200,300,400,500,600,700|Aldrich|Basic|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Monoton|Varela+Round|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
 /************************************
 COLOR MIXES
@@ -49,6 +49,43 @@ $yellow-amped: #fff200;
 $pale-blue: rgb(219, 255, 254);
 
 /************************************
+INTRO MODAL
+************************************/
+
+.intro-text-modal {
+  background-color: $ten-percent-gray;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.intro-p {
+  display: flex;
+  justify-content: center;
+}
+
+.p-logo-intro {
+  height: 40px;
+  margin: 0 auto 0.75rem;
+  position: relative;
+  top: -0.75rem;
+  width: 40px;
+}
+
+.intro-text {
+  background-color: $white;
+  border: 1px solid $fifty-percent-gray;
+  border-radius: 1rem;
+  color: $seventy-five-percent-gray;
+  font-family: 'Prompt', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  padding: 1.5rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+/************************************
 HEADER & NAV BAR
 ************************************/
 
@@ -88,6 +125,7 @@ nav {
 }
 
 .p-logo-nav {
+  cursor: pointer;
   height: 30px;
   position: relative;
   top: -4px;
@@ -593,12 +631,6 @@ BREAKPOINT 500px
   .menu-elements {
     top: -5px;
     width: 100%;
-  }
-
-  .p-logo-nav {
-    height: 25px;
-    width: 25px;
-    top: -2px;
   }
 
   .nav-button {

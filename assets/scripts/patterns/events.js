@@ -153,6 +153,7 @@ const pickColor = function (event) {
   $('.menu-elements').css('z-index', '0')
 }
 
+// This function toggles the color drawer…
 const colorDrawer = () => {
   $('.menu-elements').css('z-index', '10')
   $('.color-drawer').fadeToggle(200)
@@ -189,6 +190,7 @@ const addPatternHandlers = () => {
   ************************************/
   store.currentColor = 'black'
   console.log(store.currentColor)
+  $('#introTextModal').modal('show')
   $('.info-section').hide()
   $('.patterns-menu').hide()
   $('#nav-menu-signed-in').css('display', 'none')
