@@ -14,8 +14,8 @@ const store = {
   },
   clearGrid: function () {
     store.mouseDown = false
-    $('.current-color').attr('class', 'current-color').addClass('color-black') // <= This sets the default color to black.
-    store.currentColor = 'black' // Sets picked color to black.
+    $('.current-color').attr('class', 'current-color').addClass('color-orange') // Sets the default disc color.
+    store.currentColor = 'orange' // Sets the value of the current color.
     $('.grid-cell').attr('class', 'grid-cell') // Removes all color classes from all grid-cells.
     $('.pattern-field-input-info').val('') // Clears any typed info in the form input field.
     $('#update-pattern-panel').hide() // Hides panel for updating pattern: form input field and 'SAVE' button.

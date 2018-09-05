@@ -16,6 +16,7 @@ $ten-percent-gray: #e5e5e5;
 $thirty-percent-gray: #b3b3b3;
 $fifty-percent-gray: #7f7f7f;
 $seventy-five-percent-gray: #636466;
+$ninety-percent-gray: #191919;
 $black: #000;
 $white: #fff;
 $red: #f00;
@@ -285,22 +286,25 @@ COLORS & PATTERNS MENUS
 
 .color-drawer {
   position: absolute;
-  top: -175px;
+  top: -200px;
   width: 75px;
 }
 
 .color-bar {
   background-color: $white;
-  border: 1px solid $lines-brown;
+  border: 1px solid $ninety-percent-gray;
   border-radius: 1rem;
   cursor: pointer;
   height: 25px;
-  left: -2px;
   position: relative;
   z-index: 10;
 
   &.bar-black {
-    background-color: $black;
+    background-color: $ninety-percent-gray;
+  }
+
+  &.bar-brown {
+    background-color: $lines-brown;
   }
 
   &.bar-white {
@@ -338,7 +342,11 @@ COLORS & PATTERNS MENUS
   width: 75%;
 
   &.color-black {
-    background-color: $black;
+    background-color: $ninety-percent-gray;
+  }
+
+  &.color-brown {
+    background-color: $lines-brown;
   }
 
   &.color-white {
@@ -384,11 +392,9 @@ GRID & CELLS
 
 .grid-cell {
   background-color: $white;
-  // border-bottom: 0.01rem solid $lines-brown;
-  // border-right: 0.01rem solid $lines-brown;
   cursor: pointer;
   height: 50px;
-  outline: 0.01rem solid $lines-brown;
+  outline: 0.01rem solid $black;
   transition: background-color 0.1s linear;
   width: 50px;
 
@@ -397,6 +403,10 @@ GRID & CELLS
   // }
 
   &.black {
+    background-color: $ninety-percent-gray;
+  }
+
+  &.brown {
     background-color: $lines-brown;
   }
 
@@ -433,7 +443,7 @@ GRID & CELLS
   height: 500px;
   margin: 0 auto;
   order: 2;
-  outline: 0.2rem solid $lines-brown;
+  outline: 0.2rem solid $ninety-percent-gray;
   overflow: visible;
   position: relative;
   top: 50px;

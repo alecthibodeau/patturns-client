@@ -20,7 +20,6 @@ const onNewPattern = (event) => {
     .then(ui.newPatternSuccess(data))
     // .then(getPatterns)
     .catch(ui.failure)
-  // console.log(data.pattern.niceDate)
 }
 
 /************************************
