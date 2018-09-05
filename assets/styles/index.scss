@@ -2,7 +2,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap/scss/bootstrap';
 // @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Mitr:200,300,400,500,600,700|Aldrich|Basic|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Monoton|Varela+Round|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+// @import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Mitr:200,300,400,500,600,700|Aldrich|Basic|Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Monoton|Varela+Round|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round|Mukta:200,300,400,500,600,700,800|Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
 
 /************************************
 COLOR MIXES
@@ -49,60 +51,15 @@ $yellow-amped: #fff200;
 $pale-blue: rgb(219, 255, 254);
 
 /************************************
-INTRO MODAL
-************************************/
-
-.intro-text-modal {
-  background-color: $ten-percent-gray;
-  border-radius: 1rem;
-  padding: 1rem;
-}
-
-.intro-p {
-  display: flex;
-  justify-content: center;
-}
-
-.p-logo-intro {
-  height: 40px;
-  margin: 0 auto 0.75rem;
-  position: relative;
-  top: -0.75rem;
-  width: 40px;
-}
-
-.patturns-title,
-.intro-text {
-  color: $orange-muted;
-  font-family: 'Montserrat', sans-serif;
-  font-style: italic;
-  font-size: 0.9rem;
-  font-weight: 700;
-  line-height: 1.75rem;
-  text-align: left;
-  text-transform: uppercase;
-
-  &.intro-text {
-    background-color: $white;
-    border: 1px solid $fifty-percent-gray;
-    border-radius: 1rem;
-    color: $seventy-five-percent-gray;
-    font-style: normal;
-    font-weight: 600;
-    padding: 1.5rem;
-  }
-}
-
-/************************************
 HEADER & NAV BAR
 ************************************/
 
 body {
   background-color: $seventy-five-percent-gray;
-  font-family: 'Mukta', sans-serif;
 }
 
 html {
+  font-family: 'Mukta', sans-serif;
   font-size: 15px;
   height: 100%;
   letter-spacing: 0.25rem;
@@ -149,7 +106,7 @@ nav {
   font-size: 1rem;
   margin: 0 0.25rem;
   letter-spacing: 0.25rem;
-  padding-top: 3px;
+  padding: 0.125rem;
   position: relative;
   text-transform: uppercase;
   top: -2px;
@@ -184,6 +141,52 @@ nav {
   text-align: center;
   text-transform: uppercase;
   width: 150px;
+}
+
+/************************************
+INTRO MODAL
+************************************/
+
+.intro-text-modal {
+  background-color: $ten-percent-gray;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.intro-p {
+  display: flex;
+  justify-content: center;
+}
+
+.p-logo-intro {
+  height: 40px;
+  margin: 0 auto 0.75rem;
+  position: relative;
+  top: -0.75rem;
+  width: 40px;
+}
+
+.patturns-title,
+.intro-text {
+  color: $orange-muted;
+  font-family: 'Nunito', sans-serif;
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.15rem;
+  line-height: 1.75rem;
+  text-align: left;
+  text-transform: uppercase;
+
+  &.intro-text {
+    background-color: $white;
+    border: 1px solid $fifty-percent-gray;
+    border-radius: 1rem;
+    color: $seventy-five-percent-gray;
+    font-style: normal;
+    font-weight: 700;
+    padding: 1.5rem;
+  }
 }
 
 /************************************
@@ -658,7 +661,7 @@ BREAKPOINT 500px
   .nav-button {
     font-size: 0.75rem;
     height: 22px;
-    padding: 0.01rem 3px 0;
+    padding: 0.01rem 0.025rem;
     top: 0;
     width: 115px;
   }
