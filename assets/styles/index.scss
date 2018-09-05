@@ -107,7 +107,7 @@ nav {
   font-size: 1rem;
   margin: 0 0.25rem;
   letter-spacing: 0.25rem;
-  padding: 0.125rem;
+  padding: 0.125rem 0 0.125rem 0.4rem;
   position: relative;
   text-transform: uppercase;
   top: -2px;
@@ -635,10 +635,6 @@ BREAKPOINT 750px
       border-radius: 0 1rem 1rem 0;
     }
   }
-
-  .color-bar {
-    left: 0;
-  }
 }
 
 /******************
@@ -672,7 +668,7 @@ BREAKPOINT 500px
     font-size: 0.75rem;
     font-weight: 600;
     height: 22px;
-    padding: 0.01rem 0.025rem;
+    padding: 0.125rem 0 0.125rem 0.25rem;
     top: 0;
     width: 115px;
   }
