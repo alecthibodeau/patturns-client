@@ -187,8 +187,6 @@ const addPatternHandlers = () => {
   /************************************
   HANDLERS — PAGE LOAD
   ************************************/
-  store.currentColor = 'black'
-  console.log(store.currentColor)
   $('#introTextModal').modal('show')
   $('.info-section').hide()
   $('.patterns-menu').hide()
