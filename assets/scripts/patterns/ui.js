@@ -83,9 +83,11 @@ const getPatternsSuccess = (data) => {
       console.log(`mini-grid-${i}`)
       console.log(`mini-cell-${x}`)
       // document.getElementById(`mini-grid-${i}`).appendChild(elementMiniCell)
-      $(`#mini-grid-${i}`).append($(elementMiniCell))
-      $(`#mini-grid-${i}`).append('<p>Test</p>')
-      $(`#mini-grid-${i}`).html('Hello!')
+      $(document).ready(function () {
+        $(`#mini-grid-${i}`).append(elementMiniCell)
+      })
+      // $(`#mini-grid-${i}`).append('<p>Test</p>')
+      // $(`#mini-grid-${i}`).html('Hello!')
     }
   //   // Get grid info as string…
   //   store.pattern = {

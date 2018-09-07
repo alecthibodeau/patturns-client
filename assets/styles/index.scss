@@ -411,9 +411,11 @@ GRID & CELLS
 
 .mini-grid-cell {
   background-color: $white;
-  height: 1px;
+  border: 0;
+  cursor: pointer;
+  height: 10px;
   outline: none;
-  width: 1px;
+  width: 10px;
 }
 
 .grid-cell {
@@ -527,10 +529,14 @@ td {
 
 .mini-grid {
   background-color: $orange-muted;
-  border: 0.01rem solid $black;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
   height: 100px;
   // margin: 5px;
   min-width: 100px;
+  outline: 0.01rem solid $black;
+  overflow: visible;
 }
 
 .modify-pattern-button,
