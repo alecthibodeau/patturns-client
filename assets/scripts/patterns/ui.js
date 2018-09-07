@@ -62,10 +62,14 @@ const getPatternsSuccess = (data) => {
   $('.pattern-return-content').html(showPatternsHtml)
 
   for (let i = 0; i < data.patterns.length; i++) {
-    const miniGrid = document.createElement('td')
-    miniGrid.setAttribute('class', 'mini-grid-td')
-    miniGrid.setAttribute('id', `mini-grid-${i}`)
-    $(`#pattern-index-${i}`).prepend($(miniGrid))
+    const miniGridTd = document.createElement('td')
+    miniGridTd.setAttribute('class', 'mini-grid-td')
+    miniGridTd.setAttribute('id', `mini-grid-td-${i}`)
+    $(`#pattern-index-${i}`).prepend($(miniGridTd))
+    const miniGrid = document.createElement('div')
+    miniGridTd.setAttribute('class', 'mini-grid')
+    miniGridTd.setAttribute('id', `mini-grid-${i}`)
+    $(`#mini-grid-td-${i}`).append($(miniGrid))
   }
 }
 
