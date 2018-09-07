@@ -60,9 +60,21 @@ const getPatternsSuccess = (data) => {
   const showPatternsHtml = showPatternsTemplate({ patterns: data.patterns })
   $('.info-section').show()
   $('.pattern-return-content').html(showPatternsHtml)
-
+  $('.mini-grid-cell').attr('class', 'mini-grid-cell') // Removes color classes from all cells.
+  $('#pattern-index-row').remove($('mini-grid-td'))
   // This is the 'for loop' that builds the mini-grid and appends it in each table row…
   for (let i = 0; i < data.patterns.length; i++) {
+    // Get array for each mini-grid…
+    // store.pattern = {
+    //   grid: $(event.target).closest('tr').attr('data-grid')
+    // }
+    console.log('Here\'s the grid:')
+    console.log(data.patterns[i].grid)
+    const savedMiniGridAsArray = (event) => {
+      event.preventDefault()
+      data.patterns[i].grid.split(',')
+    }
+    store.miniGrid = savedMiniGridAsArray
     // Create td…
     const miniGridTd = document.createElement('td')
     miniGridTd.setAttribute('class', 'mini-grid-td')
