@@ -254,7 +254,7 @@ const addPatternHandlers = () => {
   $('#get-patterns-button').on('click', onGetPatterns)
 
   // capturePattern captures table row data from the savedPatternsModal modal when that row's 'MODIFY' button is clicked…
-  $('.pattern-return-content').on('click', '#modify-pattern-button', capturePattern)
+  $('.pattern-return-content').on('click', '.mini-grid-td', capturePattern)
 
   // onUpdatePattern is the function that runs on 'UPDATE' button click…
   $('#update-pattern-panel').on('submit', onUpdatePattern)

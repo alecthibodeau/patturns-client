@@ -61,14 +61,15 @@ const getPatternsSuccess = (data) => {
   $('.info-section').show()
   $('.pattern-return-content').html(showPatternsHtml)
 
+  // This is the 'for loop' that builds the mini-grid and appends it in each table row…
   for (let i = 0; i < data.patterns.length; i++) {
     const miniGridTd = document.createElement('td')
     miniGridTd.setAttribute('class', 'mini-grid-td')
     miniGridTd.setAttribute('id', `mini-grid-td-${i}`)
     $(`#pattern-index-${i}`).prepend($(miniGridTd))
     const miniGrid = document.createElement('div')
-    miniGridTd.setAttribute('class', 'mini-grid')
-    miniGridTd.setAttribute('id', `mini-grid-${i}`)
+    miniGrid.setAttribute('class', 'mini-grid')
+    miniGrid.setAttribute('id', `mini-grid-${i}`)
     $(`#mini-grid-td-${i}`).append($(miniGrid))
   }
 }
