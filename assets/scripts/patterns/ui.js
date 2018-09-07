@@ -40,7 +40,7 @@ UI FOR CRUD ACTIONS
 // CREATE
 const newPatternSuccess = (data) => {
   $('#messageModal').modal('show')
-  $('#modalTitleMessage').text('New pattern created')
+  $('#modalTitleMessage').text('New pattern saved')
   successfulPatternCrud()
 }
 
