@@ -10,13 +10,16 @@
     class="pattern-index-row"
     id="pattern-index-{{@index}}">
     <td class="date-td">
-      {{#if pattern.twoDigitDate}}
-        {{pattern.twoDigitDate}}
-      {{else}}
-        {{pattern.updatedAt}}
-      {{/if}}
-    </td>
-    <td class="info-td">
+      <span class="date-span">
+        {{#if pattern.twoDigitDate}}
+          {{pattern.twoDigitDate}}
+        {{else}}
+          {{pattern.updatedAt}}
+        {{/if}}
+      </span>
+    <!-- </td>
+    <td class="info-td"> -->
+    <BR>
       {{#if pattern.info}}
         {{pattern.info}}
       {{else}}

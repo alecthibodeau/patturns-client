@@ -492,20 +492,24 @@ table {
 
 th,
 td {
-  color: $seventy-five-percent-gray;
+  color: $lines-brown;
   font-size: 1rem;
   font-weight: 400;
   max-height: 100px;
   max-width: 300px;
-  overflow: hidden;
+  // overflow: hidden;
   padding: 0.25rem 1rem;
   text-align: left;
-  text-overflow: ellipsis;
+  // text-overflow: clip;
   vertical-align: bottom;
-  white-space: pre-line;
+  // white-space: nowrap;
 
   &.delete-pattern-button-td {
     white-space: normal;
+  }
+
+  & .date-span {
+    color: $sky-blue;
   }
 }
 
