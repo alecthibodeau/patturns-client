@@ -75,19 +75,13 @@ const getPatternsSuccess = (data) => {
     $(`#mini-grid-td-${i}`).append($(miniGrid))
     // Create cells within dev…
     for (let x = 0; x < 100; x++) {
-      console.log('createMiniGrid runs')
       const elementMiniCell = document.createElement('div')
       elementMiniCell.setAttribute('class', 'mini-grid-cell')
       elementMiniCell.setAttribute('data-id', x)
       elementMiniCell.setAttribute('id', 'mini-cell-' + x)
-      console.log(`mini-grid-${i}`)
-      console.log(`mini-cell-${x}`)
-      // document.getElementById(`mini-grid-${i}`).appendChild(elementMiniCell)
       $(document).ready(function () {
         $(`#mini-grid-${i}`).append(elementMiniCell)
       })
-      // $(`#mini-grid-${i}`).append('<p>Test</p>')
-      // $(`#mini-grid-${i}`).html('Hello!')
     }
   //   // Get grid info as string…
   //   store.pattern = {
