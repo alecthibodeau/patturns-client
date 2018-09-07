@@ -63,14 +63,40 @@ const getPatternsSuccess = (data) => {
 
   // This is the 'for loop' that builds the mini-grid and appends it in each table row…
   for (let i = 0; i < data.patterns.length; i++) {
+    // Create td…
     const miniGridTd = document.createElement('td')
     miniGridTd.setAttribute('class', 'mini-grid-td')
     miniGridTd.setAttribute('id', `mini-grid-td-${i}`)
     $(`#pattern-index-${i}`).prepend($(miniGridTd))
+    // Create div within td…
     const miniGrid = document.createElement('div')
     miniGrid.setAttribute('class', 'mini-grid')
     miniGrid.setAttribute('id', `mini-grid-${i}`)
     $(`#mini-grid-td-${i}`).append($(miniGrid))
+    // Create cells within dev…
+    for (let x = 0; x < 100; x++) {
+      console.log('createMiniGrid runs')
+      const elementMiniCell = document.createElement('div')
+      elementMiniCell.setAttribute('class', 'mini-grid-cell')
+      elementMiniCell.setAttribute('data-id', x)
+      elementMiniCell.setAttribute('id', 'mini-cell-' + x)
+      console.log(`mini-grid-${i}`)
+      console.log(`mini-cell-${x}`)
+      // document.getElementById(`mini-grid-${i}`).appendChild(elementMiniCell)
+      $(`#mini-grid-${i}`).append($(elementMiniCell))
+      $(`#mini-grid-${i}`).append('<p>Test</p>')
+      $(`#mini-grid-${i}`).html('Hello!')
+    }
+  //   // Get grid info as string…
+  //   store.pattern = {
+  //     grid: $(event.target).closest('tr').attr('data-grid')
+  //   }
+  //   // Convert grid info to array…
+  //   const savedMiniGridAsArray = store.pattern.grid.split(',')
+  //   store.miniGrid = savedMiniGridAsArray
+  //   for (let i = 0; i < 100; i++) { // Adds color class of each grid-cell from corresponding cell in saved grid array.
+  //     $(`#mini-cell-${i}`).addClass(`${savedMiniGridAsArray[i]}`)
+  //   }
   }
 }
 

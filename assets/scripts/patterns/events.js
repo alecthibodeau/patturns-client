@@ -53,7 +53,6 @@ CRUD ACTIONS — READ: SHOW
 const capturePattern = (event) => {
   store.pattern = {
     pattern_id: $(event.target).closest('tr').attr('data-id'),
-    thumbnail: $(event.target).closest('tr').attr('data-thumbnail'),
     date: $(event.target).closest('tr').attr('data-date'),
     grid: $(event.target).closest('tr').attr('data-grid'),
     info: $(event.target).closest('tr').attr('data-info')

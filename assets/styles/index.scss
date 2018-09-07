@@ -409,6 +409,13 @@ input { // form input fields
 GRID & CELLS
 ************************************/
 
+.mini-grid-cell {
+  background-color: $white;
+  height: 1px;
+  outline: none;
+  width: 1px;
+}
+
 .grid-cell {
   background-color: $white;
   cursor: pointer;
@@ -417,6 +424,11 @@ GRID & CELLS
   transition: background-color 0.1s linear;
   width: 50px;
 
+  // &.mini-grid-cell {
+  //   height: 1px;
+  //   outline: none;
+  //   width: 1px;
+  // }
   // &:hover {
   //   background-color: $rainbow-yellow;
   // }
@@ -495,7 +507,7 @@ td {
   color: $lines-brown;
   font-size: 1rem;
   font-weight: 400;
-  max-height: 100px;
+  // max-height: 100px;
   max-width: 300px;
   // overflow: hidden;
   padding: 0.25rem 1rem;
