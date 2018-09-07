@@ -7,7 +7,7 @@
     data-grid="{{pattern.grid}}"
     data-date="{{pattern.numeralDate}}"
     data-info="{{pattern.info}}"
-    class="pattern-index-{{@index}}"
+    class="pattern-index-row"
     id="pattern-index-{{@index}}">
     <td class="date-td">
       {{#if pattern.twoDigitDate}}
@@ -23,8 +23,16 @@
         —
       {{/if}}
     </td>
-    <td class="modify-pattern-button-td"><button type="button" class="modify-pattern-button" id="modify-pattern-button">Modify</button></td>
-    <td class="delete-pattern-button-td"><button type="submit" class="delete-pattern-button" id="delete-pattern-button">Delete</button></td>
+    <!-- <td class="modify-pattern-button-td">
+      <button type="button" class="modify-pattern-button" id="modify-pattern-button">
+        Modify
+      </button>
+    </td> -->
+    <td class="delete-pattern-button-td">
+      <button type="submit" class="delete-pattern-button" id="delete-pattern-button">
+        Delete
+      </button>
+    </td>
   </tr>
 
 {{/each}}

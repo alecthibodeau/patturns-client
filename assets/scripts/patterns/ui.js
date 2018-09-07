@@ -60,6 +60,13 @@ const getPatternsSuccess = (data) => {
   const showPatternsHtml = showPatternsTemplate({ patterns: data.patterns })
   $('.info-section').show()
   $('.pattern-return-content').html(showPatternsHtml)
+
+  for (let i = 0; i < data.patterns.length; i++) {
+    const miniGrid = document.createElement('td')
+    miniGrid.setAttribute('class', 'mini-grid-td')
+    miniGrid.setAttribute('id', `mini-grid-${i}`)
+    $(`#pattern-index-${i}`).prepend($(miniGrid))
+  }
 }
 
 // Unused function to clear table info…
