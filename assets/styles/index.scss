@@ -715,28 +715,18 @@ BREAKPOINT 500px
   .date-th,
   .info-th {
     font-size: 1rem;
-    max-width: 85px;
-    padding: 5px 2px;
+    max-width: 110px;
+    padding: 5px 10px;
 
     &.info-th {
-      max-width: 60px;
+      max-width: 110px;
     }
   }
 
-  .date-td,
-  .info-td {
+  td {
     font-size: 1rem;
-    max-width: 85px;
-    padding: 2px 2px;
-
-    &.info-td {
-      max-width: 60px;
-    }
-  }
-
-  .modify-pattern-button-td,
-  .delete-pattern-button-td {
-    padding: 2px 2px;
+    max-width: 110px;
+    padding: 2px 10px;
   }
 }
 
@@ -790,5 +780,32 @@ BREAKPOINT 400px
     & button {
       font-size: 12px;
     }
+  }
+
+  .date-th,
+  .info-th {
+    font-size: 1rem;
+    max-width: 85px;
+    padding: 5px 2px;
+
+    &.info-th {
+      max-width: 60px;
+    }
+  }
+
+  .date-td,
+  .info-td {
+    font-size: 1rem;
+    max-width: 85px;
+    padding: 2px 2px;
+
+    &.info-td {
+      max-width: 60px;
+    }
+  }
+
+  .modify-pattern-button-td,
+  .delete-pattern-button-td {
+    padding: 2px 2px;
   }
 }
