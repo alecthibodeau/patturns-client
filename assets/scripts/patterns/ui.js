@@ -60,51 +60,37 @@ const getPatternsSuccess = (data) => {
   const showPatternsHtml = showPatternsTemplate({ patterns: data.patterns })
   $('.info-section').show()
   $('.pattern-return-content').html(showPatternsHtml)
-  $('.mini-grid-cell').attr('class', 'mini-grid-cell') // Removes color classes from all cells.
-  $('#pattern-index-row').remove($('mini-grid-td'))
+  // $('.mini-grid-cell').attr('class', 'mini-grid-cell') // Removes color classes from all cells.
+  // $('#pattern-index-row').remove($('mini-grid-td')) // Removes td from tr
   // This is the 'for loop' that builds the mini-grid and appends it in each table row…
   for (let i = 0; i < data.patterns.length; i++) {
     // Get array for each mini-grid…
-    // store.pattern = {
-    //   grid: $(event.target).closest('tr').attr('data-grid')
-    // }
-    console.log('Here\'s the grid:')
-    console.log(data.patterns[i].grid)
-    const savedMiniGridAsArray = (event) => {
-      event.preventDefault()
-      data.patterns[i].grid.split(',')
-    }
-    store.miniGrid = savedMiniGridAsArray
-    // Create td…
+    // console.log('Here\'s the grid:')
+    // console.log(data.patterns[i].grid)
+    store.savedMiniGridAsArray = data.patterns[i].grid
+    // Create td and insert it into Handlebars row…
     const miniGridTd = document.createElement('td')
     miniGridTd.setAttribute('class', 'mini-grid-td')
     miniGridTd.setAttribute('id', `mini-grid-td-${i}`)
     $(`#pattern-index-${i}`).prepend($(miniGridTd))
-    // Create div within td…
+    // Create div and insert it within ted…
     const miniGrid = document.createElement('div')
     miniGrid.setAttribute('class', 'mini-grid')
     miniGrid.setAttribute('id', `mini-grid-${i}`)
     $(`#mini-grid-td-${i}`).append($(miniGrid))
-    // Create cells within dev…
+    // Create cells within miniGrid and color them from the array…
     for (let x = 0; x < 100; x++) {
       const elementMiniCell = document.createElement('div')
-      elementMiniCell.setAttribute('class', 'mini-grid-cell')
+      elementMiniCell.setAttribute('class', store.savedMiniGridAsArray[x])
+      $(elementMiniCell).addClass('mini-grid-cell')
       elementMiniCell.setAttribute('data-id', x)
       elementMiniCell.setAttribute('id', 'mini-cell-' + x)
       $(document).ready(function () {
         $(`#mini-grid-${i}`).append(elementMiniCell)
       })
+      // console.log(`#mini-cell-${x}`)
+      // console.log(store.savedMiniGridAsArray[x])
     }
-  //   // Get grid info as string…
-  //   store.pattern = {
-  //     grid: $(event.target).closest('tr').attr('data-grid')
-  //   }
-  //   // Convert grid info to array…
-  //   const savedMiniGridAsArray = store.pattern.grid.split(',')
-  //   store.miniGrid = savedMiniGridAsArray
-  //   for (let i = 0; i < 100; i++) { // Adds color class of each grid-cell from corresponding cell in saved grid array.
-  //     $(`#mini-cell-${i}`).addClass(`${savedMiniGridAsArray[i]}`)
-  //   }
   }
 }
 
