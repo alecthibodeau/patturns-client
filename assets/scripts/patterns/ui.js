@@ -75,8 +75,8 @@ const getPatternsSuccess = (data) => {
     $(`#pattern-index-${i}`).prepend($(miniGridTd))
     // Create div and insert it within ted…
     const miniGrid = document.createElement('div')
-    miniGrid.setAttribute('class', 'mini-grid')
-    miniGrid.setAttribute('id', `mini-grid-${i}`)
+    miniGrid.setAttribute('class', 'mini-grid-container')
+    miniGrid.setAttribute('id', `mini-grid-container-${i}`)
     $(`#mini-grid-td-${i}`).append($(miniGrid))
     // Create cells within miniGrid and color them from the array…
     for (let x = 0; x < 100; x++) {
@@ -84,9 +84,9 @@ const getPatternsSuccess = (data) => {
       elementMiniCell.setAttribute('class', store.savedMiniGridAsArray[x])
       $(elementMiniCell).addClass('mini-grid-cell')
       elementMiniCell.setAttribute('data-id', x)
-      elementMiniCell.setAttribute('id', 'mini-cell-' + x)
+      elementMiniCell.setAttribute('id', 'mini-grid-cell-' + x)
       $(document).ready(function () {
-        $(`#mini-grid-${i}`).append(elementMiniCell)
+        $(`#mini-grid-container-${i}`).append(elementMiniCell)
       })
       // console.log(`#mini-cell-${x}`)
       // console.log(store.savedMiniGridAsArray[x])

@@ -52,6 +52,52 @@ $yellow-amped: #fff200;
 $pale-blue: rgb(219, 255, 254);
 
 /************************************
+MIXINS
+************************************/
+
+@mixin color-palette {
+  &.black {
+    background-color: $ninety-percent-gray;
+  }
+
+  &.brown {
+    background-color: $lines-brown;
+  }
+
+  &.white {
+    background-color: $white;
+  }
+
+  &.red {
+    background-color: $red-muted;
+  }
+
+  &.orange {
+    background-color: $orange-muted;
+  }
+
+  &.yellow {
+    background-color: $yellow-muted;
+  }
+
+  &.green {
+    background-color: $green-muted;
+  }
+
+  &.blue {
+    background-color: $blue-muted;
+  }
+}
+
+@mixin grid-basics {
+  background-color: $thirty-percent-gray;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+  overflow: visible;
+}
+
+/************************************
 HEADER & NAV BAR
 ************************************/
 
@@ -318,37 +364,7 @@ COLORS & PATTERNS MENUS
   position: relative;
   z-index: 10;
 
-  &.bar-black {
-    background-color: $ninety-percent-gray;
-  }
-
-  &.bar-brown {
-    background-color: $lines-brown;
-  }
-
-  &.bar-white {
-    background-color: $white;
-  }
-
-  &.bar-red {
-    background-color: $red-muted;
-  }
-
-  &.bar-orange {
-    background-color: $orange-muted;
-  }
-
-  &.bar-yellow {
-    background-color: $yellow-muted;
-  }
-
-  &.bar-green {
-    background-color: $green-muted;
-  }
-
-  &.bar-blue {
-    background-color: $blue-muted;
-  }
+  @include color-palette;
 }
 
 .current-color {
@@ -360,37 +376,7 @@ COLORS & PATTERNS MENUS
   top: 50%;
   width: 75%;
 
-  &.color-black {
-    background-color: $ninety-percent-gray;
-  }
-
-  &.color-brown {
-    background-color: $lines-brown;
-  }
-
-  &.color-white {
-    background-color: $white;
-  }
-
-  &.color-red {
-    background-color: $red-muted;
-  }
-
-  &.color-orange {
-    background-color: $orange-muted;
-  }
-
-  &.color-yellow {
-    background-color: $yellow-muted;
-  }
-
-  &.color-green {
-    background-color: $green-muted;
-  }
-
-  &.color-blue {
-    background-color: $blue-muted;
-  }
+  @include color-palette;
 }
 
 input { // form input fields
@@ -409,47 +395,6 @@ input { // form input fields
 GRID & CELLS
 ************************************/
 
-.mini-grid-cell {
-  background-color: $white;
-  border: 0;
-  cursor: pointer;
-  height: 10px;
-  outline: 0.01rem solid $black;
-  width: 10px;
-
-  &.black {
-    background-color: $ninety-percent-gray;
-  }
-
-  &.brown {
-    background-color: $lines-brown;
-  }
-
-  &.white {
-    background-color: $white;
-  }
-
-  &.red {
-    background-color: $red-muted;
-  }
-
-  &.orange {
-    background-color: $orange-muted;
-  }
-
-  &.yellow {
-    background-color: $yellow-muted;
-  }
-
-  &.green {
-    background-color: $green-muted;
-  }
-
-  &.blue {
-    background-color: $blue-muted;
-  }
-}
-
 .grid-cell {
   background-color: $white;
   cursor: pointer;
@@ -458,63 +403,42 @@ GRID & CELLS
   transition: background-color 0.1s linear;
   width: 50px;
 
-  // &.mini-grid-cell {
-  //   height: 1px;
-  //   outline: none;
-  //   width: 1px;
-  // }
-  // &:hover {
-  //   background-color: $rainbow-yellow;
-  // }
-
-  &.black {
-    background-color: $ninety-percent-gray;
-  }
-
-  &.brown {
-    background-color: $lines-brown;
-  }
-
-  &.white {
-    background-color: $white;
-  }
-
-  &.red {
-    background-color: $red-muted;
-  }
-
-  &.orange {
-    background-color: $orange-muted;
-  }
-
-  &.yellow {
-    background-color: $yellow-muted;
-  }
-
-  &.green {
-    background-color: $green-muted;
-  }
-
-  &.blue {
-    background-color: $blue-muted;
-  }
+  @include color-palette;
 }
 
 .grid-container {
-  background-color: transparent;
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
-  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+
+  @include grid-basics;
+
   height: 500px;
   margin: 0 auto;
   order: 2;
   outline: 0.2rem solid $ninety-percent-gray;
-  overflow: visible;
   position: relative;
   top: 50px;
   user-select: none;
   width: 500px;
   z-index: 2;
+}
+
+.mini-grid-cell {
+  background-color: $white;
+  border: 0;
+  cursor: pointer;
+  height: 10px;
+  outline: 0.01rem solid $ninety-percent-gray;
+  width: 10px;
+
+  @include color-palette;
+}
+
+.mini-grid-container {
+
+  @include grid-basics;
+
+  height: 100px;
+  min-width: 100px;
+  outline: 0.15rem solid $ninety-percent-gray;
 }
 
 /************************************
@@ -538,13 +462,13 @@ table {
 
 th,
 td {
-  color: $lines-brown;
+  color: $ninety-percent-gray;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   // max-height: 100px;
   max-width: 300px;
   // overflow: hidden;
-  padding: 0.25rem 1rem;
+  padding: 0.75rem 1rem;
   text-align: left;
   // text-overflow: clip;
   vertical-align: bottom;
@@ -555,20 +479,8 @@ td {
   }
 
   & .date-span {
-    color: $sky-blue;
+    color: $fifty-percent-gray;
   }
-}
-
-.mini-grid {
-  background-color: $orange-muted;
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
-  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
-  height: 100px;
-  // margin: 5px;
-  min-width: 100px;
-  outline: 0.01rem solid $black;
-  overflow: visible;
 }
 
 .modify-pattern-button,
@@ -641,7 +553,9 @@ MODALS
 
 .modal-content {
   background-color: $white;
+  border-radius: 1rem;
   padding: 3%;
+  // padding: 1rem;
 }
 
 /******************
@@ -676,19 +590,6 @@ BREAKPOINT 1000px
     &.patterns-menu {
       border-radius: 0 0 1rem 1rem;
     }
-  }
-
-  .date-th,
-  .info-th {
-    font-size: 1rem;
-    max-width: 150px;
-    padding: 5px 15px;
-  }
-
-  td {
-    font-size: 1rem;
-    max-width: 150px;
-    padding: 2px 15px;
   }
 }
 
@@ -796,23 +697,6 @@ BREAKPOINT 500px
   .modal-title {
     font-size: 1rem;
   }
-
-  .date-th,
-  .info-th {
-    font-size: 1rem;
-    max-width: 110px;
-    padding: 5px 10px;
-
-    &.info-th {
-      max-width: 110px;
-    }
-  }
-
-  td {
-    font-size: 1rem;
-    max-width: 110px;
-    padding: 2px 10px;
-  }
 }
 
 /******************
@@ -874,30 +758,21 @@ BREAKPOINT 400px
     }
   }
 
-  .date-th,
-  .info-th {
+  th {
     font-size: 1rem;
-    max-width: 85px;
-    padding: 5px 2px;
-
-    &.info-th {
-      max-width: 60px;
-    }
   }
 
-  .date-td,
-  .info-td {
-    font-size: 1rem;
-    max-width: 85px;
-    padding: 2px 2px;
+  td {
+    font-size: 0.75rem;
+    overflow: hidden;
+    padding: 0.5rem 0.3rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
-    &.info-td {
-      max-width: 60px;
+    &.date-info-th,
+    &.date-info-td, {
+      max-width: 100px;
+      padding-left: 10px;
     }
-  }
-
-  .modify-pattern-button-td,
-  .delete-pattern-button-td {
-    padding: 2px 2px;
   }
 }

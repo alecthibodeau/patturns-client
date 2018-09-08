@@ -145,7 +145,7 @@ FUNCTIONS FOR COLORING GRID CELLS
 const pickColor = function (event) {
   event.preventDefault()
   store.currentColor = this.getAttribute('id')
-  $('.current-color').attr('class', 'current-color').addClass(`color-${store.currentColor}`)
+  $('.current-color').attr('class', 'current-color').addClass(`${store.currentColor}`)
   // console.log(store.currentColor)
   colorDrawer()
   $('.menu-elements').css('z-index', '0')
@@ -194,7 +194,7 @@ const addPatternHandlers = () => {
   $('#update-pattern-panel').hide()
   $('#color-drawer').hide()
   $('.colors-menu').addClass('all-rounded')
-  $('.current-color').attr('class', 'current-color').addClass('color-black').on('mousedown', colorDrawer) // <= This sets the default color to black.
+  $('.current-color').on('mousedown', colorDrawer) // <= This opens the color drawer.
 
   // Boolean for whether or not the mouse is down…
   $(document).mousedown(function () {
