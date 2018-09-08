@@ -414,8 +414,40 @@ GRID & CELLS
   border: 0;
   cursor: pointer;
   height: 10px;
-  outline: none;
+  outline: 0.01rem solid $black;
   width: 10px;
+
+  &.black {
+    background-color: $ninety-percent-gray;
+  }
+
+  &.brown {
+    background-color: $lines-brown;
+  }
+
+  &.white {
+    background-color: $white;
+  }
+
+  &.red {
+    background-color: $red-muted;
+  }
+
+  &.orange {
+    background-color: $orange-muted;
+  }
+
+  &.yellow {
+    background-color: $yellow-muted;
+  }
+
+  &.green {
+    background-color: $green-muted;
+  }
+
+  &.blue {
+    background-color: $blue-muted;
+  }
 }
 
 .grid-cell {
