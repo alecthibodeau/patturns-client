@@ -46,8 +46,6 @@ const newPatternSuccess = (data) => {
 
 // READ – The showPatternsHtml function is what gets the data from the Handlebars file: templates/pattern-listing.handlebars
 const getPatternsSuccess = (data) => {
-  // console.log('Here is data.patterns:')
-  // console.log(data.patterns)
   // debugger
   // THIS IS THE 'FOR LOOP VERSION: Creating a new key with 2-digit date information…
   // for (let i = 0; i < data.patterns.length; i++) {
@@ -60,13 +58,10 @@ const getPatternsSuccess = (data) => {
   const showPatternsHtml = showPatternsTemplate({ patterns: data.patterns })
   $('.info-section').show()
   $('.pattern-return-content').html(showPatternsHtml)
-  // $('.mini-grid-cell').attr('class', 'mini-grid-cell') // Removes color classes from all cells.
-  // $('#pattern-index-row').remove($('mini-grid-td')) // Removes td from tr
+
   // This is the 'for loop' that builds the mini-grid and appends it in each table row…
   for (let i = 0; i < data.patterns.length; i++) {
     // Get array for each mini-grid…
-    // console.log('Here\'s the grid:')
-    // console.log(data.patterns[i].grid)
     store.savedMiniGridAsArray = data.patterns[i].grid
     // Create td and insert it into Handlebars row…
     const miniGridTd = document.createElement('td')
@@ -88,10 +83,9 @@ const getPatternsSuccess = (data) => {
       $(document).ready(function () {
         $(`#mini-grid-container-${i}`).append(elementMiniCell)
       })
-      // console.log(`#mini-cell-${x}`)
-      // console.log(store.savedMiniGridAsArray[x])
     }
   }
+  $('#modalTitleGetPatterns').text('Saved patterns')
 }
 
 // Unused function to clear table info…

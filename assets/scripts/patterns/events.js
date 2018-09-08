@@ -31,6 +31,7 @@ CRUD ACTIONS — READ: INDEX
 // 2. Within the onUpdateTab function after api.updateTab(data, store.tab.tab_id)
 // NOTE: getPatterns is never called directly in this project (except from onGetPatterns), but may be useful later.
 const getPatterns = () => {
+  $('#modalTitleGetPatterns').text('Getting patterns…')
   api.getPatterns()
     .then(ui.getPatternsSuccess)
     .catch(ui.failure)
@@ -101,7 +102,6 @@ const onUpdatePattern = (event) => {
     .then(ui.updatePatternSuccess)
     // .then(getPatterns)
     .catch(ui.failure)
-  // console.log('Update runs.')
 }
 
 /************************************
