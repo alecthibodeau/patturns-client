@@ -214,8 +214,7 @@ INTRO MODAL
 }
 
 .patturns-title,
-.intro-text,
-.at-line {
+.intro-text {
   color: $orange-muted;
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
@@ -233,25 +232,27 @@ INTRO MODAL
     font-style: normal;
     font-weight: 700;
     padding: 1.5rem;
-
-    & .at-line {
-      color: $rainbow-blue;
-      font-size: 0.75rem;
-      margin: 1rem auto 0;
-      pointer-events: auto;
-      text-align: center;
-      text-transform: uppercase;
-      user-select: auto;
-      z-index: 12;
-    }
   }
 }
 
-a {
+.credit-div {
+  margin: 1rem auto 0;
+  text-align: center;
+}
+
+.at-line {
+  color: $rainbow-blue;
+  font-size: 0.75rem;
+  pointer-events: auto;
+  text-transform: uppercase;
+  user-select: auto;
+  z-index: 12;
+
   &:link,
   &:visited,
   &:hover,
   &:active {
+    color: $rainbow-blue;
     text-decoration: none;
   }
 }
