@@ -151,8 +151,8 @@ nav {
   color: $cloud-white;
   cursor: pointer;
   font-size: 1rem;
-  margin: 0 0.25rem;
   letter-spacing: 0.25rem;
+  margin: 0 0.25rem;
   padding: 0.125rem 0 0.125rem 0.4rem;
   position: relative;
   text-transform: uppercase;
@@ -283,7 +283,7 @@ BUTTON STYLES
 COLORS & PATTERNS MENUS
 ************************************/
 
-// This is the outer flexbox for the grid plus colors and patterns menus
+// This is the OUTER flexbox for the grid plus colors and patterns menus
 .main-elements {
   display: block;
   margin: 0 auto;
@@ -291,7 +291,7 @@ COLORS & PATTERNS MENUS
   z-index: 1;
 }
 
-// This is the inner flexbox for colors and patterns menus
+// This is the INNER flexbox for colors and patterns menus
 .menu-elements {
   display: flex;
   flex-direction: row;
@@ -449,7 +449,6 @@ PATTERN RETURN INFO SECTION
 .info-section {
   margin: 0 auto;
   max-width: 100%;
-  // padding: 0.5rem;
   position: relative;
   vertical-align: top;
 }
@@ -465,26 +464,24 @@ td {
   color: $ninety-percent-gray;
   font-size: 1rem;
   font-weight: 500;
-  // max-height: 100px;
   max-width: 300px;
-  // overflow: hidden;
   padding: 0.75rem 1rem;
   text-align: left;
-  // text-overflow: clip;
   vertical-align: bottom;
-  // white-space: nowrap;
-
-  &.delete-pattern-button-td {
-    white-space: normal;
-  }
 
   & .date-span {
-    color: $fifty-percent-gray;
+    color: $rainbow-blue;
+  }
+
+  &.date-info-td {
+    display: inline-block;
+    height: 100px;
+    overflow: hidden;
   }
 }
 
-.modify-pattern-button,
 .delete-pattern-button {
+  background-color: $red-muted;
   border-radius: 5px;
   color: $cloud-white;
   cursor: pointer;
@@ -496,20 +493,8 @@ td {
     outline: 0;
   }
 
-  &.modify-pattern-button {
-    background-color: $blue-muted;
-
-    &:hover {
-      background-color: $blue-amped;
-    }
-  }
-
-  &.delete-pattern-button {
-    background-color: $red-muted;
-
-    &:hover {
-      background-color: $red;
-    }
+  &:hover {
+    background-color: $red;
   }
 }
 
@@ -555,7 +540,6 @@ MODALS
   background-color: $white;
   border-radius: 1rem;
   padding: 3%;
-  // padding: 1rem;
 }
 
 /******************
@@ -774,14 +758,9 @@ BREAKPOINT 400px
 
   td {
     font-size: 0.75rem;
-    overflow: hidden;
     padding: 0.5rem 0.3rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 
-    &.date-info-th,
     &.date-info-td, {
-      max-width: 100px;
       padding-left: 10px;
     }
   }
