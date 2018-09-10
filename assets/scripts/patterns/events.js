@@ -141,17 +141,19 @@ const createGrid = () => {
 /************************************
 FUNCTIONS FOR COLORING GRID CELLS
 ************************************/
-// This function selects current color and saves it in store.currentColor…
+// This function selects store.currentColor…
 const pickColor = function (event) {
   event.preventDefault()
   store.currentColor = this.getAttribute('id')
-  // Removes any existing color class from the color disc and adds the class of the current color…
   $('.current-color').attr('class', 'current-color').addClass(`${store.currentColor}`)
+  // console.log(store.currentColor)
   colorDrawer()
+  $('.menu-elements').css('z-index', '0')
 }
 
 // This function toggles the color drawer…
 const colorDrawer = () => {
+  $('.menu-elements').css('z-index', '10')
   $('.color-drawer').fadeToggle(200)
 }
 
