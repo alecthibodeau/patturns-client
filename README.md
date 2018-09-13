@@ -3,10 +3,12 @@
 
 ## Description
 
-Patturns is a pattern-making visual tool for both practical and fun purposes. Users can change the colors of cells on the screen's 10 x 10 grid by drawing with a trackpad or mouse. Patterns is applicable for projects in engineering, quilting, mosaics and more. Patturns can also serve as a relaxing exercise and a creativity stimulator.
+Patturns is a pattern-making visual tool for both practical and fun purposes. Users can make patterns by changing the colors of cells on the screen's 10 x 10 grid with a trackpad, mouse or mobile interface. Patturns is applicable for basic projects in engineering, quilting, mosaics and more. Patturns can also serve as a relaxing exercise and a creativity stimulator.
+
+Why "Patturns" as a name? My ultimate feature for this project would be a user network, allowing people to pass patterns back forth to each other: taking "turns" working together on a shared pattern.
 
 ## Screenshot
-![Patturns Screenshot](https://i.imgur.com/iuV0fko.jpg)
+![Patturns Screenshot](https://i.imgur.com/upW86wm.jpg)
 
 ## Project Links
 
@@ -46,8 +48,8 @@ Technical Specifications
 
 ## Future Features
 
-- Add more colors for the user to select.
-- Add option to cycle through saved patterns as an animation.
+- Add more color choices.
+- Add a feature to cycle through saved patterns at faster or slower speeds: for animation and slide-show effects, respectively.
 
 ----------------------------------------------------------------
 (C) 2018 Alec Thibodeau
