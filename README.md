@@ -15,7 +15,7 @@ Why "Patturns" as a name? My ultimate feature for this project would be a user n
 - API Repository: https://github.com/alecthibodeau/patturns-api
 - API Deployed: https://patturns-api.herokuapp.com
 - Client Repository: https://github.com/alecthibodeau/patturns-client
-- Client Deployed: https://alecthibodeau.github.io/patturns-client
+- Client Deployed: https://alect.me/patturns-client
 
 ## Technologies
 
@@ -44,7 +44,7 @@ Technical Specifications
 - As a user wanting to modify a pattern I need to see all my saved patterns so that I can update or delete a specific one.
 
 ## Wireframe
-![Patturns Wireframe](https://i.imgur.com/8MITRUb.jpg)
+![Patturns Wireframe](https://i.imgur.com/qnC6JBH.jpg)
 
 ## Future Features
 
