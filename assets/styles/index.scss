@@ -136,12 +136,18 @@ nav {
   z-index: 5;
 }
 
-.p-logo-nav {
+.patturns-logo-nav {
   cursor: pointer;
   height: 30px;
   position: relative;
   top: -4px;
   width: 30px;
+
+  &:hover {
+    height: 34px;
+    top: -6px;
+    width: 34px;
+  }
 }
 
 .nav-button {
@@ -205,7 +211,7 @@ INTRO MODAL
   justify-content: center;
 }
 
-.p-logo-intro {
+.patturns-logo-intro {
   height: 40px;
   margin: 0 auto 0.75rem;
   position: relative;
@@ -617,7 +623,7 @@ BREAKPOINT 500px
 ******************/
 
 @media only screen and (max-width: 500px) {
-  .p-logo-intro {
+  .patturns-logo-intro {
     height: 30px;
     margin: 0 auto 0.5rem;
     top: -1rem;
