@@ -203,7 +203,7 @@ INTRO MODAL
 .intro-text-modal {
   background-color: $ten-percent-gray;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem 1rem;
 }
 
 .intro-p {
@@ -213,9 +213,9 @@ INTRO MODAL
 
 .patturns-logo-intro {
   height: 40px;
-  margin: 0 auto 0.75rem;
+  margin: 0 auto;
   position: relative;
-  top: -0.75rem;
+  top: -1rem;
   width: 40px;
 }
 
@@ -234,7 +234,7 @@ INTRO MODAL
     background-color: $white;
     border: 1px solid $fifty-percent-gray;
     border-radius: 0.8rem;
-    color: $seventy-five-percent-gray;
+    color: $ninety-percent-gray;
     font-style: normal;
     font-weight: 700;
     padding: 1.5rem;
@@ -623,13 +623,6 @@ BREAKPOINT 500px
 ******************/
 
 @media only screen and (max-width: 500px) {
-  .patturns-logo-intro {
-    height: 30px;
-    margin: 0 auto 0.5rem;
-    top: -1rem;
-    width: 30px;
-  }
-
   .patturns-title,
   .intro-text {
     font-size: 0.75rem;
@@ -710,11 +703,6 @@ BREAKPOINT 400px
       }
     }
   }
-
-  // .at-line {
-  //   color: $red;
-  //   font-size: 0.25rem;
-  // }
 
   .colors-menu,
   .patterns-menu {
