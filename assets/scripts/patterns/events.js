@@ -186,7 +186,6 @@ const addPatternHandlers = () => {
   /************************************
   HANDLERS — PAGE LOAD
   ************************************/
-  // $('#introTextModal').modal('show')
   $('.info-section').hide()
   $('.patterns-menu').hide()
   $('#update-pattern-panel').hide()
@@ -202,41 +201,67 @@ const addPatternHandlers = () => {
   })
 
   // NAV MENU HANDLERS:
-  store.drawerOpen = false
-
+  // store.drawerPatternsOpen = false
+  // store.drawerAccountOpen = false
   $('#nav-menu-signed-in').hide()
   $('#nav-menu-actions').hide()
-  // $('#get-patterns-button').hide()
-  // $('.nav-drawer-patterns').hide()
-  // $('.nav-drawer-user').hide()
+  $('.nav-drawer-patterns').hide()
+  $('.nav-drawer-account').hide()
 
-  const toggleNavDrawer = () => {
-    console.log('Hi!')
-    $('.nav-drawer-user').slideToggle(200)
-    store.drawerOpen ? (store.drawerOpen = false) : (store.drawerOpen = true)
+  const toggleNavDrawerPatterns = () => {
+    $('.nav-drawer-patterns').slideToggle(200)
+    // store.drawerPatternsOpen ? (store.drawerPatternsOpen = false) : (store.drawerPatternsOpen = true)
+    // if (store.drawerAccountOpen === true) {
+    //   toggleNavDrawerAccount()
+    // }
   }
 
+  const toggleNavDrawerAccount = () => {
+    $('.nav-drawer-account').slideToggle(200)
+    // store.drawerAccountOpen ? (store.drawerAccountOpen = false) : (store.drawerAccountOpen = true)
+    // if (store.drawerPatternsOpen === true) {
+    //   toggleNavDrawerPatterns()
+    // }
+  }
+
+  $('#patterns-button').click(function () {
+    toggleNavDrawerPatterns()
+  })
+
   $('#account-button').click(function () {
-    toggleNavDrawer()
+    toggleNavDrawerAccount()
     // Optional setTimeOut to close open drawer…
-    // if (store.drawerOpen === true) {
+    // if (store.drawerAccountOpen === true) {
     //   setTimeout(function () {
     //     $('.nav-drawer').slideToggle(200)
-    //     store.drawerOpen = false
+    //     store.drawerAccountOpen = false
     //   }, 5000)
     // }
   })
 
-  $('#nav-sign-up').click(toggleNavDrawer)
-  $('#nav-sign-in').click(toggleNavDrawer)
-  $('#nav-change-password').click(toggleNavDrawer)
-  $('#nav-sign-out').click(toggleNavDrawer)
+  // Hide any open nav drawers on clicking account actions…
+  $('#nav-sign-up').click(function () {
+    $('.nav-drawer-patterns').hide()
+    $('.nav-drawer-account').hide()
+  })
+  $('#nav-sign-in').click(function () {
+    $('.nav-drawer-patterns').hide()
+    $('.nav-drawer-account').hide()
+  })
+  $('#nav-change-password').click(function () {
+    $('.nav-drawer-patterns').hide()
+    $('.nav-drawer-account').hide()
+  })
+  $('#nav-sign-out').click(function () {
+    $('.nav-drawer-patterns').hide()
+    $('.nav-drawer-account').hide()
+  })
 
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID
   ************************************/
 
-  // The 'color-box' class is for the color menu squares.
+  // The 'color-box' class is for the two color menu squares: IDs 'color-selection-box' and 'clear-grid'.
   // pickColor sets the color for cell clicks…
   $('.color-bar').on('click', pickColor)
 
@@ -252,7 +277,7 @@ const addPatternHandlers = () => {
 
   // Gets the API's DB through Handlebars and other functions.
   // onGetPatterns is the initial function that runs on 'GET PATTERNS' button click
-  $('#get-patterns-button').on('click', onGetPatterns)
+  $('#nav-saved').on('click', onGetPatterns)
 
   // capturePattern captures table row data from the savedPatternsModal modal when that row's 'MODIFY' button is clicked…
   $('.pattern-return-content').on('click', '.mini-grid-td', capturePattern)

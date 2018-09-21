@@ -35,14 +35,14 @@ const signInSuccess = function (data) {
   $('#modalTitleSignIn').text('Signed in successfully')
   store.successMessageColor()
   $('#sign-in').slideToggle(200)
-  store.drawerOpen = false
-  $('#get-patterns-button').show()
+  store.drawerPatternsOpen = false
+  store.drawerAccountOpen = false
   $('#account-button').html('Welcome!')
   $('.colors-menu').removeClass('all-rounded')
-  $('.nav-drawer').hide()
-  $('#nav-menu-default').hide()
-  $('#nav-menu-signed-in').show()
-  $('.intro-menu').hide()
+  $('#nav-drawer-patterns-default').hide()
+  $('#nav-drawer-patterns-signed-in').show()
+  $('#nav-drawer-account-default').hide()
+  $('#nav-drawer-account-signed-in').show()
   $('.patterns-menu').show()
   setTimeout(function () {
     $('#signInModal').modal('hide')
@@ -96,8 +96,8 @@ const signOutSuccess = function (data) {
   $('#modalTitleSignOut').text('Signed out successfully')
   store.successMessageColor()
   store.clearGrid()
-  store.drawerOpen = false
-  $('#get-patterns-button').hide()
+  store.drawerAccountOpen = false
+  // $('#patterns-button-button').hide()
   $('#account-button').html('Account')
   $('.colors-menu').addClass('all-rounded')
   $('#nav-menu-default').show()
