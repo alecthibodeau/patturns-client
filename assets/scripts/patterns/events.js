@@ -189,8 +189,6 @@ const addPatternHandlers = () => {
   // $('#introTextModal').modal('show')
   $('.info-section').hide()
   $('.patterns-menu').hide()
-  $('#nav-menu-signed-in').css('display', 'none')
-  $('#get-patterns-button').hide()
   $('#update-pattern-panel').hide()
   $('#color-drawer').hide()
   $('.colors-menu').addClass('all-rounded')
@@ -206,11 +204,14 @@ const addPatternHandlers = () => {
   // NAV MENU HANDLERS:
   store.drawerOpen = false
 
-  $('.cross').hide()
-  $('.nav-drawer').hide()
+  $('#nav-menu-signed-in').hide()
+  $('#nav-menu-actions').hide()
+  // $('#get-patterns-button').hide()
+  // $('.nav-drawer-patterns').hide()
+  // $('.nav-drawer-user').hide()
 
   const toggleNavDrawer = () => {
-    $('.nav-drawer').slideToggle(200)
+    $('.nav-drawer-user').slideToggle(200)
     store.drawerOpen ? (store.drawerOpen = false) : (store.drawerOpen = true)
   }
 

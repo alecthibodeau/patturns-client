@@ -16,6 +16,7 @@
 
       <header>
         <!-- NAV BAR & ACTIONS BEGINS -->
+
         <nav class="nav-bar-start">
           <a data-toggle="modal" data-target="#introTextModal">
             <img src="public/images/p.svg" class="patturns-logo-nav" alt="P">
@@ -25,12 +26,21 @@
             <button class="nav-button account-button" id="account-button">Account</button>
           </div>
         </nav>
-        <div class="nav-drawer">
-          <div class="nav-menu" id="nav-menu-default">
+        <div class="nav-drawer-patterns">
+          <div id="nav-menu-examples">
+            <button class="nav-drawer-button" id="nav-examples">Examples</button>
+          </div>
+          <div id="nav-menu-actions">
+            <button class="nav-drawer-button" id="nav-slideshow">Slideshow</button>
+            <button class="nav-drawer-button" id="nav-animation">Animation</button>
+          </div>
+        </div>
+        <div class="nav-drawer-user">
+          <div id="nav-menu-default">
             <button class="nav-drawer-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
             <button class="nav-drawer-button" id="nav-sign-in" data-toggle="modal" data-target="#signInModal">Sign In</button>
           </div>
-          <div class="nav-menu" id="nav-menu-signed-in">
+          <div id="nav-menu-signed-in">
             <button class="nav-drawer-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
             <button class="nav-drawer-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">Sign Out</button>
           </div>
@@ -118,11 +128,11 @@
                  Click the disc to see your color options…
                  Choose a color and fill some squares…
                  Switch colors and keep going!
-               <BR><BR>Save the patterns you make by signing up for an account with any available email address:
+               <BR><BR>Save the patterns you make by signing up for a user account with any available email address:
                  even a dummy one. Sign in anytime to see and update your saved patterns.
               <BR><BR>
-                 Why "Patturns" as a name? My ultimate feature for this project would be a user network,
-                 allowing people to pass patterns back forth to each other: making patterns together by taking turns.
+                 Why "Patturns" as a name? My dream feature for <span class="patturns-title">Patturns</span> would be a network
+                 of users passing patterns back forth to each other: making patterns together by taking turns.
                <div class="credit-div">
                  <a class="at-line" href="https://alect.me" target="blank">Alec Thibodeau, 2018</a>
                </div>

@@ -98,12 +98,8 @@ MIXINS
 }
 
 /************************************
-HEADER & NAV BAR
+HTML, MAIN & HEADER
 ************************************/
-
-body {
-  background-color: $seventy-five-percent-gray;
-}
 
 html {
   font-family: 'Mukta', sans-serif;
@@ -116,11 +112,19 @@ html {
   width: 100%;
 }
 
+body {
+  background-color: $seventy-five-percent-gray;
+}
+
 header {
   margin: 0 auto;
   position: relative;
   width: 100%;
 }
+
+/************************************
+NAV BAR
+************************************/
 
 nav {
   // align-content: center; Note: this property has no effect when there is only one line of flex items.
@@ -166,22 +170,30 @@ nav {
   width: 150px;
 }
 
-.nav-drawer {
-  display: flex;
-  justify-content: flex-end;
+.nav-drawer-patterns,
+.nav-drawer-user {
+  // display: flex;
+  // justify-content: flex-end;
   position: fixed;
-  right: 2.25rem;
   top: 38px;
   z-index: 4;
+
+  &.nav-drawer-patterns {
+    right: 13.25rem;
+  }
+
+  &.nav-drawer-user {
+    right: 2.25rem;
+  }
 }
 
-.nav-menu-default,
-.nav-menu-signed-in {
-  display: flex;
-  flex-direction: column;
-  outline: 1px solid $lines-brown;
-  position: relative;
-}
+// .nav-menu-default,
+// .nav-menu-signed-in {
+//   display: flex;
+//   flex-direction: column;
+//   outline: 1px solid $lines-brown;
+//   position: relative;
+// }
 
 .nav-drawer-button {
   background-color: $ten-percent-gray;
@@ -647,8 +659,12 @@ BREAKPOINT 500px
     width: 115px;
   }
 
-  .nav-drawer {
-    right: 1.25rem;
+  .nav-drawer-patterns {
+    right: 0;
+  }
+
+  .nav-drawer-user {
+    right: 0;
   }
 
   .nav-drawer-button {
