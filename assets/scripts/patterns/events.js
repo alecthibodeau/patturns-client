@@ -211,11 +211,12 @@ const addPatternHandlers = () => {
   // $('.nav-drawer-user').hide()
 
   const toggleNavDrawer = () => {
+    console.log('Hi!')
     $('.nav-drawer-user').slideToggle(200)
     store.drawerOpen ? (store.drawerOpen = false) : (store.drawerOpen = true)
   }
 
-  $('.account-button').click(function () {
+  $('#account-button').click(function () {
     toggleNavDrawer()
     // Optional setTimeOut to close open drawer…
     // if (store.drawerOpen === true) {

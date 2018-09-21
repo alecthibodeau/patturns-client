@@ -156,6 +156,7 @@ nav {
 
 .nav-button-set {
   display: flex;
+  // padding: 0 0.125rem;
 }
 
 .nav-button {
@@ -166,12 +167,17 @@ nav {
   cursor: pointer;
   font-size: 1rem;
   letter-spacing: 0.25rem;
-  // margin: 0 0.25rem;
+  margin: 0 0.5rem;
   padding: 0.125rem 0 0.125rem 0.4rem;
   position: relative;
   text-transform: uppercase;
   top: -2px;
   width: 150px;
+}
+
+.nav-drawer {
+  position: relative;
+  top: 5px;
 }
 
 .nav-drawer-button {
@@ -181,6 +187,7 @@ nav {
   display: block;
   font-size: 1rem;
   letter-spacing: 0.25rem;
+  margin: 0 0.5rem;
   padding: 0.5rem 1rem;
   text-align: center;
   text-transform: uppercase;
@@ -634,16 +641,11 @@ BREAKPOINT 500px
     font-weight: 600;
     height: 22px;
     padding: 0.125rem 0 0.125rem 0.3rem;
-    top: 0;
     width: 115px;
   }
 
-  .nav-drawer-patterns {
-    left: 2rem;
-  }
-
-  .nav-drawer-user {
-    left: 17.75rem;
+  .nav-drawer {
+    top: 6px;
   }
 
   .nav-drawer-button {
