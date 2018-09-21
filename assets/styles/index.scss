@@ -154,6 +154,10 @@ nav {
   }
 }
 
+.nav-button-set {
+  display: flex;
+}
+
 .nav-button {
   background-color: $fifty-percent-gray;
   border: 0;
@@ -162,38 +166,13 @@ nav {
   cursor: pointer;
   font-size: 1rem;
   letter-spacing: 0.25rem;
-  margin: 0 0.25rem;
+  // margin: 0 0.25rem;
   padding: 0.125rem 0 0.125rem 0.4rem;
   position: relative;
   text-transform: uppercase;
   top: -2px;
   width: 150px;
 }
-
-.nav-drawer-patterns,
-.nav-drawer-user {
-  // display: flex;
-  // justify-content: flex-end;
-  position: fixed;
-  top: 38px;
-  z-index: 4;
-
-  &.nav-drawer-patterns {
-    right: 13.25rem;
-  }
-
-  &.nav-drawer-user {
-    right: 2.25rem;
-  }
-}
-
-// .nav-menu-default,
-// .nav-menu-signed-in {
-//   display: flex;
-//   flex-direction: column;
-//   outline: 1px solid $lines-brown;
-//   position: relative;
-// }
 
 .nav-drawer-button {
   background-color: $ten-percent-gray;
@@ -660,11 +639,11 @@ BREAKPOINT 500px
   }
 
   .nav-drawer-patterns {
-    right: 0;
+    left: 2rem;
   }
 
   .nav-drawer-user {
-    right: 0;
+    left: 17.75rem;
   }
 
   .nav-drawer-button {

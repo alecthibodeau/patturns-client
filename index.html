@@ -22,13 +22,27 @@
             <img src="public/images/p.svg" class="patturns-logo-nav" alt="P">
           </a>
           <div class="nav-button-set">
-            <button class="nav-button" id="get-patterns-button" data-toggle="modal" data-target="#savedPatternsModal">Patterns</button>
-            <button class="nav-button account-button" id="account-button">Account</button>
+            <div class="nav-drawer-patterns">
+              <button class="nav-button" id="get-patterns-button" data-toggle="modal" data-target="#savedPatternsModal">Patterns</button>
+              <button class="nav-drawer-button" id="nav-examples">Examples</button>
+              <button class="nav-drawer-button" id="nav-saved">Saved</button>
+            </div>
+            <div class="nav-drawer-user">
+              <button class="nav-button account-button" id="account-button">Account</button>
+              <div id="nav-menu-default">
+                <button class="nav-drawer-button" id="nav-sign-up" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+                <button class="nav-drawer-button" id="nav-sign-in" data-toggle="modal" data-target="#signInModal">Sign In</button>
+              </div>
+              <div id="nav-menu-signed-in">
+                <button class="nav-drawer-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+                <button class="nav-drawer-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">Sign Out</button>
+              </div>
+            </div>
           </div>
         </nav>
-        <div class="nav-drawer-patterns">
+        <!-- <div class="nav-drawer-patterns">
           <div id="nav-menu-examples">
-            <button class="nav-drawer-button" id="nav-examples">Examples</button>
+
           </div>
           <div id="nav-menu-actions">
             <button class="nav-drawer-button" id="nav-slideshow">Slideshow</button>
@@ -44,7 +58,7 @@
             <button class="nav-drawer-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
             <button class="nav-drawer-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">Sign Out</button>
           </div>
-        </div>
+        </div> -->
         <!-- NAV BAR & ACTIONS ENDS -->
       </header>
 
