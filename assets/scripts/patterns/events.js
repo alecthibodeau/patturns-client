@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const random = require('./random')
 const store = require('../store')
 
 let gridIndex = null
@@ -87,36 +88,11 @@ const fillGridWithSavedPattern = () => {
 
 // fillMainGrid fills the main grid using the values of the saved array.
 const fillMainGrid = () => {
+  event.preventDefault()
   $('.grid-cell').attr('class', 'grid-cell') // Step 1: Removes color classes from all cells.
   for (let i = 0; i < 100; i++) { // Step 2: Adds color class of each grid-cell from corresponding cell in saved grid array.
     $(`#cell-${i}`).addClass(`${store.mainGrid[i]}`)
   }
-}
-
-const randomPattern = () => {
-  let randomColor = 'white'
-  for (let i = 0; i < 100; i++) {
-    const x = Math.floor(Math.random() * 8)
-    if (x === 0) {
-      randomColor = 'white'
-    } else if (x === 1) {
-      randomColor = 'blue'
-    } else if (x === 2) {
-      randomColor = 'green'
-    } else if (x === 3) {
-      randomColor = 'yellow'
-    } else if (x === 4) {
-      randomColor = 'orange'
-    } else if (x === 5) {
-      randomColor = 'red'
-    } else if (x === 6) {
-      randomColor = 'brown'
-    } else if (x === 7) {
-      randomColor = 'black'
-    }
-    store.mainGrid[i] = randomColor
-  }
-  fillMainGrid()
 }
 
 /************************************
@@ -240,6 +216,7 @@ const addPatternHandlers = () => {
   $('#nav-drawer-account').hide()
 
   const toggleNavDrawerPatterns = () => {
+    $('#nav-drawer-account').slideUp(200)
     $('#nav-drawer-patterns').slideToggle(200)
     // store.drawerPatternsOpen ? (store.drawerPatternsOpen = false) : (store.drawerPatternsOpen = true)
     // if (store.drawerAccountOpen === true) {
@@ -248,6 +225,7 @@ const addPatternHandlers = () => {
   }
 
   const toggleNavDrawerAccount = () => {
+    $('#nav-drawer-patterns').slideUp(200)
     $('#nav-drawer-account').slideToggle(200)
     // store.drawerAccountOpen ? (store.drawerAccountOpen = false) : (store.drawerAccountOpen = true)
     // if (store.drawerPatternsOpen === true) {
@@ -271,15 +249,20 @@ const addPatternHandlers = () => {
   })
 
   store.hideNavDrawers = () => {
-    $('#nav-drawer-patterns').hide()
-    $('#nav-drawer-account').hide()
+    $('#nav-drawer-patterns').slideUp(200)
+    $('#nav-drawer-account').slideUp(200)
   }
 
+  // Hide any open nav drawers on clicking any grid cell…
   $('.grid-cell').click(store.hideNavDrawers)
 
   // Hide any open nav drawers on clicking patterns actions…
   $('#nav-examples').click(store.hideNavDrawers)
-  $('#nav-random').click(randomPattern)
+
+  $('#nav-random').click(function () {
+    random.randomPattern(fillMainGrid)
+  })
+
   $('#nav-saved').click(store.hideNavDrawers)
   // $('#nav-animate').click(hideNavDrawers)
 
