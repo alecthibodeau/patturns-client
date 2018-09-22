@@ -203,13 +203,13 @@ const addPatternHandlers = () => {
   // NAV MENU HANDLERS:
   // store.drawerPatternsOpen = false
   // store.drawerAccountOpen = false
-  $('#nav-menu-signed-in').hide()
-  $('#nav-menu-actions').hide()
-  $('.nav-drawer-patterns').hide()
-  $('.nav-drawer-account').hide()
+  $('#nav-drawer-patterns-signed-in').hide()
+  $('#nav-drawer-account-signed-in').hide()
+  $('#nav-drawer-patterns').hide()
+  $('#nav-drawer-account').hide()
 
   const toggleNavDrawerPatterns = () => {
-    $('.nav-drawer-patterns').slideToggle(200)
+    $('#nav-drawer-patterns').slideToggle(200)
     // store.drawerPatternsOpen ? (store.drawerPatternsOpen = false) : (store.drawerPatternsOpen = true)
     // if (store.drawerAccountOpen === true) {
     //   toggleNavDrawerAccount()
@@ -217,7 +217,7 @@ const addPatternHandlers = () => {
   }
 
   const toggleNavDrawerAccount = () => {
-    $('.nav-drawer-account').slideToggle(200)
+    $('#nav-drawer-account').slideToggle(200)
     // store.drawerAccountOpen ? (store.drawerAccountOpen = false) : (store.drawerAccountOpen = true)
     // if (store.drawerPatternsOpen === true) {
     //   toggleNavDrawerPatterns()
@@ -241,20 +241,20 @@ const addPatternHandlers = () => {
 
   // Hide any open nav drawers on clicking account actions…
   $('#nav-sign-up').click(function () {
-    $('.nav-drawer-patterns').hide()
-    $('.nav-drawer-account').hide()
+    $('#nav-drawer-patterns').hide()
+    $('#nav-drawer-account').hide()
   })
   $('#nav-sign-in').click(function () {
-    $('.nav-drawer-patterns').hide()
-    $('.nav-drawer-account').hide()
+    $('#nav-drawer-patterns').hide()
+    $('#nav-drawer-account').hide()
   })
   $('#nav-change-password').click(function () {
-    $('.nav-drawer-patterns').hide()
-    $('.nav-drawer-account').hide()
+    $('#nav-drawer-patterns').hide()
+    $('#nav-drawer-account').hide()
   })
   $('#nav-sign-out').click(function () {
-    $('.nav-drawer-patterns').hide()
-    $('.nav-drawer-account').hide()
+    $('#nav-drawer-patterns').hide()
+    $('#nav-drawer-account').hide()
   })
 
   /************************************

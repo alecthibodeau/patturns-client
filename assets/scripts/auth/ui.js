@@ -35,8 +35,6 @@ const signInSuccess = function (data) {
   $('#modalTitleSignIn').text('Signed in successfully')
   store.successMessageColor()
   $('#sign-in').slideToggle(200)
-  store.drawerPatternsOpen = false
-  store.drawerAccountOpen = false
   $('#account-button').html('Welcome!')
   $('.colors-menu').removeClass('all-rounded')
   $('#nav-drawer-patterns-default').hide()
@@ -100,11 +98,15 @@ const signOutSuccess = function (data) {
   // $('#patterns-button-button').hide()
   $('#account-button').html('Account')
   $('.colors-menu').addClass('all-rounded')
-  $('#nav-menu-default').show()
-  $('#nav-menu-signed-in').hide()
+  // $('#nav-menu-default').show()
+  // $('#nav-menu-signed-in').hide()
+  $('#nav-drawer-patterns-default').show()
+  $('#nav-drawer-patterns-signed-in').hide()
+  $('#nav-drawer-account-default').show()
+  $('#nav-drawer-account-signed-in').hide()
   $('.info-section').hide()
   $('.pattern-field-input-info').val('')
-  $('.intro-menu').show()
+  // $('.intro-menu').show()
   $('.patterns-menu').hide()
   setTimeout(function () {
     $('#signOutModal').modal('hide')
