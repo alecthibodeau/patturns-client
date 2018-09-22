@@ -94,7 +94,7 @@ const signOutSuccess = function (data) {
   $('#modalTitleSignOut').text('Signed out successfully')
   store.successMessageColor()
   store.clearGrid()
-  store.drawerAccountOpen = false
+  // store.drawerAccountOpen = false
   // $('#patterns-button-button').hide()
   $('#account-button').html('Account')
   $('.colors-menu').addClass('all-rounded')
