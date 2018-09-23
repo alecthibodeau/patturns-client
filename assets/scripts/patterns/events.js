@@ -3,7 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
-const random = require('./random')
+const random = require('../effects/random')
 const store = require('../store')
 
 let gridIndex = null
