@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const examples = require('../effects/examples')
 const random = require('../effects/random')
 const store = require('../store')
 
@@ -177,7 +178,7 @@ const onClickCell = function (event) {
   // console.log(store.mainGrid)
 }
 
-// onEnterCell calls onCLickCell when the mouse is down and a new cell is entered.
+// onEnterCell calls onClickCell when the mouse is down and a new cell is entered.
 const onEnterCell = function (event) {
   event.preventDefault()
   if (store.mouseDown) {
@@ -200,6 +201,11 @@ const addPatternHandlers = () => {
   $('.colors-menu').addClass('all-rounded')
   $('.current-color').on('mousedown', colorDrawer) // <= This opens the color drawer.
 
+  $('#nav-drawer-patterns-signed-in').hide()
+  $('#nav-drawer-account-signed-in').hide()
+  $('#nav-drawer-patterns').hide()
+  $('#nav-drawer-account').hide()
+
   // Boolean for whether or not the mouse is down…
   $(document).mousedown(function () {
     store.mouseDown = true// ; console.log(store.mouseDown)
@@ -207,47 +213,30 @@ const addPatternHandlers = () => {
     store.mouseDown = false// ; console.log(store.mouseDown)
   })
 
-  // NAV MENU HANDLERS:
-  // store.drawerPatternsOpen = false
-  // store.drawerAccountOpen = false
-  $('#nav-drawer-patterns-signed-in').hide()
-  $('#nav-drawer-account-signed-in').hide()
-  $('#nav-drawer-patterns').hide()
-  $('#nav-drawer-account').hide()
-
-  const toggleNavDrawerPatterns = () => {
+  /************************************
+  HANDLERS — NAVBAR MENU BUTTON ACTIONS
+  ************************************/
+  $('#patterns-button').click(function () {
     $('#nav-drawer-account').slideUp(200)
     $('#nav-drawer-patterns').slideToggle(200)
-    // store.drawerPatternsOpen ? (store.drawerPatternsOpen = false) : (store.drawerPatternsOpen = true)
-    // if (store.drawerAccountOpen === true) {
-    //   toggleNavDrawerAccount()
-    // }
-  }
-
-  const toggleNavDrawerAccount = () => {
-    $('#nav-drawer-patterns').slideUp(200)
-    $('#nav-drawer-account').slideToggle(200)
-    // store.drawerAccountOpen ? (store.drawerAccountOpen = false) : (store.drawerAccountOpen = true)
-    // if (store.drawerPatternsOpen === true) {
-    //   toggleNavDrawerPatterns()
-    // }
-  }
-
-  $('#patterns-button').click(function () {
-    toggleNavDrawerPatterns()
   })
 
   $('#account-button').click(function () {
-    toggleNavDrawerAccount()
-    // Optional setTimeOut to close open drawer…
-    // if (store.drawerAccountOpen === true) {
-    //   setTimeout(function () {
-    //     $('.nav-drawer').slideToggle(200)
-    //     store.drawerAccountOpen = false
-    //   }, 5000)
-    // }
+    $('#nav-drawer-patterns').slideUp(200)
+    $('#nav-drawer-account').slideToggle(200)
   })
 
+  $('#nav-examples').click(function () {
+    examples.examplesPatterns(fillMainGrid)
+  })
+
+  $('#nav-random').click(function () {
+    random.randomPattern(fillMainGrid)
+  })
+
+  /************************************
+  HANDLERS — NAVBAR MENU DRAWERS HIDE
+  ************************************/
   store.hideNavDrawers = () => {
     $('#nav-drawer-patterns').slideUp(200)
     $('#nav-drawer-account').slideUp(200)
@@ -256,21 +245,8 @@ const addPatternHandlers = () => {
   // Hide any open nav drawers on clicking anywhere in the 'main-elements' area…
   $('.main-elements').click(store.hideNavDrawers)
 
-  // Hide any open nav drawers on clicking patterns actions…
-  $('#nav-examples').click(store.hideNavDrawers)
-
-  $('#nav-random').click(function () {
-    random.randomPattern(fillMainGrid)
-  })
-
-  $('#nav-saved').click(store.hideNavDrawers)
-  // $('#nav-animate').click(hideNavDrawers)
-
-  // Hide any open nav drawers on clicking account actions…
-  $('#nav-sign-up').click(store.hideNavDrawers)
-  $('#nav-sign-in').click(store.hideNavDrawers)
-  $('#nav-change-password').click(store.hideNavDrawers)
-  $('#nav-sign-out').click(store.hideNavDrawers)
+  // Hide any open nav drawers on clicking any nav drawer button…
+  $('.nav-drawer-button').click(store.hideNavDrawers)
 
   /************************************
   HANDLERS — PICK COLOR & CLEAR GRID
