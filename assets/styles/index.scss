@@ -98,7 +98,7 @@ MIXINS
 }
 
 /************************************
-HTML, MAIN & HEADER
+HTML, BODY & HEADER
 ************************************/
 
 html {
@@ -113,13 +113,35 @@ html {
 }
 
 body {
-  background-color: $seventy-five-percent-gray;
+  background-color: $black;
 }
 
 header {
   margin: 0 auto;
   position: relative;
   width: 100%;
+}
+
+/************************************
+MAIN & BACKGROUND AREA
+************************************/
+
+main {
+  background-color: transparent;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.background-area {
+  background-color: $seventy-five-percent-gray;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
 }
 
 /************************************
@@ -223,8 +245,8 @@ INTRO MODAL
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   font-style: italic;
-  font-weight: 800;
-  letter-spacing: 0.15rem;
+  font-weight: 600;
+  letter-spacing: 0;
   line-height: 1.5rem;
   text-align: left;
 
@@ -234,7 +256,7 @@ INTRO MODAL
     border-radius: 0.8rem;
     color: $ninety-percent-gray;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     padding: 1.5rem;
   }
 }

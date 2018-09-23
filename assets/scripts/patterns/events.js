@@ -253,8 +253,8 @@ const addPatternHandlers = () => {
     $('#nav-drawer-account').slideUp(200)
   }
 
-  // Hide any open nav drawers on clicking any grid cell…
-  $('.grid-cell').click(store.hideNavDrawers)
+  // Hide any open nav drawers on clicking anywhere in the 'main-elements' area…
+  $('.main-elements').click(store.hideNavDrawers)
 
   // Hide any open nav drawers on clicking patterns actions…
   $('#nav-examples').click(store.hideNavDrawers)

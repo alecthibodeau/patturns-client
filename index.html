@@ -53,60 +53,60 @@
         <!-- NAV BAR & ACTIONS ENDS -->
       </header>
 
-
       <main>
+        <!-- MAIN ELEMENTS CONTAINER BEGINS -->
+        <div class="main-elements">
 
-      <!-- MAIN ELEMENTS CONTAINER BEGINS -->
-      <div class="main-elements">
+          <div class='grid-container' id='grid-container'>
+              <!-- 100 GRID CELLS GO HERE -->
+          </div>
 
-        <div class='grid-container' id='grid-container'>
-            <!-- 100 GRID CELLS GO HERE -->
-        </div>
+          <!-- MENU ELEMENTS CONTAINER BEGINS -->
+          <div class="menu-elements">
 
-        <!-- MENU ELEMENTS CONTAINER BEGINS -->
-        <div class="menu-elements">
-
-          <!-- COLORS MENU -->
-          <div class="colors-menu">
-            <div class="color-box" id="color-selection-box">
-              <div class='color-drawer' id='color-drawer'>
-                <div class="color-bar black" id="black"></div>
-                <div class="color-bar brown" id="brown"></div>
-                <div class="color-bar red" id="red"></div>
-                <div class="color-bar orange" id="orange"></div>
-                <div class="color-bar yellow" id="yellow"></div>
-                <div class="color-bar green" id="green"></div>
-                <div class="color-bar blue" id="blue"></div>
-                <div class="color-bar white" id="white"></div>
+            <!-- COLORS MENU -->
+            <div class="colors-menu">
+              <div class="color-box" id="color-selection-box">
+                <div class='color-drawer' id='color-drawer'>
+                  <div class="color-bar black" id="black"></div>
+                  <div class="color-bar brown" id="brown"></div>
+                  <div class="color-bar red" id="red"></div>
+                  <div class="color-bar orange" id="orange"></div>
+                  <div class="color-bar yellow" id="yellow"></div>
+                  <div class="color-bar green" id="green"></div>
+                  <div class="color-bar blue" id="blue"></div>
+                  <div class="color-bar white" id="white"></div>
+                </div>
+                <div class="current-color" id="current-color"></div> <!-- The color disc -->
               </div>
-              <div class="current-color" id="current-color"></div> <!-- The color disc -->
+              <div class="color-box" id="clear-grid">
+                <button class="color-box clear-grid-button" id="clear-grid-button">clear grid</button>
+              </div>
             </div>
-            <div class="color-box" id="clear-grid">
-              <button class="color-box clear-grid-button" id="clear-grid-button">clear grid</button>
-            </div>
-          </div>
 
-          <!-- PATTERNS MENU -->
-          <div class="patterns-menu">
-            <form id="new-pattern-panel" class="new-pattern-panel">
-              <fieldset>
-                <input type="text" class="pattern-field-input-info" id="save-pattern-input-info" name="pattern[info]" placeholder="Add pattern info!">
-                <input type="submit" id="save-pattern-button" class="form-button" value="save">
-              </fieldset>
-            </form>
-            <form id="update-pattern-panel" class="update-pattern-panel">
-              <fieldset>
-                <input type="text" class="pattern-field-input-info" id="update-pattern-input-info" name="pattern[info]" placeholder="pattern info">
-                <input type="submit" id="update-pattern-button" class="form-button" value="update">
-              </fieldset>
-            </form>
+            <!-- PATTERNS MENU -->
+            <div class="patterns-menu">
+              <form id="new-pattern-panel" class="new-pattern-panel">
+                <fieldset>
+                  <input type="text" class="pattern-field-input-info" id="save-pattern-input-info" name="pattern[info]" placeholder="Add pattern info!">
+                  <input type="submit" id="save-pattern-button" class="form-button" value="save">
+                </fieldset>
+              </form>
+              <form id="update-pattern-panel" class="update-pattern-panel">
+                <fieldset>
+                  <input type="text" class="pattern-field-input-info" id="update-pattern-input-info" name="pattern[info]" placeholder="pattern info">
+                  <input type="submit" id="update-pattern-button" class="form-button" value="update">
+                </fieldset>
+              </form>
+            </div>
+
           </div>
+          <!-- MENU ELEMENTS CONTAINER ENDS -->
 
         </div>
-        <!-- MENU ELEMENTS CONTAINER ENDS -->
-
-      </div>
-       <!-- MAIN ELEMENTS CONTAINER ENDS -->
+         <!-- MAIN ELEMENTS CONTAINER ENDS -->
+      </main>
+      <div class="background-area" id="background-area"></div>
 
       <!-- **************************************************** -->
       <!-- M O D A L – F O R – I N T R O -->
@@ -128,19 +128,19 @@
              <div>
               <div class="intro-text">
                Welcome to <span class="patturns-title">Patturns</span>,
-               where you can make your own patterns. Here's how:
+               where you can make your own patterns.
                <BR><BR>
-                 Click the disc to see your color options…
+                 Here's how: Click the disc to see your color options…
                  Choose a color and fill some squares…
                  Switch colors and keep going!
                <BR><BR>Save the patterns you make by signing up for a user account with any available email address:
                  even a dummy one. Sign in anytime to see and update your saved patterns.
               <BR><BR>
-                 Why "Patturns" as a name? My dream feature for <span class="patturns-title">Patturns</span> would be a network
-                 of users passing patterns back forth to each other: making patterns together by taking turns.
+                 Why "Patturns" as a name? My ultimate feature for this project would be a user network,
+                 allowing people to pass patterns back forth to each other:
+                 making patterns together by taking turns.
                <div class="credit-div">
                  <a class="at-line" href="https://alect.me" target="blank">Alec Thibodeau, 2018</a>
-               </div>
               </div>
              </div>
             </div>
@@ -284,6 +284,5 @@
       </div>
       <!-- SAVED PATTERNS MODAL ENDS -->
 
-      </main>
     </body>
 </html>
