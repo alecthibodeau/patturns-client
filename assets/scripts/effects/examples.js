@@ -8,26 +8,22 @@ const examplesPatterns = function (fillMainGrid) {
   const exampleTwo = Array(100).fill('orange')
   const exampleThree = Array(100).fill('yellow')
   const exampleFour = Array(100).fill('green')
-  const exampleFive = Array(100).fill('blue')
+  // const exampleFive = Array(100).fill('blue')
+  const exampleFive = ['blue', 'blue', 'blue', 'blue', 'white', 'white', 'blue', 'blue', 'white', 'blue', 'brown', 'brown', 'brown', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'white', 'brown', 'brown', 'brown', 'brown', 'blue', 'white', 'blue', 'green', 'blue', 'blue', 'brown', 'yellow', 'yellow', 'yellow', 'blue', 'blue', 'green', 'green', 'green', 'blue', 'brown', 'yellow', 'blue', 'yellow', 'blue', 'blue', 'green', 'brown', 'green', 'blue', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'orange', 'orange', 'brown', 'orange', 'orange', 'yellow', 'yellow', 'yellow', 'yellow', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'yellow', 'yellow', 'red', 'red', 'orange', 'orange', 'orange', 'yellow', 'yellow', 'brown', 'green', 'yellow', 'yellow', 'yellow', 'orange', 'orange', 'green', 'yellow', 'brown', 'black', 'green', 'green', 'green', 'green', 'orange', 'green', 'green', 'brown', 'black', 'black']
   const examplesArray = [exampleOne, exampleTwo, exampleThree, exampleFour, exampleFive]
 
-  // store.mainGrid = examplesArray[0]
-  // fillMainGrid()
-
-  // setInterval seemingly running randomly…
-  for (let i = 0; i < 5; i++) {
+  // 'for loop' running once…
+  for (let i = 1; i < 5; i++) {
     const k = i
+    store.mainGrid = examplesArray[0]
+    fillMainGrid()
     setTimeout(function () {
       store.mainGrid = examplesArray[i]
       fillMainGrid()
-      console.log('count ', k)
-      console.log(1000 * (k + 1))
-    }, 1000 * (k + 1))
-    // if (i === 4) {
-    //   i = 0
-    // }
+    }, 1000 * k)
   }
 
+  // Working loop…
   // for (let i = 0; i < 5; i++) {
   //   const k = i
   //   setTimeout(function () {
@@ -37,32 +33,7 @@ const examplesPatterns = function (fillMainGrid) {
   //     console.log(1000 * (k + 1))
   //   }, 1000 * (k + 1))
   // }
-
-  // Working loop…
-  // for (let i = 0; i < 5; i++) {
-  //   const k = i
-  //   setTimeout(function () {
-  //     console.log('count ', k)
-  //   }, 500 * (k + 1))
-  // }
 }
-
-// Code with clearGrid that works…
-// const examplesPatterns = function () {
-//   setTimeout(function () {
-//     store.clearGrid()
-//   }, 200)
-// }
-
-// Code to prove that setTimeout set this to the global object…
-// const examplesPatterns = function () {
-//   (function () {
-//     alert(this) // alerts hello
-//     setTimeout(function () {
-//       alert(this === window) // true
-//     }, 1000)
-//   }).call('hello')
-// }
 
 module.exports = {
   examplesPatterns
