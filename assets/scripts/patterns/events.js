@@ -89,7 +89,7 @@ const fillGridWithSavedPattern = () => {
 
 // fillMainGrid fills the main grid using the values of the saved array.
 const fillMainGrid = () => {
-  event.preventDefault()
+  // event.preventDefault()
   $('.grid-cell').attr('class', 'grid-cell') // Step 1: Removes color classes from all cells.
   for (let i = 0; i < 100; i++) { // Step 2: Adds color class of each grid-cell from corresponding cell in saved grid array.
     $(`#cell-${i}`).addClass(`${store.mainGrid[i]}`)
