@@ -46,6 +46,7 @@ const newPatternSuccess = (data) => {
 
 // READ – The showPatternsHtml function is what gets the data from the Handlebars file: templates/pattern-listing.handlebars
 const getPatternsSuccess = (data) => {
+  store.data = data
   // debugger
   // THIS IS THE 'FOR LOOP VERSION: Creating a new key with 2-digit date information…
   // for (let i = 0; i < data.patterns.length; i++) {

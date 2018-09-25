@@ -22,6 +22,13 @@ const store = {
     $('#new-pattern-panel').show() // Shows panel for saving pattern: form input field and 'UPDATE' button
     store.mainGrid = Array(100).fill('white') // Instantiates an array with 100 'white' values.
     // console.log(store.mainGrid)
+  },
+  fillMainGrid: () => {
+    // event.preventDefault()
+    $('.grid-cell').attr('class', 'grid-cell') // Step 1: Removes color classes from all cells.
+    for (let i = 0; i < 100; i++) { // Step 2: Adds color class of each grid-cell from corresponding cell in saved grid array.
+      $(`#cell-${i}`).addClass(`${store.mainGrid[i]}`)
+    }
   }
 }
 

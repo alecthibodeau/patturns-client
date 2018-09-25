@@ -5,6 +5,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const examples = require('../effects/examples')
 const random = require('../effects/random')
+const animate = require('../effects/animate')
 const store = require('../store')
 
 let gridIndex = null
@@ -232,6 +233,10 @@ const addPatternHandlers = () => {
 
   $('#nav-random').click(function () {
     random.randomPattern(fillMainGrid)
+  })
+
+  $('#nav-animate').click(function () {
+    animate.animatePatterns(fillMainGrid)
   })
 
   /************************************
