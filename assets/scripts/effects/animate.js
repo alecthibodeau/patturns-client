@@ -16,10 +16,11 @@ const animation = function (data) {
     const k = i
     store.mainGrid = data.patterns[0].grid
     store.fillMainGrid()
-    setTimeout(function () {
+    store.animationCycle = setTimeout(function () {
       store.mainGrid = data.patterns[i].grid
       store.fillMainGrid()
     }, 1000 * k)
+    clearTimeout(store.animationCycle)
   }
 }
 
