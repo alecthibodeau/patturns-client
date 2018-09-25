@@ -10,6 +10,8 @@ const store = require('../store')
 
 let gridIndex = null
 
+// NOTE: The 'store.mainGrid' array is what holds the values for the current grid.
+
 /************************************
 CRUD ACTIONS — CREATE
 ************************************/
@@ -80,21 +82,8 @@ const fillFieldWithSavedInfo = () => {
 // Step 2: Sets the values of the main grid array to match this array.
 // Step 3. Runs fillMainGrid function.
 const fillGridWithSavedPattern = () => {
-  store.mainGrid = store.pattern.grid.split(',')
-  fillMainGrid()
-  // console.log('Saved grid as returned string:', store.pattern.grid)
-  // console.log('Saved grid as array:', savedGridAsArray)
-  // console.log('Main grid as array:', store.mainGrid)
-  // console.log('fillGridWithSavedPattern runs.')
-}
-
-// fillMainGrid fills the main grid using the values of the saved array.
-const fillMainGrid = () => {
-  // event.preventDefault()
-  $('.grid-cell').attr('class', 'grid-cell') // Step 1: Removes color classes from all cells.
-  for (let i = 0; i < 100; i++) { // Step 2: Adds color class of each grid-cell from corresponding cell in saved grid array.
-    $(`#cell-${i}`).addClass(`${store.mainGrid[i]}`)
-  }
+  store.mainGrid = store.pattern.grid.split(',') // console.log('Saved grid as returned string:', store.pattern.grid)
+  store.fillMainGrid()
 }
 
 /************************************
@@ -228,15 +217,15 @@ const addPatternHandlers = () => {
   })
 
   $('#nav-examples').click(function () {
-    examples.examplesPatterns(fillMainGrid)
+    examples.examplesPatterns()
   })
 
   $('#nav-random').click(function () {
-    random.randomPattern(fillMainGrid)
+    random.randomPattern()
   })
 
   $('#nav-animate').click(function () {
-    animate.animatePatterns(fillMainGrid)
+    animate.animatePatterns()
   })
 
   /************************************

@@ -2,7 +2,7 @@
 
 const store = require('../store')
 
-const examplesPatterns = function (fillMainGrid) {
+const examplesPatterns = function () {
   // These variables need to be inside the function to be recognized…
   const exampleOne = Array(100).fill('red')
   const exampleTwo = Array(100).fill('orange')
@@ -16,23 +16,12 @@ const examplesPatterns = function (fillMainGrid) {
   for (let i = 1; i < 5; i++) {
     const k = i
     store.mainGrid = examplesArray[0]
-    fillMainGrid()
+    store.fillMainGrid()
     setTimeout(function () {
       store.mainGrid = examplesArray[i]
-      fillMainGrid()
+      store.fillMainGrid()
     }, 1000 * k)
   }
-
-  // Working loop…
-  // for (let i = 0; i < 5; i++) {
-  //   const k = i
-  //   setTimeout(function () {
-  //     store.mainGrid = examplesArray[i]
-  //     fillMainGrid()
-  //     console.log('count ', k)
-  //     console.log(1000 * (k + 1))
-  //   }, 1000 * (k + 1))
-  // }
 }
 
 module.exports = {

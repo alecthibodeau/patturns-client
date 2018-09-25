@@ -2,7 +2,7 @@
 
 const store = require('../store')
 
-const randomPattern = function (fillMainGrid) {
+const randomPattern = function () {
   // console.log(store.mainGrid)
   let randomColor = 'white'
   for (let i = 0; i < 100; i++) {
@@ -28,7 +28,7 @@ const randomPattern = function (fillMainGrid) {
     store.mainGrid[i] = randomColor
   }
   // console.log(store.mainGrid)
-  fillMainGrid()
+  store.fillMainGrid()
 }
 
 module.exports = {

@@ -23,6 +23,8 @@ const store = {
     store.mainGrid = Array(100).fill('white') // Instantiates an array with 100 'white' values.
     // console.log(store.mainGrid)
   },
+  // fillMainGrid fills the main grid using the values of the 'store.mainGrid' saved array.
+  // The array 'store.mainGrid' is defined from within various functions, including fillGridWithSavedPattern
   fillMainGrid: () => {
     // event.preventDefault()
     $('.grid-cell').attr('class', 'grid-cell') // Step 1: Removes color classes from all cells.
