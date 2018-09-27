@@ -18,7 +18,7 @@ const animation = function (data) {
     setTimeout(function () {
       store.mainGrid = data.patterns[i].grid
       store.fillMainGrid()
-    }, 500 * k)
+    }, 200 * k)
     // clearTimeout(animationCycle)
   }
 }
