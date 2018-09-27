@@ -11,7 +11,7 @@ const animatePatterns = function () {
 }
 
 const animation = function (data) {
-  console.log('Data is: ' + data)
+  // console.log('Data is: ' + data)
   for (let i = 0; i < data.patterns.length; i++) {
     const k = i
     // animationCycle = setTimeout(function () {
