@@ -145,6 +145,9 @@ const pickColor = function (event) {
   $('.current-color').attr('class', 'current-color').addClass(`${store.currentColor}`)
   // console.log(store.currentColor)
   colorDrawer()
+  // The z-index of the menu elements needs to move forward and backward \
+  // so the color drawer can be in front of the grid when selecting colors \
+  // but behind the grid when the user is clicking cells (specifically when the colors menu is below the grid).
   $('.menu-elements').css('z-index', '0')
 }
 
@@ -249,6 +252,13 @@ const addPatternHandlers = () => {
   // The 'color-box' class is for the two color menu squares: IDs 'color-selection-box' and 'clear-grid'.
   // pickColor sets the color for cell clicks…
   $('.color-bar').on('click', pickColor)
+
+  // This handler ensures that the main elements go behind the grid \\
+  // Even if the user clicks on the current-color but doesn't select from the color drawer.
+  $('.colors-menu').mouseleave(function () {
+    $('.menu-elements').css('z-index', '0')
+    $('.color-drawer').hide()
+  })
 
   // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
   $('#clear-grid-button').on('click', store.clearGrid)
