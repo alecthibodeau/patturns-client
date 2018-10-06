@@ -11,15 +11,19 @@ const animatePatterns = function () {
 }
 
 const animation = function (data) {
+  if (data.patterns.length > 0) {
   // console.log('Data is: ' + data)
-  for (let i = 0; i < data.patterns.length; i++) {
-    const k = i
-    // animationCycle = setTimeout(function () {
-    setTimeout(function () {
-      store.mainGrid = data.patterns[i].grid
-      store.fillMainGrid()
-    }, 100 * k)
-    // clearTimeout(animationCycle)
+    for (let i = 0; i < data.patterns.length; i++) {
+      const k = i
+      // animationCycle = setTimeout(function () {
+      setTimeout(function () {
+        store.mainGrid = data.patterns[i].grid
+        store.fillMainGrid()
+      }, 100 * k)
+      // clearTimeout(animationCycle)
+    }
+  } else {
+    console.log('No patterns yet!')
   }
 }
 
