@@ -114,5 +114,6 @@ module.exports = {
   updatePatternSuccess,
   deletePatternSuccess,
   getPatternsSuccess,
+  successfulPatternCrud,
   failure
 }

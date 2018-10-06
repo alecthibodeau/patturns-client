@@ -15,18 +15,24 @@ const animation = function (data) {
   // console.log('Data is: ' + data)
     for (let i = 0; i < data.patterns.length; i++) {
       const k = i
-      // animationCycle = setTimeout(function () {
       setTimeout(function () {
         store.mainGrid = data.patterns[i].grid
         store.fillMainGrid()
       }, 100 * k)
-      // clearTimeout(animationCycle)
     }
   } else {
-    console.log('No patterns yet!')
+    noSavedPatternsYet()
   }
 }
 
+const noSavedPatternsYet = () => {
+  store.errorMessageColor()
+  $('#messageModal').modal('show')
+  $('#modalTitleMessage').text('No saved patterns yet!')
+  ui.successfulPatternCrud()
+}
+
 module.exports = {
-  animatePatterns
+  animatePatterns,
+  noSavedPatternsYet
 }
