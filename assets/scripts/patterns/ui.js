@@ -86,7 +86,11 @@ const getPatternsSuccess = (data) => {
       })
     }
   }
-  $('#modalTitleGetPatterns').text('Saved patterns')
+  if (data.patterns.length > 0) {
+    $('#modalTitleGetPatterns').text('Saved patterns')
+  } else {
+    console.log('No saved patterns yet!')
+  }
 }
 
 // Unused function to clear table info…
