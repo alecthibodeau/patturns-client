@@ -11,7 +11,7 @@ const animatePatterns = function () {
 }
 
 const animation = function (data) {
-  if (data.patterns.length > 0) {
+  if (data.patterns.length !== 0) {
   // console.log('Data is: ' + data)
     for (let i = 0; i < data.patterns.length; i++) {
       const k = i
@@ -21,18 +21,11 @@ const animation = function (data) {
       }, 100 * k)
     }
   } else {
-    noSavedPatternsYet()
+    $('#messageModal').modal('show')
+    $('#modalTitleMessage').text('No saved patterns yet!')
   }
 }
 
-const noSavedPatternsYet = () => {
-  store.errorMessageColor()
-  $('#messageModal').modal('show')
-  $('#modalTitleMessage').text('No saved patterns yet!')
-  ui.successfulPatternCrud()
-}
-
 module.exports = {
-  animatePatterns,
-  noSavedPatternsYet
+  animatePatterns
 }

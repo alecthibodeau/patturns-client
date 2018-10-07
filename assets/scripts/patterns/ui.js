@@ -86,10 +86,11 @@ const getPatternsSuccess = (data) => {
       })
     }
   }
-  if (data.patterns.length > 0) {
+  // console.log(data.patterns.length)
+  if (data.patterns.length !== 0) {
     $('#modalTitleGetPatterns').text('Saved patterns')
   } else {
-    console.log('No saved patterns yet!')
+    $('#modalTitleGetPatterns').text('No saved patterns yet!')
   }
 }
 
