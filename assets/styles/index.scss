@@ -427,7 +427,8 @@ GRID & CELLS
   background-color: $white;
   cursor: pointer;
   height: 50px;
-  outline: 0.01rem solid $black;
+  // outline: 0.01rem solid $black;
+  outline: 1px solid $black;
   transition: background-color 0.1s linear;
   width: 50px;
 
@@ -441,7 +442,8 @@ GRID & CELLS
   height: 500px;
   margin: 0 auto;
   order: 2;
-  outline: 0.2rem solid $ninety-percent-gray;
+  // outline: 0.2rem solid $ninety-percent-gray;
+  outline: 3.5px solid $ninety-percent-gray;
   position: relative;
   top: 50px;
   user-select: none;
@@ -454,7 +456,7 @@ GRID & CELLS
   border: 0;
   cursor: pointer;
   height: 10px;
-  outline: 0.01rem solid $ninety-percent-gray;
+  outline: 1px solid $ninety-percent-gray;
   width: 10px;
 
   @include color-palette;
@@ -466,7 +468,7 @@ GRID & CELLS
 
   height: 100px;
   min-width: 100px;
-  outline: 0.15rem solid $ninety-percent-gray;
+  outline: 2px solid $ninety-percent-gray;
 }
 
 /************************************
