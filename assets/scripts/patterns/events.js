@@ -256,8 +256,8 @@ const addPatternHandlers = () => {
   // This handler ensures that the menu elements move behind grid when mouse is over any cell, \
   // Even if the user clicks on the current-color but doesn't select from the color drawer.
   $('.colors-menu').mouseleave(function () {
+    $('.menu-elements').css('z-index', '0')
     $('.grid-cell').mouseenter(function () {
-      $('.menu-elements').css('z-index', '0')
       $('.color-drawer').hide()
     })
   })
