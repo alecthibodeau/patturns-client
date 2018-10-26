@@ -253,11 +253,13 @@ const addPatternHandlers = () => {
   // pickColor sets the color for cell clicks…
   $('.color-bar').on('click', pickColor)
 
-  // This handler ensures that the main elements go behind the grid \\
+  // This handler ensures that the menu elements move behind grid when mouse is over any cell, \
   // Even if the user clicks on the current-color but doesn't select from the color drawer.
   $('.colors-menu').mouseleave(function () {
-    $('.menu-elements').css('z-index', '0')
-    $('.color-drawer').hide()
+    $('.grid-cell').mouseenter(function () {
+      $('.menu-elements').css('z-index', '0')
+      $('.color-drawer').hide()
+    })
   })
 
   // Clears the grid by running clearGrid function on 'CLEAR GRID' button click…
