@@ -239,9 +239,13 @@ INTRO MODAL
   width: 40px;
 }
 
+.ital {
+  font-style: italic;
+}
+
 .patturns-title,
 .intro-text {
-  color: $orange-muted;
+  color: $black;
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   font-style: italic;
@@ -258,6 +262,11 @@ INTRO MODAL
     font-style: normal;
     font-weight: 600;
     padding: 1.5rem;
+  }
+
+  ul {
+    margin-top: 10px;
+    padding-inline-start: 30px;
   }
 }
 
@@ -660,6 +669,10 @@ BREAKPOINT 500px
   .intro-text {
     font-size: 0.75rem;
     line-height: 1.5rem;
+
+    ul {
+      padding-inline-start: 20px;
+    }
   }
 
   nav {
