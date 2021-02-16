@@ -571,6 +571,17 @@ MODALS
   padding: 3%;
 }
 
+.password-validation-message {
+  display: none;
+
+  &.validation-error {
+    display: block;
+    margin: 2% 5%;
+    color: $red-muted;
+    letter-spacing: initial;
+  }
+}
+
 /******************
 BREAKPOINT 1000px
 ******************/
@@ -776,7 +787,7 @@ BREAKPOINT 400px
     font-size: 0.75rem;
     padding: 0.5rem 0.3rem;
 
-    &.date-info-td, {
+    &.date-info-td {
       max-width: 100px;
       padding-left: 10px;
     }
