@@ -10,8 +10,8 @@ const validatePassword = (form) => {
     const e = elements[i]
     if (e.hasAttribute('name')) {
       if ((e.getAttribute('name') === 'credentials[password]' || e.getAttribute('name') === 'passwords[new]')) {
-        // Password must be a minimum of 12 characters long, containing at least one letter and one number.
-        const passwordValidation = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{12,}$/);
+        // Password must be a minimum of 8 characters long, containing at least one letter and one number.
+        const passwordValidation = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
         const validPassword = passwordValidation.test(e.value);
         void (!validPassword && $('.password-validation-message').addClass('validation-error'));
         return validPassword;

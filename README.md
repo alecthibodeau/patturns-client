@@ -51,4 +51,4 @@ Technical Specifications
 - Add a social media component.
 
 ----------------------------------------------------------------
-(C) 2018 Alec Thibodeau
+(C) 2021 Alec Thibodeau
