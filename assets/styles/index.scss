@@ -222,7 +222,6 @@ INTRO MODAL
 
 .intro-text-modal {
   background-color: $ten-percent-gray;
-  border-radius: 1rem;
   padding: 0.5rem 1rem 1rem;
 }
 
@@ -417,7 +416,6 @@ COLORS & PATTERNS MENUS
 }
 
 input { // form input fields
-  border-radius: 0.5rem;
   color: $lines-brown;
   font-size: 16px;
   letter-spacing: 0.125rem;
@@ -576,7 +574,7 @@ MODALS
 
 .modal-content {
   background-color: $white;
-  border-radius: 1rem;
+  border-radius: 0;
   padding: 3%;
 }
 
