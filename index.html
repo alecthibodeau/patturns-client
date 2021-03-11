@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patturns</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to Patturns, where you can make your own patterns.">
+
+    <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Do not add `script` tags-->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body>
+
+    <header>
+      <!-- NAV BAR & ACTIONS BEGINS -->
+
+      <nav class="nav-bar-start">
+        <a data-toggle="modal" data-target="#introTextModal">
+          <img src="public/images/p.svg" class="patturns-logo-nav" alt="P">
+        </a>
+        <div class="nav-button-set">
+          <div class="nav-patterns-button-area">
+            <button class="nav-button" id="patterns-button">Patterns</button>
+            <div class="nav-drawer-patterns" id="nav-drawer-patterns">
+              <div class="nav-drawer" id="nav-drawer-patterns-default">
+                <button class="nav-drawer-button" id="nav-examples">Examples</button>
+                <button class="nav-drawer-button" id="nav-random">Random</button>
+              </div>
+              <div class="nav-drawer" id="nav-drawer-patterns-signed-in">
+                <button class="nav-drawer-button" id="nav-saved" data-toggle="modal" data-target="#savedPatternsModal">Saved</button>
+                <button class="nav-drawer-button" id="nav-animate">Animate</button>
+              </div>
+            </div>
+          </div>
+          <div class="nav-account-button-area">
+            <button class="nav-button" id="account-button">Account</button>
+            <div class="nav-drawer-account" id="nav-drawer-account">
+              <div class="nav-drawer" id="nav-drawer-account-default">
+                <button class="nav-drawer-button validation-related-button" id="nav-sign-up" data-toggle="modal" data-target="#introTextModal">Sign Up</button>
+                <button class="nav-drawer-button validation-related-button" id="nav-sign-in" data-toggle="modal" data-target="#introTextModal">Sign In</button>
+              </div>
+              <div class="nav-drawer" id="nav-drawer-account-signed-in">
+                <button class="nav-drawer-button validation-related-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">Password</button>
+                <button class="nav-drawer-button" id="nav-sign-out" data-toggle="modal" data-target="#signOutModal">Sign Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- NAV BAR & ACTIONS ENDS -->
+    </header>
+
+    <main>
+      <!-- MAIN ELEMENTS CONTAINER BEGINS -->
+      <div class="main-elements">
+
+        <div class='grid-container' id='grid-container'>
+          <!-- 100 GRID CELLS GO HERE -->
+        </div>
+
+        <!-- MENU ELEMENTS CONTAINER BEGINS -->
+        <div class="menu-elements">
+
+          <!-- COLORS MENU -->
+          <div class="colors-menu">
+            <div class="color-box" id="color-selection-box">
+              <div class='color-drawer' id='color-drawer'>
+                <div class="color-bar black" id="black"></div>
+                <div class="color-bar brown" id="brown"></div>
+                <div class="color-bar red" id="red"></div>
+                <div class="color-bar orange" id="orange"></div>
+                <div class="color-bar yellow" id="yellow"></div>
+                <div class="color-bar green" id="green"></div>
+                <div class="color-bar blue" id="blue"></div>
+                <div class="color-bar white" id="white"></div>
+              </div>
+              <div class="current-color" id="current-color"></div> <!-- The color disc -->
+            </div>
+            <div class="color-box" id="clear-grid">
+              <button class="color-box clear-grid-button" id="clear-grid-button">clear grid</button>
+            </div>
+          </div>
+
+          <!-- PATTERNS MENU -->
+          <div class="patterns-menu">
+            <form id="new-pattern-panel" class="new-pattern-panel">
+              <fieldset>
+                <input type="text" class="pattern-field-input-info" id="save-pattern-input-info" name="pattern[info]" placeholder="Add pattern info!">
+                <input type="submit" id="save-pattern-button" class="form-button" value="save">
+              </fieldset>
+            </form>
+            <form id="update-pattern-panel" class="update-pattern-panel">
+              <fieldset>
+                <input type="text" class="pattern-field-input-info" id="update-pattern-input-info" name="pattern[info]" placeholder="pattern info">
+                <input type="submit" id="update-pattern-button" class="form-button" value="update">
+              </fieldset>
+            </form>
+          </div>
+
+        </div>
+        <!-- MENU ELEMENTS CONTAINER ENDS -->
+
+      </div>
+      <!-- MAIN ELEMENTS CONTAINER ENDS -->
+    </main>
+    <div class="background-area" id="background-area"></div>
+
+    <!-- **************************************************** -->
+    <!-- M O D A L – F O R – I N T R O -->
+    <!-- **************************************************** -->
+
+    <!-- INTRO TEXT MODAL BEGINS -->
+    <div class="modal fade" id="introTextModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="intro-text-modal">
+          <div class="modal-top">
+            <span class="modal-title" id="modalTitleIntro"></span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="intro-p">
+            <img src="public/images/p.svg" class="patturns-logo-intro" alt="P">
+          </div>
+          <div>
+            <div class="intro-text">
+              Welcome to Patturns, where you can make your own colorful patterns. Here's how:
+              <ul>
+                <li>
+                  Click the green disc to see your colors.
+                </li>
+                <li>
+                  Choose a color, then fill some squares.
+                </li>
+                <li>
+                  Switch colors and keep going!
+                </li>
+                <li>
+                  For inspiration see <span class="ital">Patterns > Examples</span>.
+                </li>
+              </ul>
+              <p>
+                Patturns uses MongoDB, a NoSQL database program. <span class="database-status">The Patturns database is currently in the middle of a migration:</span>
+                when this finishes you'll once again be able to sign up for an account to start saving and animating your patterns. Check back soon!
+              </p>
+              <p>
+                Why "Patturns" as a name? My stretch goal for this project is a user network,
+                allowing people to design collaboratively: making <span class="ital">patterns</span> together by taking <span class="ital">turns</span>.
+              </p>
+              <div class="credit-div">
+                <a class="at-line" href="https://alect.me" target="blank">Alec Thibodeau, 2021</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- INTRO TEXT MODAL ENDS -->
+
+    <!-- **************************************************** -->
+    <!-- M O D A L S – F O R – A U T H E N T I C A T I O N -->
+    <!-- **************************************************** -->
+
+    <!-- SIGN-UP MODAL BEGINS -->
+    <div class="modal" id="signUpModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-top">
+            <span class="modal-title" id="modalTitleSignUp">Sign Up</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="sign-up" class="sign-up-panel">
+            <fieldset>
+              <input type="email" name="credentials[email]" placeholder="Email" autocomplete="on">
+              <input type="password" name="credentials[password]" placeholder="Password" autocomplete="off">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" autocomplete="off">
+              <input type="submit" class="form-button validation-related-button" value="submit">
+            </fieldset>
+          </form>
+          <div class="password-validation-message">
+            Password must be a minimum of 8 characters long, containing at least one letter and one number.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SIGN-UP MODAL ENDS -->
+
+    <!-- SIGN-IN MODAL BEGINS -->
+    <div class="modal" id="signInModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-top">
+            <span class="modal-title" id="modalTitleSignIn">Sign In</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="sign-in" class="sign-in-panel">
+            <fieldset>
+              <input type="email" name="credentials[email]" placeholder="Email" autocomplete="on">
+              <input type="password" name="credentials[password]" placeholder="Password" autocomplete="off">
+              <input type="submit" class="form-button validation-related-button" value="submit">
+            </fieldset>
+          </form>
+          <div class="password-validation-message">
+            Password must be a minimum of 8 characters long, containing at least one letter and one number.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SIGN-IN MODAL ENDS -->
+
+    <!-- CHANGE PASSWORD MODAL BEGINS -->
+    <div class="modal" id="changePasswordModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-top">
+            <span class="modal-title" id="modalTitleChangePassword">Change Password</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="change-password" class="change-password-panel">
+            <fieldset>
+              <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
+              <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
+              <input type="submit" class="form-button validation-related-button" value="submit">
+            </fieldset>
+          </form>
+          <div class="password-validation-message">
+            Password must be a minimum of 8 characters long, containing at least one letter and one number.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CHANGE PASSWORD MODAL ENDS -->
+
+    <!-- SIGN-OUT MODAL BEGINS -->
+    <div class="modal" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-top">
+            <span class="modal-title" id="modalTitleSignOut">Sign Out</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SIGN-OUT MODAL ENDS -->
+
+    <!-- **************************************************** -->
+    <!-- M O D A L S – F O R – C R U D  A C T I O N S -->
+    <!-- **************************************************** -->
+
+    <!-- MESSAGE MODAL (FOR CRUD SUCCESS/FAILURE) BEGINS -->
+    <div class="modal" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-md" role="document"> <!-- Adding " modal-dialog-centered" to class would vertically center modal -->
+        <div class="modal-content">
+          <div class="modal-top">
+            <span class="modal-title" id="modalTitleMessage"></span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MESSAGE MODAL (FOR CRUD SUCCESS/FAILURE) ENDS -->
+
+    <!-- SAVED PATTERNS MODAL BEGINS -->
+    <div class="modal" id="savedPatternsModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-top">
+            <span class="modal-title" id="modalTitleGetPatterns">Saved Patterns</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <section class="info-section">
+            <table>
+              <thead>
+                <!-- <tr>
+                      <th class="mini-grid-th"></th>
+                      <th class="date-info-th">DATE &&nbsp;INFO</th>
+                    </tr> -->
+              </thead>
+              <tbody id="pattern-return-content" class="pattern-return-content">
+              </tbody>
+              <tfoot>
+                <tr><!-- More info here? --></tr>
+              </tfoot>
+            </table>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- SAVED PATTERNS MODAL ENDS -->
+
+  </body>
+</html>
