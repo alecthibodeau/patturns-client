@@ -242,7 +242,6 @@ INTRO MODAL
   font-style: italic;
 }
 
-.patturns-title,
 .intro-text {
   color: $black;
   font-family: 'Nunito', sans-serif;
@@ -267,6 +266,11 @@ INTRO MODAL
     margin-top: 10px;
     padding-inline-start: 30px;
   }
+}
+
+.database-status {
+  font-weight: 900;
+  font-style: italic;
 }
 
 .credit-div {
@@ -663,7 +667,7 @@ BREAKPOINT 500px
 ******************/
 
 @media only screen and (max-width: 500px) {
-  .patturns-title,
+
   .intro-text {
     font-size: 0.75rem;
     line-height: 1.5rem;
@@ -731,7 +735,7 @@ BREAKPOINT 400px
 ******************/
 
 @media only screen and (max-width: 400px) {
-  .patturns-title,
+
   .intro-text,
   .at-line {
     font-size: 0.75rem;
